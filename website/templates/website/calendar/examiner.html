@@ -1,0 +1,148 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>Examinations</h2>
+    </div>
+
+    <div class="link">
+        <a href="{% url 'homepage' %}">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">Exhibitions</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Exhibitions Area (Start) ==================== -->
+<section class="exhibitions">
+
+    <!-- Section Heading -->
+    <div class="heading">
+        <!-- <div class="sub"><i class="fa-solid fa-building-columns"></i><h2>Explore Our Collections</h2><i class="fa-solid fa-building-columns"></i></div> -->
+        <h2>Upcoming Examinations</h2>
+    </div>
+
+    <!-- Exhibitions Container -->
+    <div class="box-container">
+
+        <!-- Exhibition 1: Ancient Artifacts -->
+        <div class="exhibition-item">
+            <div class="image">
+                <img alt="The Art of Seeing" src="{% static 'website/images/Exhibition/Exhibitions/Exhibition-2.jpg' %}">
+                <!-- Exhibition Image -->
+            </div>
+            <div class="content">
+                <div class="logoholder"><img alt="" src="{% static 'website/images/Exhibition/Exhibitions/jamb.jpeg' %}"></div>
+                <!-- Collection Category -->
+                <div class="text">
+                    <a class="main-heading" href="Exhibition-Single.html">JAMB/UTME Examination 2024</a>
+                    <!-- Exhibition Title -->
+                    <div class="date">April 18, 2025 - April 28, 2025</div> <!-- Exhibition Date -->
+                    <a href="Exhibition-Single.html">view Timetable</a> <!-- Exhibition Title -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Exhibition 2: Fine Art -->
+        <div class="exhibition-item">
+            <div class="image">
+                <img alt="The Art of Seeing" src="{% static 'website/images/Exhibition/Exhibitions/Exhibition-2.jpg' %}">
+                <!-- Exhibition Image -->
+            </div>
+            <div class="content">
+                <div class="logoholder"><img alt="" src="{% static 'website/images/Exhibition/Exhibitions/neco.jpeg' %}"></div>
+                <!-- Collection Category -->
+                <div class="text">
+                    <a class="main-heading" href="Exhibition-Single.html">2024 NECO Examination</a>
+                    <!-- Exhibition Title -->
+                    <div class="date">August 12, 2024 - September 19, 2024</div> <!-- Exhibition Date -->
+                    <a href="Exhibition-Single.html">view Timetable</a> <!-- Exhibition Title -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Exhibition 3: Cultural Heritage -->
+        <div class="exhibition-item">
+            <div class="image">
+                <img alt="The Art of Seeing" src="{% static 'website/images/Exhibition/Exhibitions/Exhibition-2.jpg' %}">
+                <!-- Exhibition Image -->
+            </div>
+            <div class="content">
+                <div class="logoholder"><img alt="" src="{% static 'website/images/Exhibition/Exhibitions/waec.png' %}"></div>
+                <!-- Collection Category -->
+                <div class="text">
+                    <a class="main-heading" href="Exhibition-Single.html">Junior WAEC Examination 2024</a>
+                    <!-- Exhibition Title -->
+                    <div class="date">November 1, 2024 - November 26, 2024</div> <!-- Exhibition Date -->
+                    <a href="Exhibition-Single.html">view Timetable</a> <!-- Exhibition Title -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Exhibition 4: Natural History -->
+        <div class="exhibition-item">
+            <div class="image">
+                <img alt="The Art of Seeing" src="{% static 'website/images/Exhibition/Exhibitions/Exhibition-2.jpg' %}">
+                <!-- Exhibition Image -->
+            </div>
+            <div class="content">
+                <div class="logoholder"><img alt="" src="{% static 'website/images/Exhibition/Exhibitions/jamb.jpeg' %}"></div>
+                <!-- Collection Category -->
+                <div class="text">
+                    <a class="main-heading" href="Exhibition-Single.html">JAMB/UTME Examination</a>
+                    <!-- Exhibition Title -->
+                    <div class="date">May 1, 2024 - May 6, 2024</div> <!-- Exhibition Date -->
+                    <a href="Exhibition-Single.html">view Timetable</a> <!-- Exhibition Title -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Exhibition 5: Decorative Arts -->
+        <div class="exhibition-item">
+            <div class="image">
+                <img alt="The Art of Seeing" src="{% static 'website/images/Exhibition/Exhibitions/Exhibition-2.jpg' %}">
+                <!-- Exhibition Image -->
+            </div>
+            <div class="content">
+                <div class="logoholder"><img alt="" src="{% static 'website/images/Exhibition/Exhibitions/jamb.jpeg' %}"></div>
+                <!-- Collection Category -->
+                <div class="text">
+                    <a class="main-heading" href="Exhibition-Single.html">JAMB/UTME Examination</a>
+                    <!-- Exhibition Title -->
+                    <div class="date">May 1, 2024 - May 6, 2024</div> <!-- Exhibition Date -->
+                    <a href="Exhibition-Single.html">view Timetable</a> <!-- Exhibition Title -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Exhibition 6: Numismatics -->
+        <div class="exhibition-item">
+            <div class="image">
+                <img alt="The Art of Seeing" src="{% static 'website/images/Exhibition/Exhibitions/Exhibition-2.jpg' %}">
+                <!-- Exhibition Image -->
+            </div>
+            <div class="content">
+                <div class="logoholder"><img alt="" src="{% static 'website/images/Exhibition/Exhibitions/jamb.jpeg' %}"></div>
+                <!-- Collection Category -->
+                <div class="text">
+                    <a class="main-heading" href="Exhibition-Single.html">JAMB/UTME Examination</a>
+                    <!-- Exhibition Title -->
+                    <div class="date">May 1, 2024 - May 6, 2024</div> <!-- Exhibition Date -->
+                    <a href="Exhibition-Single.html">view Timetable</a> <!-- Exhibition Title -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================== Exhibitions Area (End) ==================== -->
+
+
+{% endblock %}

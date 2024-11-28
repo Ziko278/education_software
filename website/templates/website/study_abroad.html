@@ -1,0 +1,178 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>Study Abroad</h2>
+    </div>
+
+    <div class="link">
+        <a href="{% url 'homepage' %}">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">Study Abroad</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Blog List (Start) ==================== -->
+<section class="blog list">
+
+    <!-- ========== Blog Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+
+        <!-- ===== Recent Posts Area (Start) ===== -->
+        <div class="recent-posts sidebar-item">
+
+            <div class="sidebar-heading">
+                <h2>Services offered</h2>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="box-container">
+
+                <p>Education counselling</p>
+                <ul style="list-style: none;">
+                    <li>Assisting students in developing appropriate educational plans</li>
+                    <li>Assisting in selecting country, University and course</li>
+                </ul>
+
+                <p>Admission and application in universities</p>
+                <ul style="list-style: none;">
+                    <li>Documentation for applications</li>
+                    <li>Application to universities</li>
+                </ul>
+
+                <p>Entrance exam assistance</p>
+                <ul style="list-style: none;">
+                    <li>guiding in preparation for various entrance exams</li>
+                </ul>
+
+                <p>Visa & insurance assistance</p>
+                <ul style="list-style: none;">
+                    <li>visa documentation and application</li>
+                    <li>application of suitable insurance</li>
+                </ul>
+
+                <p>scholarship information</p>
+                <ul style="list-style: none;">
+                    <li>providing informaton on schorships available</li>
+                </ul>
+
+                <p>education loan assistance</p>
+                <ul style="list-style: none;">
+                    <li>exams</li>
+                </ul>
+
+
+            </div>
+
+        </div>
+        <!-- ===== Recent Posts Area (End) ===== -->
+
+
+        <!-- ===== Recent Posts Area (Start) ===== -->
+        <div class="recent-posts sidebar-item">
+
+            <div class="sidebar-heading">
+                <h2>ongoing admissions</h2>
+            </div>
+
+            <!-- Recent Posts -->
+            <div class="box-container">
+
+                <!-- Recent Post 1 -->
+                <div class="post-item">
+                    <img alt="Exploring The Themes Of Mystique Museum" src="{% static 'website/images/Blog/Blogs/Blog-1.jpg' %}">
+                    <!-- Post image -->
+                    <a class="main-heading" href="Blog-Single.html">Study in belarus</a> <!-- Post title -->
+                </div>
+
+                <!-- Recent Post 2 -->
+                <div class="post-item">
+                    <img alt="Connecting Ancient Artifacts To Modern Life"
+                         src="{% static 'website/images/Blog/Blogs/Blog-2.jpg' %}"> <!-- Post image -->
+                    <a class="main-heading" href="Blog-Single.html">study in Australia</a> <!-- Post title -->
+                </div>
+
+                <!-- Recent Post 3 -->
+                <div class="post-item">
+                    <img alt="Lesson Plans Inspired By Our Collection" src="{% static 'website/images/Blog/Blogs/Blog-3.jpg' %}">
+                    <!-- Post image -->
+                    <a class="main-heading" href="Blog-Single.html">Study in canada</a> <!-- Post title -->
+                </div>
+
+            </div>
+
+        </div>
+        <!-- ===== Recent Posts Area (End) ===== -->
+
+
+    </div>
+    <!-- ========== Blog Sidebar Area (End) ========== -->
+
+    <!-- ========== Blog Container (Start) ========== -->
+
+    <div class="blog-container list">
+
+
+        <!-- ===== Category Area (Start) ===== -->
+        <div class="category sidebar-item">
+
+            <div class="sidebar-heading">
+                <h2>Admission Process</h2>
+            </div>
+
+            <!-- Blog Categories -->
+            <div class="box-container">
+                <nav class="state-list">
+
+                    <div class="states-list">
+                        <div class="main-states-list"><p class="nav-btn">Requirements</p></div>
+                        <div class="sub-states-list" style="padding-left: 15px;">
+                            <p>Passport Copy (1st and Last page)</p>
+                            <p> Diploma/Bachelors/Masters Mark Sheet & Degree Certificate </p>
+                            <p> Statement of Purpose</p>
+                            <p> TOEFL / IELTS Score Card</p>
+                            <p> 10th & 12th Scorecard</p>
+                            <p> Resume </p>
+                            <p> Letter of Recommendations </p>
+                            <p> Work Experience documents (if any) </p>
+                        </div>
+                    </div>
+                    <div class="states-list">
+                        <div class="main-states-list"><p class="nav-btn">Processing workflow</p></div>
+                        <div class="sub-states-list" style="padding-left: 15px;">
+                            <p>Student counselling</p>
+                            <p>Registration with unique identification number</p>
+                            <p>Profile evaluation</p>
+                            <p>Proposing university options</p>
+                            <p>Confirmation by student</p>
+                            <p>Document Verification(academic document, SOP, LOR, resume and other documents)</p>
+                            <p>Initiating application process</p>
+                            <p>Issuance of offer letter</p>
+                            <p>Issuance of acceptance /I20/CAS</p>
+                            <p>Visa counselling and mock interview</p>
+                            <p>Predeparture briefing and post landing ancilliary services</p>
+
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+
+        </div>
+        <!-- ===== Category Area (End) ===== -->
+
+
+</section>
+<!-- ==================== Blog List (End) ==================== -->
+
+
+{% endblock %}

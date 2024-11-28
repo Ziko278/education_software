@@ -1,0 +1,145 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>School Finder</h2>
+    </div>
+
+    <div class="link">
+        <a href="{% url 'homepage' %}">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">School finder</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Blog Single (Start) ==================== -->
+<section class="blog-single">
+
+    <!-- ========== Blog-Info Container (Start) ========== -->
+    <div class="blog-container">
+
+        <!-- Blog Information -->
+        <div class="blog-info page-info">
+
+            <div class="image">
+                <img alt="School premises" src="{% static 'website/images/School Finder/school finder.JPG' %}">
+                <!-- Houseplants Image -->
+            </div>
+
+            <div class="content">
+
+                <!-- Blog Main Heading -->
+                <h2 class="main-heading">BJ Schools</h2>
+
+                <!-- Blog Details -->
+
+
+                <!-- Blog Description -->
+                <p>The district which has proven to be an investor friendly environment boast of Infrastructure and
+                    utilities and adequate Security favourable for growth of trade and commerce. The environment
+                    businesses such as agriculture (farm produce, processing, and marketing); retail and wholesale
+                    trade; real estate development; hospitality and tourism; small-scale manufacturing (food, textiles,
+                    etc.); education and training services; healthcare services; technology and ICT solutions;
+                    transportation and logistics
+                </p>
+                <p> Apart from a growing population which ensures a steady increase in demand for goods and services
+                    Kurudu, its strategic location Connection to surrounding states Access to key markets.
+                    The local community has always been supportive to investors looking at starting business in the
+                    district. Apart from the Kurudu ultramodern market located along the Nyanya-Karshi road, the market
+                    could serve as an alternative for the residents of FCT as the district is linked to the FCT through
+                    the Karshi road still under construction.
+                </p>
+
+
+                <!-- End Details -->
+                <div class="end-details">
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- ========== Blog-Info Container (End) ========== -->
+
+    <!-- ========== Blog Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+        <!-- ===== Search Area (Start) ===== -->
+        <div class="search sidebar-item">
+
+            <div class="sidebar-heading">
+                <h2>search</h2>
+            </div>
+
+            <!-- Blog Search Form -->
+            <form class="blog-search-container box-container">
+                <div class="input-box">
+                    <input id="business-search" placeholder="search..." required="" type="search"> <!-- Search Input -->
+                    <button type=""><i class="fas fa-search"></i></button> <!-- Submit Button -->
+                </div>
+            </form>
+            <div id="found_items"></div>
+
+
+        </div>
+        <!-- ===== Search Area (End) ===== -->
+
+        <!-- ===== Category Area (Start) ===== -->
+        <div class="category sidebar-item">
+
+            <div class="sidebar-heading">
+                <h2>School search</h2>
+            </div>
+
+            <!-- Blog Categories -->
+            <div class="box-container" id="business-search-result">
+                <p class="business-search-result" id="name_of_business"></p>
+                <p class="business-search-result" id="address_line1"></p>
+                <p class="business-search-result" id="address_line2"></p>
+                <p class="business-search-result" id="address_line3"></p>
+                <p class="business-search-result" id="telephone_number"></p>
+                <br><br>
+                <p class="business-search-result" id="nature_of_business"></p>
+            </div>
+
+        </div>
+        <!-- ===== Category Area (End) ===== -->
+
+
+        <!-- Leave A Comment Form -->
+        <div class="leave-reply">
+
+            <!-- Comment Form -->
+            <form action="#" class="form">
+                <h3>Contact This School</h3> <!-- Heading -->
+                <div class="input-box">
+                    <input class="box" id="name" name="name" placeholder="Name" required="" type="text">
+                    <!-- Name Input -->
+                    <input class="box" id="email" name="email" placeholder="Email" required="" type="email">
+                    <!-- Email Input -->
+                </div>
+                <textarea class="box" cols="30" id="comment" name="comment" placeholder="Request/Enquiry" required=""
+                          rows="10"></textarea> <!-- Comment Textarea -->
+                <input class="btn" type="submit" value="Send"> <!-- Submit Button -->
+            </form>
+
+        </div>
+
+    </div>
+    <!-- ========== Blog Sidebar Area (End) ========== -->
+
+</section>
+<!-- ==================== Blog Single (End) ==================== -->
+
+
+{% endblock %}

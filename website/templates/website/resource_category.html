@@ -1,0 +1,96 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>Shop Grid</h2>
+    </div>
+
+    <div class="link">
+        <a href="../../index.html">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">Shop Grid</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Shop-Grid Area (Start) ==================== -->
+<section class="shop">
+
+    <!-- ========== Shop Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+        <!-- ===== Category Area (Start) ===== -->
+        <div class="category sidebar-item">
+
+            <!-- Sidebar Heading: Categories -->
+            <div class="sidebar-heading">
+                <h2>categories</h2>
+            </div>
+
+            <!-- Shop Categories -->
+            <div class="box-container">
+                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Books</span>
+                    <p>(30)</p></a>
+                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Classroom Furniture</span>
+                    <p>(08)</p></a>
+                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Consumables</span>
+                    <p>(04)</p></a>
+                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Playground equipment</span>
+                    <p>(06)</p></a>
+                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Wears</span>
+                    <p>(06)</p></a>
+            </div>
+
+        </div>
+        <!-- ===== Category Area (End) ===== -->
+
+        <!-- ===== Filter Products (Start) ===== -->
+        <div class="filter sidebar-item">
+
+            <!-- Sidebar Heading: Filter Products -->
+            <div class="sidebar-heading">
+                <h2>Product Filter</h2>
+            </div>
+
+            <div class="box-container">
+                <!-- Slider -->
+                <div class="slider">
+                    <div class="progress"></div>
+                </div>
+                <!-- Range Input -->
+                <div class="range-input">
+                    <input class="range-min" max="1000" min="0" step="10" type="range" value="250">
+                    <input class="range-max" max="1000" min="0" step="10" type="range" value="750">
+                </div>
+                <!-- Price Wrap -->
+                <div class="price-wrap">
+                    <!-- Price Input -->
+                    <div class="price-input">
+                        <!-- Minimum Price Field -->
+                        <div class="field">
+                            <span>$</span>
+                            <input class="input-min" type="number" value="250">
+                        </div>
+                        <!-- Separator -->
+                        <div class="separator">-</div>
+                        <!-- Maximum Price Field -->
+                        <div class="field">
+                            <span>$</span>
+                            <input class="input-max" type="number" value="750">
+                        </div>
+                    </div>
+                    <!-- Filter Button -->
+                    <span class="btn">FILTER</span>
+                </div>
+            </div>
+        </div>
+        <!-- ===== Filter Products (End) ===== -->
+
+
+        {% endblock %}
