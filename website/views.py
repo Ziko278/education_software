@@ -82,8 +82,8 @@ class StudyAbroadPageView(TemplateView):
         return context
 
 
-class SchoolManagementPageView(TemplateView):
-    template_name = 'website/school_management.html'
+class SchoolManagementPortalPageView(TemplateView):
+    template_name = 'website/school_management_portal.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -1,0 +1,203 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+<!-- Start home -->
+<section class="bg-half page-next-level">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center text-white">
+                    <h4 class="text-uppercase title mb-4">School Portal</h4>
+                    <ul class="page-next d-inline-block mb-0">
+                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
+                        <li><a class="text-uppercase font-weight-bold" href="#">Pages</a></li>
+                        <li>
+                            <span class="text-uppercase text-white font-weight-bold">School Portal</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end home -->
+
+<!-- ABOUT US START -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-4">
+                <img alt="" class="img-fluid rounded shadow" src="{% static 'website/images/dashboard.jpg' %}">
+            </div>
+
+            <div class="col-lg-7 col-md-8">
+                <div class="about-desc ml-lg-4">
+                    <h4 class="text-dark">{{site_info.name|title }} School Management Software</h4>
+
+                    <p class="text-muted">
+                        <b>Student Admission and Record Management:</b> Efficiently manage student enrollment
+                        and maintain accurate records, keep track of alumni and monitor changes in student
+                        population with time
+                    </p>
+                    <p class="text-muted">
+                        <b>Result Management:</b> Automate the grading and report card generation, Certificate
+                        generation. Keep track of result even after several years
+                    </p>
+                    <p class="text-muted">
+                        <b>Student Fee Management:</b> Simplify fee collection and tracking processes. Accept
+                        payments both online and offline, keep track of debtor and automatically send reminders.
+                    </p>
+
+                    <a class="btn btn-primary" href="{% url 'portal_login' %}">Try a Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ABOUT US END -->
+
+<!-- COMPANY TESTIMONIAL START -->
+<section class="section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <h4 class="text-dark font-weight-">Amazing Features of the School Software</h4>
+                <div class="blog-post-border mt-3 mb-3"></div>
+
+                <p class="text-muted f-14">School Management has not been easier. Try our school software and enjoy the following benefits</p>
+                <div class="job-details-desc-item">
+                    <div class="float-left mr-3">
+                        <i class="mdi mdi-minus text-muted f-16"></i>
+                    </div>
+                    <p class="text-muted f-14 mb-1">Aenean leo ligula porttitor eu consequat eleifend enim.</p>
+                </div>
+                <div class="job-details-desc-item">
+                    <div class="float-left mr-3">
+                        <i class="mdi mdi-minus text-muted f-16"></i>
+                    </div>
+                    <p class="text-muted f-14 mb-1">Quisque rutrum Aenean imperdiet nisi vel augue.</p>
+                </div>
+                <div class="job-details-desc-item mb-4">
+                    <div class="float-left mr-3">
+                        <i class="mdi mdi-minus text-muted f-16"></i>
+                    </div>
+                    <p class="text-muted f-14 mb-1">Maecenas tempus tellus sem semper libero.</p>
+                </div>
+
+
+                <ul class="list-inline pt-4 border-top mb-4">
+                    <li class="list-inline-item">
+                        <a class="btn btn-primary-outline" href="#">Try a Demo</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="blog-post-testi">
+                    <div class="row align-items-center">
+                        <div class="col-md-3 col-4">
+                            <div aria-orientation="vertical" class="nav flex-column nav-pills" id="v-pills-tab"
+                                 role="tablist">
+                                <a aria-controls="v-pills-home" aria-selected="true" class="nav-link about-us active"
+                                   data-toggle="pill" href="#v-pills-home" id="v-pills-home-tab" role="tab">
+                                    <div class="blog-post-testi-img">
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s1.jpg' %}">
+                                        <div class="blog-post-overlay">
+                                            <div class="blog-post-testi-icon text-center">
+                                                <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a aria-controls="v-pills-profile" aria-selected="false" class="nav-link about-us"
+                                   data-toggle="pill" href="#v-pills-profile" id="v-pills-profile-tab"
+                                   role="tab">
+                                    <div class="blog-post-testi-img">
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s2.jpg' %}">
+                                        <div class="blog-post-overlay">
+                                            <div class="blog-post-testi-icon text-center">
+                                                <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a aria-controls="v-pills-messages" aria-selected="false" class="nav-link about-us"
+                                   data-toggle="pill" href="#v-pills-messages" id="v-pills-messages-tab"
+                                   role="tab">
+                                    <div class="blog-post-testi-img">
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s3.jpg' %}">
+                                        <div class="blog-post-overlay">
+                                            <div class="blog-post-testi-icon text-center">
+                                                <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a aria-controls="v-pills-settings" aria-selected="false" class="nav-link about-us"
+                                   data-toggle="pill" href="#v-pills-settings" id="v-pills-settings-tab"
+                                   role="tab">
+                                    <div class="blog-post-testi-img">
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s4.jpg' %}">
+                                        <div class="blog-post-overlay">
+                                            <div class="blog-post-testi-icon text-center">
+                                                <i class="mdi mdi-plus-circle-outline text-white h4"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-8">
+                            <div class="tab-content" id="v-pills-tabContent">
+                                <div aria-labelledby="v-pills-home-tab" class="tab-pane fade show active" id="v-pills-home"
+                                     role="tabpanel">
+                                    <div>
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s1.jpg' %}">
+                                    </div>
+                                </div>
+
+                                <div aria-labelledby="v-pills-profile-tab" class="tab-pane fade" id="v-pills-profile"
+                                     role="tabpanel">
+                                    <div>
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s2.jpg' %}">
+                                    </div>
+                                </div>
+
+                                <div aria-labelledby="v-pills-messages-tab" class="tab-pane fade" id="v-pills-messages"
+                                     role="tabpanel">
+                                    <div>
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s3.jpg' %}">
+                                    </div>
+                                </div>
+
+                                <div aria-labelledby="v-pills-settings-tab" class="tab-pane fade" id="v-pills-settings"
+                                     role="tabpanel">
+                                    <div>
+                                        <img alt="" class="img-fluid mx-auto d-block rounded"
+                                             src="{% static 'website/images/s4.jpg' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- COMPANY TESTIMONIAL START -->
+
+{% endblock %}

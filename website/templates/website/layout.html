@@ -1,269 +1,292 @@
 <!DOCTYPE html>
 {% load static %}
-<html lang="en">
+<html class="no-js" lang="en">
+
 <head>
-
     <meta charset="UTF-8">
-    <meta content="IE=edge" http-equiv="X-UA-Compatible">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>{{site_info.name|title}} - </title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta content="HKStudio" name="author">
 
-    <!-- Title -->
-    <title> Braintree Educational Resources</title>
+    <link href="{% static 'website/images/favicon.ico' %}" rel="shortcut icon">
 
-    <!-- Favicon -->
-    <link href="{% static 'website/images/favicon.png' %}" rel="icon" type="image/x-icon">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
 
-    <!-- Font-Awesome (CSS) -->
-    <link href="{% static 'website/vendors/font-awesome/css/all.min.css' %}" rel="stylesheet">
+    <!--Material Icon -->
+    <link href="{% static 'website/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
 
-    <!-- Magnific-Popup (CSS) -->
-    <link href="{% static 'website/vendors/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
 
-    <!-- Swiper (CSS) -->
-    <link href="{% static 'website/vendors/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <!-- selectize css -->
+    <link href="{% static 'website/css/selectize.css' %}" rel="stylesheet" type="text/css">
 
-    <!-- Custom Stylesheets -->
-    <link href="{% static 'website/css/main.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/responsive.css' %}" rel="stylesheet">
+    <!--Slider-->
+    <link href="{% static 'website/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/owl.theme.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/owl.transitions.css' %}" rel="stylesheet">
+
+    <!-- Custom  Css -->
+    <link href="{% static 'website/css/style.css' %}" rel="stylesheet" type="text/css">
 
 </head>
+
 <body>
-
-<!-- ==================== Scroll-Top Area (Start) ==================== -->
-<a class="scroll-top" href="#">
-    <i class="fa-solid fa-arrow-up-long"></i>
-</a>
-<!-- ==================== Scroll-Top Area (End) ==================== -->
-
-
-<!-- ==================== Header Area (Start) ==================== -->
-<header class="header">
-
-    <!-- ===== Header-1 Area (Start) ===== -->
-    <div class="header-1">
-
-        <!-- == Contacts == -->
-        <ul class="header-contacts">
-            <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>
-            <li><i class="fa-solid fa-phone"></i><span>+234-809-4022-810</span></li>
-            <li><i class="fa-solid fa-envelope"></i><span class="gmail">contact@braintree.com</span></li>
-        </ul>
-
-        <!-- == Social == -->
-        <ul class="social-contacts">
-            <li><a class="fab fa-facebook-f" href="#"></a></li>
-        </ul>
-
+<!-- Loader -->
+<div id="preloader">
+    <div id="status">
+        <div class="spinner">
+            <div class="double-bounce1"></div>
+            <div class="double-bounce2"></div>
+        </div>
     </div>
-    <!-- ===== Header-1 Area (End) ===== -->
+</div>
+<!-- Loader -->
 
-    <!-- ===== Header-2 Area (Start) ===== -->
-    <div class="header-2">
-
-        <!-- == Logo == -->
-        <a class="logo" href="{% url 'homepage' %}">
-            <img alt="logo" src="{% static 'website/images/Logo/Logo.png' %}">
-        </a>
-
+<!-- Navigation Bar-->
+<header class="defaultscroll scroll-active" id="topnav">
+    <!-- Tagline STart -->
+    <div class="tagline">
         <div class="container">
-
-            <!-- == Navbar == -->
-            <nav class="navbar" style="padding-right: 200px;">
-
-                <a class="nav-btn" href="{% url 'homepage' %}">home</a>
-                <a class="nav-btn" href="{% url 'about_page' %}">About Us</a>
-                <div class="dropdown-menu">
-                    <button class="nav-btn">calendar</button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'calendar_examination_page' %}">Examination</a>
-                        <a href="{% url 'calendar_examiner_page' %}">Examiners</a>
-                        <a href="{% url 'calendar_state_page' %}">States</a>
-                    </div>
+            <div class="float-left">
+                <div class="email">
+                    <a href="tel:{{ site_info.mobile_1 }}">
+                        <i class="mdi mdi-phone-classic"></i> {{ site_info.mobile_1 }}
+                    </a>
                 </div>
-                <a class="nav-btn" href="{% url 'school_finder_page' %}">school finder</a>
-
-                <div class="dropdown-menu">
-                    <button class="nav-btn">Resources</button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'catalog_page' %}">Catalogue</a>
-                        <a href="{% url 'resource_category_page' %}">Categories</a>
-                    </div>
+                <div class="email">
+                    <a href="mailto:{{ site_info.email|lower }}">
+                        <i class="mdi mdi-email"></i> {{ site_info.email.lower }}
+                    </a>
                 </div>
-
-
-            </nav>
-
-            <!-- == Icon Container == -->
-            <div class="icon-container">
-                <div class="icon fa-solid fa-bars-staggered" id="menu-btn"></div>
-                <!-- <a href="pages/Shop/Shop-Gbagyi.html" class="btn">Shop Gbagyi Cultural items</a> -->
             </div>
 
-            <!-- == Search Container == -->
-            <form class="search-container">
-
-            </form>
-
+            <div class="clearfix"></div>
         </div>
-
     </div>
-    <!-- ===== Header-2 Area (End) ===== -->
+    <!-- Tagline End -->
 
-    <!-- ===== Mobile Menu Area (Start) ===== -->
-    <div class="mobile-menu">
-
-        <nav class="mobile-navbar">
-
-            <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="../../index.html">home</a></div>
-            </div>
-            <div class="nav-link">
-                <div class="main-nav-link">
-                    <div class="nav-btn">Calendar</div>
-                    <i class="fas fa-plus"></i></div>
-                <div class="sub-nav-link">
-                    <a href="pages/Calendar/Examination-list.html">Examination</a>
-                    <a href="pages/Calendar/Examinations.html">Examiners</a>
-                    <a href="pages/Calendar/state Academic calendar.html">State</a>
-                </div>
-            </div>
-            <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="pages/School Finder/School finder.html">School
-                    finder</a></div>
-            </div>
-
-            <div class="nav-link">
-                <div class="main-nav-link">
-                    <div class="nav-btn">Resources</div>
-                    <i class="fas fa-plus"></i></div>
-                <div class="sub-nav-link">
-                    <a href="pages/Resources/Shop-Grid.html">Catalogue</a>
-                    <a href="pages/Resources/Shop-List.html">Categories</a>
-                </div>
-            </div>
-
-
-        </nav>
-
-    </div>
-    <!-- ===== Mobile Menu Area (End) ===== -->
-
-</header>
-<!-- ==================== Header Area (End) ==================== -->
-
-{% block 'main' %} {% endblock %}
-
-<!-- ==================== Footer Area (Start) ==================== -->
-<footer class="footer">
-
-    <div class="box-container">
-
-        <!-- Museum Information & Social Media Links -->
-        <div class="footer-item">
-
-            <!-- Museum Logo -->
-            <a class="logo" href="index.html">
-                <img alt="Museum Logo" src="{% static 'website/images/Logo/Logo.png' %}">
+    <!-- Menu Start -->
+    <div class="container">
+        <!-- Logo container-->
+        <div>
+            <a class='logo' href="{% url 'homepage' %}">
+                <img alt="" class="logo-light" height="40" src="{{site_info.logo.url}}">
+                <img alt="" class="logo-dark" height="40" src="{{site_info.logo.url}}">
             </a>
-
-            <!-- Description -->
-            <p>Unleash learner potentials in our one stop shop of educational resources.</p>
-
-            <!-- Contact Information -->
-            <div class="info connect">
-                <p><i class="fas fa-phone"></i><span>+123-456-7890</span></p>
-                <p><i class="fas fa-envelope"></i><span class="gmail">info@braintree.com</span></p>
-                <p><i class="fas fa-map-marker-alt"></i><span>Braintree Educational Resources</span></p>
-            </div>
-
         </div>
-
-        <!-- Our Services -->
-        <div class="footer-item">
-            <h2>Our Services</h2>
-            <div class="info links">
-                <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/School Management.html">School
-                    Management</a></p>
-                <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Educational Resources.html">Educational
-                    Resources</a></p>
-                <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Exhibitions.html">Exhbitions</a></p>
-                <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Process Automation.html">Process
-                    Automation</a></p>
-                <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Study Abroad.html">School Placement</a>
-                </p>
-                <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Trainings and Workshops.html">Trainings
-                    and Workshops</a></p>
+        <div class="buy-button">
+            <a class='btn btn-primary' href="{% url 'school_management_portal_page' %}">School Portal</a>
+        </div><!--end login button-->
+        <!-- End Logo container-->
+        <div class="menu-extras">
+            <div class="menu-item">
+                <!-- Mobile menu toggle-->
+                <a class="navbar-toggle">
+                    <div class="lines">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+                <!-- End mobile menu toggle-->
             </div>
         </div>
 
-        <!-- Quick Links -->
-        <div class="footer-item">
-            <h2>Quick Links</h2>
-            <div class="info links">
-                <p><i class="fa-solid fa-link"></i><a href="pages/Communities/Register.html">Join our community</a></p>
-                <p><i class="fa-solid fa-link"></i><a href="pages/School management/School Management Portal.html">School
-                    Management Portal</a></p>
-                <p><i class="fa-solid fa-link"></i><a href="pages/Past Questions/Past Questions.html">Past Examination
-                    Questions</a></p>
-                <p><i class="fa-solid fa-link"></i><a href="pages/Study Abroad/Student Placement.html">Study Abroad</a>
-                </p>
-                <p><i class="fa-solid fa-link"></i><a href="pages/Resources/Resources-Categories.html">Upcoming
-                    events</a></p>
-                <p><i class="fa-solid fa-link"></i><a href="pages/Blog/Blog-Grid.html">Blog</a></p>
-                <p><i class="fa-solid fa-link"></i><a href="pages/Contact/Contact.html">Contact Us</a></p>
-            </div>
-        </div>
+        <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu">
+                <li><a href="{% url 'homepage' %}">Home</a></li>
+                <li><a href="{% url 'about_page' %}">About Us</a></li>
+                <li class="has-submenu">
+                    <a href="javascript:void(0)">Jobs</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href='job-list.html'>Job List</a></li>
+                        <li><a href='job-grid.html'>Job Grid</a></li>
+                        <li><a href='job-details.html'>Job Details</a></li>
+                        <li><a href='job-details-2.html'>Job Details-2</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="javascript:void(0)">Candidates</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href='candidates-listing.html'>Candidates Listing</a></li>
+                        <li><a href='candidates-profile.html'>Candidates Profile</a></li>
+                        <li><a href='create-resume.html'>Create Resume</a></li>
+                    </ul>
+                </li>
+                <li class="has-submenu">
+                    <a href="javascript:void(0)">Employers</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href='employers-list.html'>Employers List</a></li>
+                        <li><a href='company-detail.html'>Company Detail</a></li>
+                    </ul>
+                </li>
 
-        <!-- Newsletter Subscription -->
-        <div class="footer-item">
-            <h2>Newsletter</h2>
-            <p>Stay updated and informed about upcoming exhibitions, events, and special offers by subscribing to our
-                newsletter.</p>
-            <form class="dark-form" id="newsletter-form-2" method="post">
-                <div class="input-field">
-                    <label class="fas fa-envelope" for="news-email-2"></label>
-                    <input class="box" id="news-email-2" name="email" placeholder="Your email address" required=""
-                           type="email">
+                <li class="has-submenu">
+                    <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
+                    <ul class="submenu">
+                        <li><a href='about.html'>About us</a></li>
+                        <li><a href='services.html'>Services</a></li>
+                        <li><a href='team.html'>Team</a></li>
+                        <li><a href='faq.html'>Faqs</a></li>
+                        <li><a href='pricing.html'>Pricing plans</a></li>
+
+                        <li class="has-submenu"><a href="javascript:void(0)"> Blog</a><span
+                                class="submenu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href='blog-grid.html'>Blogs</a></li>
+                                <li><a href='blog-sidebar.html'>Blog Sidebar</a></li>
+                                <li><a href='blog-details.html'>Blog Details</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="has-submenu"><a href="javascript:void(0)"> User Pages</a><span
+                                class="submenu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href='login.html'>Login</a></li>
+                                <li><a href='signup.html'>Signup</a></li>
+                                <li><a href='recovery_passward.html'>Forgot Password</a></li>
+                            </ul>
+                        </li>
+                        <li><a href='components.html'> Components</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href='contact.html'>contact</a>
+                </li>
+            </ul><!--end navigation menu-->
+        </div><!--end navigation-->
+    </div><!--end container-->
+    <!--end end-->
+</header><!--end header-->
+<!-- Navbar End -->
+
+{% block 'main' %}{% endblock %}
+
+<!-- subscribe start -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-5">
+                <div class="float-left position-relative notification-icon mr-2">
+                    <i class="mdi mdi-bell-outline text-primary"></i>
+                    <span class="badge badge-pill badge-danger">1</span>
                 </div>
-                <button class="btn" id="submit-2" name="submit" type="submit">Subscribe</button>
-                <span class="alert" id="msg-2"></span>
-            </form>
+                <h5 class="mt-2 mb-0">Your Job Notification</h5>
+            </div>
+            <div class="col-lg-8 col-md-7 mt-4 mt-sm-0">
+                <form>
+                    <div class="form-group mb-0">
+                        <div class="input-group mb-0">
+                            <input aria-describedby="newssubscribebtn" class="form-control" id="email" name="email" placeholder="Your email :"
+                                   required="" type="email">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary submitBnt" id="newssubscribebtn" type="submit">
+                                    Subscribe
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-
     </div>
+</section>
+<!-- subscribe end -->
 
-    <!-- Museum Name and Copyright -->
-    <div class="content">
-        <p>Braintree Educational Resources 2024</p>
+<!-- footer start -->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
+                <a href="javascript:void(0)"><img alt="" height="20" src="images/logo-light.png"></a>
+                <p class="mt-4">At vero eos et accusamus et iusto odio dignissim os ducimus qui blanditiis
+                    praesentium</p>
+                <ul class="social-icon social list-inline mb-0">
+                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-facebook"></i></a></li>
+                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-twitter"></i></a></li>
+                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-instagram"></i></a></li>
+                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-google"></i></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">Company</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> About Us</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Media & Press</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Career</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Blog</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Pricing</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Marketing</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> CEOs </a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Agencies</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Our Apps</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title">Resources</p>
+                <ul class="list-unstyled footer-list">
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Support</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Privacy Policy</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Terms</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Accounting </a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Billing</a></li>
+                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> F.A.Q.</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                <p class="text-white mb-4 footer-list-title f-17">Business Hours</p>
+                <ul class="list-unstyled text-foot mt-4 mb-0">
+                    <li>Monday - Friday : 9:00 to 17:00</li>
+                    <li class="mt-2">Saturday : 10:00 to 15:00</li>
+                    <li class="mt-2">Sunday : Day Off (Holiday)</li>
+                </ul>
+            </div>
+        </div>
     </div>
-
 </footer>
-<!-- ==================== Footer Area (End) ==================== -->
+<!-- footer end -->
+<hr>
+<footer class="footer footer-bar">
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="">
+                    <p class="mb-0">© 2020 Jobsila. Design with <i class="mdi mdi-heart text-danger"></i> by HKStudio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div><!--end container-->
+</footer><!--end footer-->
+<!-- Footer End -->
 
+<!-- Back to top -->
+<a class="back-to-top rounded text-center" href="#" id="back-to-top">
+    <i class="mdi mdi-chevron-up d-block"> </i>
+</a>
+<!-- Back to top -->
 
-<!-- Jquery -->
-<script src="{% static 'website/vendors/jquery/jquery.min.js' %}"></script>
+<!-- javascript -->
+<script src="{% static 'website/js/jquery.min.js' %}"></script>
+<script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'website/js/jquery.easing.min.js' %}"></script>
+<script src="{% static 'website/js/plugins.js' %}"></script>
 
-<!-- Swiper (JS) -->
-<script src="{% static 'website/vendors/swiper/swiper-bundle.min.js' %}"></script>
+<!-- selectize js -->
+<script src="{% static 'website/js/selectize.min.js' %}"></script>
+<script src="{% static 'website/js/jquery.nice-select.min.js' %}"></script>
 
-<!-- Magnific-Popup JS -->
-<script src="{% static 'website/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'website/js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'website/js/counter.int.js' %}"></script>
 
-<!-- Isotope (JS) -->
-<script src="{% static 'website/vendors/isotope/isotope.pkgd.min.js' %}"></script>
-
-<!-- Custom Script Files -->
-<script src="{% static 'website/js/script.js' %}"></script> <!-- Additional website functionality -->
-<script src="{% static 'website/js/nav-link-toggler.js' %}"></script> <!-- Mobile navigation link toggling -->
-<script src="{% static 'website/js/newsletter.js' %}"></script> <!-- 1. Script to handle newsletter subscription functionality -->
-<script src="{% static 'website/js/home-slider.js' %}"></script> <!-- Dynamic Home Slider -->
-<script src="{% static 'website/js/counter-up.js' %}"></script> <!-- Numerical counting animation -->
-<script src="{% static 'website/js/service-slider.js' %}"></script> <!-- 2. Service slider control -->
-<script src="{% static 'website/js/portfolio.js' %}"></script>  <!-- Projects functionality, including image filtering -->
-<script src="{% static 'website/js/testi-slider.js' %}"></script> <!-- 3. Interactive Testimonial Slider -->
-<script src="{% static 'website/js/partner-slider.js' %}"></script> <!-- 4. Interactive Partner Slider -->
-
+<script src="{% static 'website/js/app.js' %}"></script>
+<script src="{% static 'website/js/home.js' %}"></script>
 
 </body>
 </html>

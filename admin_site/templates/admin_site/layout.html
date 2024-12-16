@@ -58,7 +58,7 @@
   <header id="header" class="header non-printable fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="{% url 'admin_dashboard' %}" class="logo d-flex align-items-center">
+      <a href="% url'admin_dashboard' %}" class="logo d-flex align-items-center">
 <!--        <img src="/media/{{ site_info.logo }}" alt="" style="width:100px;height:100px">-->
         <span class="d-none d-lg-block">{{ site_info|upper }}</span>
       </a>
@@ -93,7 +93,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{% url 'staff_profile' %}">
+              <a class="dropdown-item d-flex align-items-center" href="% url'staff_profile' %}">
                 <i class="bi bi-person"></i>
                 <span>My Profile</span>
               </a>
@@ -104,7 +104,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{% url 'admin_change_password' %}">
+              <a class="dropdown-item d-flex align-items-center" href="% url'admin_change_password' %}">
                 <i class="bi bi-gear"></i>
                 <span>Change Password</span>
               </a>
@@ -118,7 +118,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{% url 'admin_logout' %}">
+              <a class="dropdown-item d-flex align-items-center" href="% url'admin_logout' %}">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -138,7 +138,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{% url 'admin_dashboard' %}">
+        <a class="nav-link " href="% url'admin_dashboard' %}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -152,7 +152,7 @@
         <ul id="sb_att" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           {% if 'student.view_studentsmodel' in perms %}
           <li>
-            <a href="{% url 'student_index' %}">
+            <a href="% url'student_index' %}">
               <i class="bi bi-circle"></i><span>Active Student</span>
             </a>
           </li>
@@ -160,7 +160,7 @@
 
           {% if 'student.add_studentsmodel' in perms %}
           <li>
-            <a href="{% url 'student_create' %}">
+            <a href="% url'student_create' %}">
               <i class="bi bi-circle"></i><span>Register Student</span>
             </a>
           </li>
@@ -168,7 +168,7 @@
 
           {% if 'student.view_cohortmodel' in perms %}
           <li>
-            <a href="{% url 'cohort_index' %}">
+            <a href="% url'cohort_index' %}">
               <i class="bi bi-circle"></i><span>Cohort</span>
             </a>
           </li>
@@ -187,7 +187,7 @@
 
           {% if 'training.view_coursemodel' in perms %}
           <li>
-            <a href="{% url 'course_index' %}">
+            <a href="% url'course_index' %}">
               <i class="bi bi-circle"></i><span>Courses</span>
             </a>
           </li>
@@ -195,7 +195,7 @@
 
           {% if 'training.view_lessonmodel' in perms %}
           <li>
-            <a href="{% url 'lesson_index' %}">
+            <a href="% url'lesson_index' %}">
               <i class="bi bi-circle"></i><span>Lessons</span>
             </a>
           </li>
@@ -203,7 +203,7 @@
 
           {% if 'training.view_livesessionmodel' in perms %}
           <li>
-            <a href="{% url 'live_session_index' %}">
+            <a href="% url'live_session_index' %}">
               <i class="bi bi-circle"></i><span>Live Sessions</span>
             </a>
           </li>
@@ -220,7 +220,7 @@
         <ul id="stud" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           {% if 'finance.add_trainingpaymentmodel' in perms %}
           <li>
-            <a href="{% url 'training_select_student' %}">
+            <a href="% url'training_select_student' %}">
               <i class="bi bi-circle"></i><span>Make Payment</span>
             </a>
           </li>
@@ -228,7 +228,7 @@
 
           {% if 'finance.view_trainingpaymentmodel' in perms %}
           <li>
-            <a href="{% url 'training_payment_index' %}">
+            <a href="% url'training_payment_index' %}">
               <i class="bi bi-circle"></i><span>Payments</span>
             </a>
           </li>
@@ -236,25 +236,25 @@
 
           {% if 'finance.view_financesettingmodel' in perms %}
           <li>
-            <a href="{% url 'currency_index' %}">
+            <a href="% url'currency_index' %}">
               <i class="bi bi-circle"></i><span>Currency</span>
             </a>
           </li>
 
           <li>
-            <a href="{% url 'bank_account_index' %}">
+            <a href="% url'bank_account_index' %}">
               <i class="bi bi-circle"></i><span>Bank Account</span>
             </a>
           </li>
 
           <li>
-            <a href="{% url 'online_payment_index' %}">
+            <a href="% url'online_payment_index' %}">
               <i class="bi bi-circle"></i><span>Online Payment Methods</span>
             </a>
           </li>
 
           <li>
-            <a href="{% url 'finance_setting_detail' 1 %}">
+            <a href="% url'finance_setting_detail' 1 %}">
               <i class="bi bi-circle"></i><span>Finance Setting</span>
             </a>
           </li>
@@ -271,7 +271,7 @@
         <ul id="hr-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
          {% if 'human_resource.view_staffmodel' in perms %}
           <li>
-            <a href="{% url 'staff_index' %}">
+            <a href="% url'staff_index' %}">
               <i class="bi bi-circle"></i><span>Staff List</span>
             </a>
           </li>
@@ -279,7 +279,7 @@
 
           {% if 'human_resource.add_staffmodel' in perms %}
           <li>
-            <a href="{% url 'staff_create' %}">
+            <a href="% url'staff_create' %}">
               <i class="bi bi-circle"></i><span>Register Staff</span>
             </a>
           </li>
@@ -287,7 +287,7 @@
 
           {% if 'auth.view_group' in perms %}
           <li>
-            <a href="{% url 'position_index' %}">
+            <a href="% url'position_index' %}">
               <i class="bi bi-circle"></i><span>Positions</span>
             </a>
           </li>
@@ -295,7 +295,7 @@
 
           {% if 'human_resource.view_hrsettingmodel' in perms %}
           <li>
-            <a href="{% url 'hr_setting_detail' 1 %}">
+            <a href="% url'hr_setting_detail' 1 %}">
               <i class="bi bi-circle"></i><span>HR Setting</span>
             </a>
           </li>
@@ -312,7 +312,7 @@
         <ul id="communication" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           {% if 'communication.add_smtpconfigurationmodel' in perms %}
           <li>
-            <a href="{% url 'send_email' %}">
+            <a href="% url'send_email' %}">
               <i class="bi bi-circle"></i><span>Send Email</span>
             </a>
           </li>
@@ -320,7 +320,7 @@
 
           {% if 'communication.add_messagemodel' in perms %}
            <li>
-            <a href="{% url 'message_index' %}">
+            <a href="% url'message_index' %}">
               <i class="bi bi-circle"></i><span>Messages</span>
             </a>
           </li>
@@ -328,7 +328,7 @@
 
           {% if 'communication.add_studentmessagemodel' in perms %}
            <li>
-            <a href="{% url 'admin_student_message_index' %}">
+            <a href="% url'admin_student_message_index' %}">
               <i class="bi bi-circle"></i><span>Student Messages</span>
             </a>
           </li>
@@ -336,13 +336,13 @@
 
           {% if 'communication.view_communicationsettingmodel' in perms %}
           <li>
-            <a href="{% url 'smtp_configuration_index' %}">
+            <a href="% url'smtp_configuration_index' %}">
               <i class="bi bi-circle"></i><span>Email Accounts</span>
             </a>
           </li>
 
           <li>
-            <a href="{% url 'communication_setting_detail' 1 %}">
+            <a href="% url'communication_setting_detail' 1 %}">
               <i class="bi bi-circle"></i><span>Setting</span>
             </a>
           </li>
@@ -359,14 +359,14 @@
         </a>
         <ul id="training-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'country_index' %}">
+            <a href="% url'country_index' %}">
               <i class="bi bi-circle"></i><span>Countries</span>
             </a>
           </li>
 
 
           <li>
-            <a href="{% url 'profession_index' %}">
+            <a href="% url'profession_index' %}">
               <i class="bi bi-circle"></i><span>Related Professions</span>
             </a>
           </li>
@@ -390,7 +390,7 @@
 
           {% if 'auth.view_group' in perms %}
           <li>
-            <a href="{% url 'position_index' %}">
+            <a href="% url'position_index' %}">
               <i class="bi bi-circle"></i><span>Roles/Permissions</span>
             </a>
           </li>
@@ -402,14 +402,14 @@
       <li class="nav-heading">Account</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'staff_profile' %}">
+        <a class="nav-link collapsed" href="% url'staff_profile' %}">
           <i class="bi bi-person"></i>
           <span>My Profile</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{% url 'admin_logout' %}">
+        <a class="nav-link collapsed" href="% url'admin_logout' %}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>
