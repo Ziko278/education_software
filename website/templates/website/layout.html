@@ -101,62 +101,26 @@
                 <li><a href="{% url 'homepage' %}">Home</a></li>
                 <li><a href="{% url 'about_page' %}">About Us</a></li>
                 <li class="has-submenu">
-                    <a href="javascript:void(0)">Jobs</a><span class="menu-arrow"></span>
+                    <a href="javascript:void(0)">School Finder</a><span class="menu-arrow"></span>
                     <ul class="submenu">
-                        <li><a href='job-list.html'>Job List</a></li>
-                        <li><a href='job-grid.html'>Job Grid</a></li>
-                        <li><a href='job-details.html'>Job Details</a></li>
-                        <li><a href='job-details-2.html'>Job Details-2</a></li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="javascript:void(0)">Candidates</a><span class="menu-arrow"></span>
-                    <ul class="submenu">
-                        <li><a href='candidates-listing.html'>Candidates Listing</a></li>
-                        <li><a href='candidates-profile.html'>Candidates Profile</a></li>
-                        <li><a href='create-resume.html'>Create Resume</a></li>
-                    </ul>
-                </li>
-                <li class="has-submenu">
-                    <a href="javascript:void(0)">Employers</a><span class="menu-arrow"></span>
-                    <ul class="submenu">
-                        <li><a href='employers-list.html'>Employers List</a></li>
-                        <li><a href='company-detail.html'>Company Detail</a></li>
+                        <li><a href="{% url 'school_finder_page' %}">Find School</a></li>
+                        <li><a href="{% url 'school_finder_add' %}">Register School</a></li>
                     </ul>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="javascript:void(0)">Pages</a><span class="menu-arrow"></span>
+                    <a href="javascript:void(0)">Blog/Forum</a><span class="menu-arrow"></span>
                     <ul class="submenu">
-                        <li><a href='about.html'>About us</a></li>
-                        <li><a href='services.html'>Services</a></li>
-                        <li><a href='team.html'>Team</a></li>
-                        <li><a href='faq.html'>Faqs</a></li>
-                        <li><a href='pricing.html'>Pricing plans</a></li>
-
-                        <li class="has-submenu"><a href="javascript:void(0)"> Blog</a><span
-                                class="submenu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href='blog-grid.html'>Blogs</a></li>
-                                <li><a href='blog-sidebar.html'>Blog Sidebar</a></li>
-                                <li><a href='blog-details.html'>Blog Details</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="has-submenu"><a href="javascript:void(0)"> User Pages</a><span
-                                class="submenu-arrow"></span>
-                            <ul class="submenu">
-                                <li><a href='login.html'>Login</a></li>
-                                <li><a href='signup.html'>Signup</a></li>
-                                <li><a href='recovery_passward.html'>Forgot Password</a></li>
-                            </ul>
-                        </li>
-                        <li><a href='components.html'> Components</a></li>
+                        <li><a href="{% url 'forum_index_page' %}">Forum</a></li>
+                        <li><a href="{% url 'blog_page' %}">Blog</a></li>
+                        <li><a href="{% url 'forum_ask_question' %}">Ask a Question</a></li>
+                        <li><a href="{% url 'forum_question_index' %}">Answer a Question</a></li>
                     </ul>
                 </li>
+
 
                 <li>
-                    <a href='contact.html'>contact</a>
+                    <a href="{% url 'contact_page' %}">contact</a>
                 </li>
             </ul><!--end navigation menu-->
         </div><!--end navigation-->
@@ -176,7 +140,7 @@
                     <i class="mdi mdi-bell-outline text-primary"></i>
                     <span class="badge badge-pill badge-danger">1</span>
                 </div>
-                <h5 class="mt-2 mb-0">Your Job Notification</h5>
+                <h5 class="mt-2 mb-0">Subscribe for Notification</h5>
             </div>
             <div class="col-lg-8 col-md-7 mt-4 mt-sm-0">
                 <form>
@@ -204,47 +168,37 @@
         <div class="row">
             <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                 <a href="javascript:void(0)"><img alt="" height="20" src="images/logo-light.png"></a>
-                <p class="mt-4">At vero eos et accusamus et iusto odio dignissim os ducimus qui blanditiis
-                    praesentium</p>
+                <p class="mt-4">{{ site_info.name|title }} is your number one choice for all the educational related news and updates</p>
                 <ul class="social-icon social list-inline mb-0">
-                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-facebook"></i></a></li>
-                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-twitter"></i></a></li>
-                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-instagram"></i></a></li>
-                    <li class="list-inline-item"><a class="rounded" href="#"><i class="mdi mdi-google"></i></a></li>
+                    {% if site_info.facebook_handle %}<li class="list-inline-item"><a class="rounded" target="_blank" href="{{site_info.facebook_handle}}"><i class="mdi mdi-facebook"></i></a></li>{% endif %}
+                    {% if site_info.twitter_handle %}<li class="list-inline-item"><a class="rounded"  target="_blank" href="{{site_info.twitter_handle}}"><i class="mdi mdi-twitter"></i></a></li>{% endif %}
+                    {% if site_info.instagram_handle %}<li class="list-inline-item"><a class="rounded" target="_blank" href="{{site_info.instagram_handle}}"><i class="mdi mdi-instagram"></i></a></li>{% endif %}
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <p class="text-white mb-4 footer-list-title">Company</p>
+                <p class="text-white mb-4 footer-list-title">Quick Links</p>
                 <ul class="list-unstyled footer-list">
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> About Us</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Media & Press</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Career</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Blog</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Pricing</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Marketing</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> CEOs </a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Agencies</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Our Apps</a></li>
+                    <li><a class="text-foot" href="{% url 'homepage' %}"><i class="mdi mdi-chevron-right"></i> Home</a></li>
+                    <li><a class="text-foot" href="{% url 'about_page' %}"><i class="mdi mdi-chevron-right"></i> About Us</a></li>
+                    <li><a class="text-foot" href="{% url 'contact_page' %}"><i class="mdi mdi-chevron-right"></i> Contact us</a></li>
+
                 </ul>
             </div>
             <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
                 <p class="text-white mb-4 footer-list-title">Resources</p>
                 <ul class="list-unstyled footer-list">
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Support</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Privacy Policy</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Terms</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Accounting </a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> Billing</a></li>
-                    <li><a class="text-foot" href="#"><i class="mdi mdi-chevron-right"></i> F.A.Q.</a></li>
+                    <li><a class="text-foot" href="{% url 'school_finder_page' %}"><i class="mdi mdi-chevron-right"></i> School Finder</a></li>
+                    <li><a class="text-foot" href="{% url 'forum_index_page' %}"><i class="mdi mdi-chevron-right"></i> Forum</a></li>
+                    <li><a class="text-foot" href="{% url 'blog_page' %}"><i class="mdi mdi-chevron-right"></i> Blog</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <p class="text-white mb-4 footer-list-title f-17">Business Hours</p>
+                <p class="text-white mb-4 footer-list-title f-17">Contact Info</p>
                 <ul class="list-unstyled text-foot mt-4 mb-0">
-                    <li>Monday - Friday : 9:00 to 17:00</li>
-                    <li class="mt-2">Saturday : 10:00 to 15:00</li>
-                    <li class="mt-2">Sunday : Day Off (Holiday)</li>
+                    <li>{{ site_info.mobile_1 }}</li>
+                    <li class="mt-2">{{ site_info.email|lower }}</li>
+                    <li class="mt-2">{{ site_info.address }}</li>
                 </ul>
             </div>
         </div>
@@ -257,7 +211,7 @@
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="">
-                    <p class="mb-0">© 2020 Jobsila. Design with <i class="mdi mdi-heart text-danger"></i> by HKStudio.
+                    <p class="mb-0">© {% now 'Y' %} {{ site_info.name|title }}
                     </p>
                 </div>
             </div>

@@ -19,14 +19,7 @@
     }); 
 
     // Selectize
-    $('#select-category, #select-lang,#select-country').selectize({
-        create: true,
-        sortField: {
-            field: 'text',
-            direction: 'asc'
-        },
-        dropdownParent: 'body'
-    });
+
 
     // Checkbox all select
     $("#customCheckAll").click(function() {

@@ -1629,6 +1629,7 @@ p {
   background-size: cover;
   position: relative;
   background-position: center center;
+  height: 200px;
 }
 
 .home-registration-form {

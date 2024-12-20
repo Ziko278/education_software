@@ -1,0 +1,23 @@
+{% extends 'admin_site/layout.html' %}
+{% load static %}
+{% load humanize %}
+{% block 'main' %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Delete Comment</h4>
+            <p>Full Name: <i>{{comment.full_name|upper }}</i></p>
+                <p>Email: <i>{{comment.email|lower }}</i></p>
+                <p>Comment: <i>{{comment.comments }}</i></p>
+
+            <p>This action is permanent</p>
+            <form style="display:inline" method="post">
+                {% csrf_token %}
+                <button class="btn btn-success">Proceed</button>
+            </form>
+            <a class="btn btn-danger" href="{% url 'blog_comment_index' %}"> Cancel</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

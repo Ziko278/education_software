@@ -1,145 +1,188 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block 'main' %}
-<!-- ==================== Page-Title (Start) ==================== -->
-<div class="page-title">
-
-    <div class="title">
-        <h2>School Finder</h2>
-    </div>
-
-    <div class="link">
-        <a href="{% url 'homepage' %}">Home</a>
-        <i class="fa-solid fa-angles-right"></i>
-        <span class="page">School finder</span>
-    </div>
-
-</div>
-<!-- ==================== Page-Title (End) ==================== -->
-
-
-<!-- ==================== Blog Single (Start) ==================== -->
-<section class="blog-single">
-
-    <!-- ========== Blog-Info Container (Start) ========== -->
-    <div class="blog-container">
-
-        <!-- Blog Information -->
-        <div class="blog-info page-info">
-
-            <div class="image">
-                <img alt="School premises" src="{% static 'website/images/School Finder/school finder.JPG' %}">
-                <!-- Houseplants Image -->
-            </div>
-
-            <div class="content">
-
-                <!-- Blog Main Heading -->
-                <h2 class="main-heading">BJ Schools</h2>
-
-                <!-- Blog Details -->
-
-
-                <!-- Blog Description -->
-                <p>The district which has proven to be an investor friendly environment boast of Infrastructure and
-                    utilities and adequate Security favourable for growth of trade and commerce. The environment
-                    businesses such as agriculture (farm produce, processing, and marketing); retail and wholesale
-                    trade; real estate development; hospitality and tourism; small-scale manufacturing (food, textiles,
-                    etc.); education and training services; healthcare services; technology and ICT solutions;
-                    transportation and logistics
-                </p>
-                <p> Apart from a growing population which ensures a steady increase in demand for goods and services
-                    Kurudu, its strategic location Connection to surrounding states Access to key markets.
-                    The local community has always been supportive to investors looking at starting business in the
-                    district. Apart from the Kurudu ultramodern market located along the Nyanya-Karshi road, the market
-                    could serve as an alternative for the residents of FCT as the district is linked to the FCT through
-                    the Karshi road still under construction.
-                </p>
-
-
-                <!-- End Details -->
-                <div class="end-details">
-
-
+<!-- Start home -->
+<section class="bg-half page-next-level">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center text-white">
+                    <h4 class="text-uppercase title mb-4">School Finder</h4>
+                    <ul class="page-next d-inline-block mb-0">
+                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
+                        <li><a class="text-uppercase font-weight-bold" href="#">School</a></li>
+                        <li>
+                            <span class="text-uppercase text-white font-weight-bold">School Finder</span>
+                        </li>
+                    </ul>
                 </div>
-
             </div>
-
         </div>
-
-
     </div>
-    <!-- ========== Blog-Info Container (End) ========== -->
-
-    <!-- ========== Blog Sidebar Area (Start) ========== -->
-    <div class="sidebar">
-
-        <!-- ===== Search Area (Start) ===== -->
-        <div class="search sidebar-item">
-
-            <div class="sidebar-heading">
-                <h2>search</h2>
-            </div>
-
-            <!-- Blog Search Form -->
-            <form class="blog-search-container box-container">
-                <div class="input-box">
-                    <input id="business-search" placeholder="search..." required="" type="search"> <!-- Search Input -->
-                    <button type=""><i class="fas fa-search"></i></button> <!-- Submit Button -->
-                </div>
-            </form>
-            <div id="found_items"></div>
-
-
-        </div>
-        <!-- ===== Search Area (End) ===== -->
-
-        <!-- ===== Category Area (Start) ===== -->
-        <div class="category sidebar-item">
-
-            <div class="sidebar-heading">
-                <h2>School search</h2>
-            </div>
-
-            <!-- Blog Categories -->
-            <div class="box-container" id="business-search-result">
-                <p class="business-search-result" id="name_of_business"></p>
-                <p class="business-search-result" id="address_line1"></p>
-                <p class="business-search-result" id="address_line2"></p>
-                <p class="business-search-result" id="address_line3"></p>
-                <p class="business-search-result" id="telephone_number"></p>
-                <br><br>
-                <p class="business-search-result" id="nature_of_business"></p>
-            </div>
-
-        </div>
-        <!-- ===== Category Area (End) ===== -->
-
-
-        <!-- Leave A Comment Form -->
-        <div class="leave-reply">
-
-            <!-- Comment Form -->
-            <form action="#" class="form">
-                <h3>Contact This School</h3> <!-- Heading -->
-                <div class="input-box">
-                    <input class="box" id="name" name="name" placeholder="Name" required="" type="text">
-                    <!-- Name Input -->
-                    <input class="box" id="email" name="email" placeholder="Email" required="" type="email">
-                    <!-- Email Input -->
-                </div>
-                <textarea class="box" cols="30" id="comment" name="comment" placeholder="Request/Enquiry" required=""
-                          rows="10"></textarea> <!-- Comment Textarea -->
-                <input class="btn" type="submit" value="Send"> <!-- Submit Button -->
-            </form>
-
-        </div>
-
-    </div>
-    <!-- ========== Blog Sidebar Area (End) ========== -->
-
 </section>
-<!-- ==================== Blog Single (End) ==================== -->
+<!-- end home -->
+<form class="registration-form">
+<div class="container">
+    <div class="home-form-position">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="home-registration-form job-list-reg-form bg-light shadow p-4 mb-3">
 
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6">
+                                <div class="registration-form-box">
+                                    <i class="fa fa-briefcase"></i>
+                                    <input class="form-control rounded registration-input-box" id="exampleInputName1"
+                                           placeholder="School keywords..."
+                                           type="text" name="keyword">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="registration-form-box">
+                                    <i class="fa fa-location-arrow"></i>
+                                    <select class="" name="state" id="elect-country" style="width:100%;height:40px;border-radius:10px;padding-left:30px">
+                                        <option value="">Location</option>
+                                        {% for state, lga_list in state_list.items %}
+                                        <option value="{{ state|lower }}"
+                  lga="<option value=''>LGA---</option>
+                                                      {% for lga in lga_list %}
+                                                      <option value='{{lga|lower}}'>{{lga|upper}}</option>
+                                                      {% endfor %}
+                                                      ">{{ state|title }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="registration-form-box">
+                                    <i class="fa fa-list-alt"></i>
+                                    <select class="demo-default" name="lga" id="elect-category" style="width:100%;height:40px;border-radius:10px;padding-left:30px">
+                                        <option value="">LGA...</option>
 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6">
+                                <div class="registration-form-box">
+                                    <input class="submitBnt btn btn-primary btn-block" id="submit" name="send"
+                                           type="submit" value="Search">
+                                </div>
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JOB LIST START -->
+<section class="section pt-0">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section-title text-center mb-4 pb-2">
+                    <h4 class="title title-line pb-5">Available Schools</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 mt-4 pt-2">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="show-results">
+                            <div class="float-left">
+                                <h5 class="text-dark mb-0 pt-2 f-18"><p>Showing results {{ school_list.start_index }} - {{ school_list.end_index }} of {{ school_list.paginator.count }} Schools</p>
+                                </h5>
+                                {% if school_list.has_other_pages %}
+                                    <ul class="pagination">
+                                        {% if school_list.has_previous %}
+
+                                            <li style="width:35px" ><a href="?page={{ school_list.previous_page_number }}">Prev</a></li>
+                                        {% endif %}
+                                        {% for num in school_list.paginator.page_range %}
+                                            <li style="width:35px" {% if num == school_list.number %} class="active"{% endif %}><a href="?page={{ num }}">{{ num }}</a></li>
+                                        {% endfor %}
+                                        {% if school_list.has_next %}
+                                            <li style="width:35px"><a href="?page={{ school_list.next_page_number }}">Next</a></li>
+                                        {% endif %}
+                                    </ul>
+                                {% endif %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                {% if school_list %}
+                <div class="row">
+                    {% for school in school_list %}
+                    <div class="col-lg-12 mt-4 pt-2">
+                        <div class="job-list-box border rounded">
+                            <div class="p-3">
+                                <div class="row align-items-center">
+                                    <div class="col-lg-2">
+                                        <div class="company-logo-img">
+                                            <img alt="" style="height:150px" class="img-fluid mx-auto d-block"
+                                                 src="{% if school.logo %}{{school.logo.url}}{% else %}{% endif %}">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7 col-md-9">
+                                        <div class="job-list-desc">
+                                            <h6 class="mb-2"><a class="text-dark" href="{% url 'school_finder_detail_page' school.id %}">{{ school.name|title }}</a></h6>
+                                            <p class="text-muted mb-0"><i class="mdi mdi-phone mr-2"></i>{{ school.mobile_1 }}</p>
+                                            <ul class="list-inline mb-0">
+                                                <li class="list-inline-item mr-3">
+                                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>Confederate
+                                                        {{ school.address }}</p>
+                                                </li>
+
+                                                <li class="list-inline-item">
+                                                    <p class="text-muted mb-0"><i
+                                                            class="mdi mdi-clock-outline mr-2"></i>{{ school.email|lower}}</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3">
+                                        <div class="job-list-button-sm text-right">
+                                            <div class="mt-3">
+                                                <a class="btn btn-sm btn-primary" href="{% url 'school_finder_detail_page' school.id %}">More Info</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+                {% else %}
+                <div class="row">
+                    <h4 class="col-12 text-center">No School Found</h4>
+                </div>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- JOB LIST START -->
+ </form>
+
+  <script src="{% static 'admin_dashboard/scripts/jquery.js' %}"></script>
+<script>
+$(document).ready(function(){
+
+  $('#elect-country').change(function(){
+
+    lga = $('option:selected', this).attr('lga')
+
+    $('#elect-category').html(lga)
+  })
+})
+
+</script>
 {% endblock %}

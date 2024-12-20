@@ -1,0 +1,18 @@
+{% extends 'admin_site/layout.html' %}
+{% block 'main' %}
+{% load static %}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">You are about to delete blog post from the website</h4>
+            <p>Blog Post Title: <i>{{blog_post.title}}</i></p>
+                        <p>This action is permanent</p>
+            <form style="display:inline" method="post">
+                {% csrf_token %}
+                <button class="btn btn-success">Proceed</button>
+            </form>
+            <a class="btn btn-danger" href="{% url 'blog_post_detail' blog_post.pk %}"> Cancel</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

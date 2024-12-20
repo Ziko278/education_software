@@ -1,0 +1,140 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+<section class="bg-half page-next-level">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center text-white">
+                    <h4 class="text-uppercase title mb-4">Forum</h4>
+                    <ul class="page-next d-inline-block mb-0">
+                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
+                        <li><a class="text-uppercase font-weight-bold" href="#">Forum</a></li>
+                        <li>
+                            <span class="text-uppercase text-white font-weight-bold">Forum Posts</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end home -->
+<form class="registration-form">
+    <div class="container">
+        <div class="home-form-position">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="home-registration-form job-list-reg-form bg-light shadow p-4 mb-3">
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="registration-form-box">
+                                    <i class="fa fa-briefcase"></i>
+                                    <input class="form-control rounded registration-input-box" id="exampleInputName1"
+                                           name="keyword"
+                                           placeholder="Search a topic" type="text">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="registration-form-box">
+                                    <a class="btn btn-primary" href="{% url 'forum_ask_question' %}">
+                                        Ask
+                                    </a>
+
+                                    <a class="btn btn-primary" href="{% url 'forum_question_index' %}">
+                                        Answer
+                                    </a>
+
+                                    <a class="btn btn-primary" href="{% url 'forum_create_post' %}">
+                                        Post
+                                    </a>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JOB LIST START -->
+    <section class="section pt-0">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="section-title text-center mb-4 pb-2">
+                        <h4 class="title title-line pb-5">Forum Posts</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 mt-4 pt-2">
+
+                    {% if post_list %}
+                    <div class="row">
+                        {% for post in post_list %}
+                        <div class="col-lg-4 col-md-6 mt-4 pt-2">
+                            <div class="blog position-relative overflow-hidden shadow rounded">
+                                <div class="position-relative overflow-hidden">
+                                    <img alt="" class="img-fluid rounded-top"
+                                         src="{{post.image.url}}">
+                                    <div class="overlay rounded-top bg-dark"></div>
+                                    <div class="likes">
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="list-inline-item mr-2"><a class="text-white like"
+                                                                                 href="javascript:void(0)"><i
+                                                    class="mdi mdi-heart-outline mr-1"></i>33</a></li>
+                                            <li class="list-inline-item"><a class="text-white comments"
+                                                                            href="javascript:void(0)"><i
+                                                    class="mdi mdi-comment-outline mr-1"></i>08</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="content p-4">
+                                    <h4><a class="title text-dark" href="{% url 'forum_post_detail' post.id %}">{{ post.title }}</a></h4>
+                                    <p class="text-muted">{{ post.description }}</p>
+                                    <a class="text-dark readmore" href="{% url 'forum_post_detail' post.id %}">Read more <i
+                                            class="mdi mdi-chevron-right"></i></a>
+                                </div>
+                                <div class="author">
+
+                                    <p class=" mb-0"><i class="mdi mdi-account text-light"></i> <a
+                                            class="text-light user"
+                                            href="javascript:void(0)">
+                                        {% if post.privacy|lower == 'public' %}
+                                            {{ post.user|title }}
+                                        {% else %}
+                                            Anonymous User
+                                        {% endif %}
+                                    </a></p>
+
+                                    <p class="text-light mb-0 date"><i class="mdi mdi-calendar-check"></i> {{ post.created_at|date }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div><!--end col-->
+                        {% endfor %}
+
+                    </div>
+                    {% else %}
+                    <div class="row">
+                        <h4 class="col-12 text-center">No Post Found</h4>
+                    </div>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- JOB LIST START -->
+</form>
+
+
+{% endblock %}

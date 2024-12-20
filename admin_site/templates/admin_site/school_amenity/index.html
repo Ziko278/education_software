@@ -1,0 +1,123 @@
+{% extends 'admin_site/layout.html' %}
+{% block 'main' %}
+{% load static %}
+
+<div class="col-12">
+    <div class="card recent-sales overflow-auto">
+        <div class="filter">
+            <a title="Add Amenity" class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <li class="dropdown-header text-start">
+                    <h6>Action</h6>
+                </li>
+
+                <li><a class="dropdown-item" href="#">
+                    <button title="Add Amenity" style="width:100%" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#verticalycentered">Add Amenity</button>
+                </a></li>
+            </ul>
+        </div>
+
+        <div class="card-body">
+            <h5 class="card-title">School Amenity List
+            {% if school_info.separate_school_section and school_info.school_type == 'mix' %}
+                    {% if user.profile.type == 'pri' %}
+                        in Primary Division of the School
+                    {% elif user.profile.type == 'sec' %}
+                        in Secondary Division of the School
+                    {% elif user.profile.type == 'mix' %}
+                        in the School
+                    {% endif %}
+                {% endif %}</h5>
+            {% if form.errors %}
+                <h5 class="text-danger">{{form.errors}}</h5>
+            {% endif %}
+            <table class="table table-borderless datatable">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Amenity</th>
+                    <th scope="col" class="text-center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if school_amenity_list %}
+                {% for amenity in school_amenity_list %}
+                <tr>
+                    <th scope="row"><a href="#">{{ forloop.counter }}</a></th>
+                    <td title="created by {{ amenity.user|lower }} at {{ amenity.created_at|date }} {% if amenity.updated_by %} and updated by {{ amenity.updated_by|lower }} at {{ amenity.updated_at|date }} {% endif %}">{{ amenity.name|upper }}</td>
+                    <td class="text-center">
+                        <button title="Edit Amenity" type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#edit{{ forloop.counter }}"><i class="bi bi-pencil-square"></i></button>
+                        <a title="Delete Amenity" href="{% url 'school_amenity_delete' amenity.id %}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                    <tr><td colspan="10"><h3 class="text-center">No Amenity Added Yet</h3></td></tr>
+                {% endif %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+<form method="POST" action="{% url 'school_amenity_create' %}">
+    {% csrf_token %}
+
+    <div class="modal fade" id="verticalycentered" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add School Amenity</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body row">
+                    <div class="form-floating col-md-6">
+                        {{ form.name }}
+                        <input type="hidden" name="user" value="{{ user.id }}" />
+                        <label for="floatingName">Amenity Name <span style="color:red"><b>*</b></span></label>
+                    </div><br />
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% for amenity in school_amenity_list %}
+<form method="POST" action="{% url 'school_amenity_edit' amenity.id %}">
+
+    {% csrf_token %}
+    <div class="modal fade" id="edit{{ forloop.counter }}" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit School Amenity</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body row">
+                    <div class="form-floating col-md-6">
+                        <input type="hidden" name="updated_by" value="{{ user.id }}" />
+                        <input type="text" name="name" value="{{ amenity.name|lower }}" autocomplete="off" required class="form-control">
+                        <label for="floatingName">Field Name <span style="color:red"><b>*</b></span></label><br />
+                    </div><br />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% endfor %}
+
+
+{% endblock %}

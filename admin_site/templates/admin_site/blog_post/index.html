@@ -1,0 +1,66 @@
+{% extends 'admin_site/layout.html' %}
+{% load static %}
+{% load humanize %}
+{% block 'main' %}
+<form>
+    <div class="col-12">
+        <div class="card recent-sales overflow-auto">
+            <div class="filter">
+                <a class="icon" data-bs-toggle="dropdown" href="#"><i class="bi bi-three-dots"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                    <li class="dropdown-header text-start">
+                        <h6>Action</h6>
+                    </li>
+
+                    <li class="dropdown-item"><a class="btn btn-primary" href="{% url 'blog_post_create' %}"
+                                                 style="width:100%">Add Post</a></li>
+                </ul>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">Blog Posts</h5>
+                <table class="table table-borderless datatable">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col" style="min-width:120px">Title</th>
+                        <th class="text-center" scope="col">Category</th>
+                        <th scope="col" style="">Image</th>
+                        <th class="text-center" scope="col">Views</th>
+                        <th class="text-center" scope="col">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if post_list %}
+                    {% for post in post_list %}
+
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ post.title|title }}</td>
+                        <td class="text-center">{{ post.category|title }}</td>
+                        <td style="padding-left:20px"><img src="{{post.image.url}}" style="width:200px;height:120px">
+                        </td>
+                        <td class="text-center">{{ post.no_of_views }}</td>
+                        <td class="text-center">
+                            <a class="btn btn-primary" href="{% url 'blog_post_detail' post.id %}"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-warning" href="{% url 'blog_post_edit' post.id %}"><i class="bi bi-pencil"></i></a>
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="7"><h3 class="text-center">No Post Added Yet</h3></td>
+                    </tr>
+                    {% endif %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{%endblock %}

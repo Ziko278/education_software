@@ -1,0 +1,79 @@
+{% extends 'admin_site/layout.html' %}
+{% load static %}
+{% load humanize %}
+{% block 'main' %}
+
+<form action="" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="moda" id="largeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Post </h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-floating col-md-6">
+                            {{ form.category }}
+                            <label for="floatingName">Post Category <span style="color:red"><b>*</b></span></label>
+                            <br/>
+                        </div>
+
+                        <div class="form-floating col-md-6">
+                            {{ form.title }}
+                            <label for="floatingName">Post Title <span style="color:red"><b>*</b></span></label>
+                            <br/>
+                        </div>
+                        <br/>
+
+                        <div class="form-floating col-md-6">
+                            {{ form.status }}
+                            <label for="floatingName col-md-6">Post Status</label>
+                            <br/>
+                        </div>
+                        <br/>
+
+                        <div class="form-floating col-md-6">
+                            {{ form.description }}
+                            <label for="floatingName">Post Description <span style="color:red"><b>*</b></span></label>
+                            <br/>
+                        </div>
+                        <br/>
+
+                        <div class="form-floating col-md-6">
+                            {{ form.image }}
+                            <label for="floatingName">Post Image</label>
+                            <br/>
+                        </div>
+                        <br/>
+
+                        <div>
+                            <h5 class="card-title">Select Related Tag</h5>
+                            {% for tag in tag_list %}
+                            {{tag|title}} <input style="display:inline" type="checkbox" class="fom-check" value="{{tag.id}}" name="tag">
+                            {% endfor %}
+                        </div>
+                        <br/>
+                    </div>
+
+                    <div class="">
+
+                        <h5 class="card-title">Post Detail</h5>
+
+                        <!-- TinyMCE Editor -->
+                        <textarea class="tinymce-editor" name="blog_detail" required>
+
+                                                  </textarea><!-- End TinyMCE Editor -->
+
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" type="submit">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{%endblock %}

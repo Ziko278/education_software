@@ -58,7 +58,7 @@
   <header id="header" class="header non-printable fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="% url'admin_dashboard' %}" class="logo d-flex align-items-center">
+      <a href="{% url 'site_dashboard' %}" class="logo d-flex align-items-center">
 <!--        <img src="/media/{{ site_info.logo }}" alt="" style="width:100px;height:100px">-->
         <span class="d-none d-lg-block">{{ site_info|upper }}</span>
       </a>
@@ -138,50 +138,51 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="% url'admin_dashboard' %}">
+        <a class="nav-link " href="{% url 'site_dashboard' %}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li>
 
-      {% if 'student.view_studentsmodel' in perms or 'student.add_studentsmodel' in perms or 'student.view_cohortmodel' in perms %}
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#sb_att" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-file-person "></i><span>Student</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-file-person "></i><span>School Finder</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="sb_att" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          {% if 'student.view_studentsmodel' in perms %}
-          <li>
-            <a href="% url'student_index' %}">
-              <i class="bi bi-circle"></i><span>Active Student</span>
-            </a>
-          </li>
-          {% endif %}
 
-          {% if 'student.add_studentsmodel' in perms %}
           <li>
-            <a href="% url'student_create' %}">
-              <i class="bi bi-circle"></i><span>Register Student</span>
+            <a href="{% url 'school_finder_index' %}">
+              <i class="bi bi-circle"></i><span>Schools</span>
             </a>
           </li>
-          {% endif %}
 
-          {% if 'student.view_cohortmodel' in perms %}
           <li>
-            <a href="% url'cohort_index' %}">
-              <i class="bi bi-circle"></i><span>Cohort</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Find School</span>
             </a>
           </li>
-          {% endif %}
+
+          <li>
+            <a href="{% url 'school_finder_create' %}">
+              <i class="bi bi-circle"></i><span>Add School</span>
+            </a>
+          </li>
+
+
+
+          <li>
+            <a href="{% url 'school_amenity_index' %}">
+              <i class="bi bi-circle"></i><span>School Amenities</span>
+            </a>
+          </li>
+
 
         </ul>
       </li>
-      {% endif %}
 
-      {% if 'training.view_coursemodel' in perms or 'training.view_lessonmodel' in perms or 'training.view_livesessionmodel' in perms %}
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-bookmark-fill"></i><span>Training</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-bookmark-fill"></i><span>Forum</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
@@ -210,169 +211,37 @@
           {% endif %}
         </ul>
       </li>
-      {% endif %}
-
-      {% if 'finance.add_trainingpaymentmodel' in perms or view_trainingpaymentmodel or 'finance.view_financesettingmodel' in perms %}
       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#stud" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-currency-exchange"></i><span>Finance</span><i class="bi bi-chevron-down ms-auto"></i>
+        <a class="nav-link collapsed" data-bs-target="#forum-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-journal-bookmark-fill"></i><span>Blog</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
-        <ul id="stud" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          {% if 'finance.add_trainingpaymentmodel' in perms %}
+        <ul id="forum-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="% url'training_select_student' %}">
-              <i class="bi bi-circle"></i><span>Make Payment</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'finance.view_trainingpaymentmodel' in perms %}
-          <li>
-            <a href="% url'training_payment_index' %}">
-              <i class="bi bi-circle"></i><span>Payments</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'finance.view_financesettingmodel' in perms %}
-          <li>
-            <a href="% url'currency_index' %}">
-              <i class="bi bi-circle"></i><span>Currency</span>
+            <a href="{% url 'blog_post_create' %}">
+              <i class="bi bi-circle"></i><span>New Post</span>
             </a>
           </li>
 
-          <li>
-            <a href="% url'bank_account_index' %}">
-              <i class="bi bi-circle"></i><span>Bank Account</span>
+            <li>
+            <a href="{% url 'blog_post_index' %}">
+              <i class="bi bi-circle"></i><span>Blog Posts</span>
             </a>
           </li>
 
-          <li>
-            <a href="% url'online_payment_index' %}">
-              <i class="bi bi-circle"></i><span>Online Payment Methods</span>
+            <li>
+            <a href="{% url 'blog_category_index' %}">
+              <i class="bi bi-circle"></i><span>Category</span>
             </a>
           </li>
 
-          <li>
-            <a href="% url'finance_setting_detail' 1 %}">
-              <i class="bi bi-circle"></i><span>Finance Setting</span>
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-      </li>
-      {% endif %}
-
-      {% if 'human_resource.view_staffmodel' in perms or 'human_resource.add_staffmodel' in perms or 'auth.view_group' in perms or 'human_resource.view_hrsettingmodel' in perms %}
-       <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#hr-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-people"></i><span>Human Resource</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="hr-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-         {% if 'human_resource.view_staffmodel' in perms %}
-          <li>
-            <a href="% url'staff_index' %}">
-              <i class="bi bi-circle"></i><span>Staff List</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'human_resource.add_staffmodel' in perms %}
-          <li>
-            <a href="% url'staff_create' %}">
-              <i class="bi bi-circle"></i><span>Register Staff</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'auth.view_group' in perms %}
-          <li>
-            <a href="% url'position_index' %}">
-              <i class="bi bi-circle"></i><span>Positions</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'human_resource.view_hrsettingmodel' in perms %}
-          <li>
-            <a href="% url'hr_setting_detail' 1 %}">
-              <i class="bi bi-circle"></i><span>HR Setting</span>
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-      </li>
-      {% endif %}
-
-      {% if 'communication.add_smtpconfigurationmodel' in perms or 'communication.add_messagemodel' in perms or 'communication.view_communicationsettingmodel' in perms or  'communication.add_studentmessagemodel' in perms %}
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#communication" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-headset"></i><span>Communication</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="communication" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          {% if 'communication.add_smtpconfigurationmodel' in perms %}
-          <li>
-            <a href="% url'send_email' %}">
-              <i class="bi bi-circle"></i><span>Send Email</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'communication.add_messagemodel' in perms %}
-           <li>
-            <a href="% url'message_index' %}">
-              <i class="bi bi-circle"></i><span>Messages</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'communication.add_studentmessagemodel' in perms %}
-           <li>
-            <a href="% url'admin_student_message_index' %}">
-              <i class="bi bi-circle"></i><span>Student Messages</span>
-            </a>
-          </li>
-          {% endif %}
-
-          {% if 'communication.view_communicationsettingmodel' in perms %}
-          <li>
-            <a href="% url'smtp_configuration_index' %}">
-              <i class="bi bi-circle"></i><span>Email Accounts</span>
-            </a>
-          </li>
-
-          <li>
-            <a href="% url'communication_setting_detail' 1 %}">
-              <i class="bi bi-circle"></i><span>Setting</span>
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-      </li>
-      {% endif %}
-
-
-      {% if 'admin_site.view_siteinfomodel' in perms %}
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#training-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-alarm"></i><span>Setup</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="training-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="% url'country_index' %}">
-              <i class="bi bi-circle"></i><span>Countries</span>
-            </a>
-          </li>
-
-
-          <li>
-            <a href="% url'profession_index' %}">
-              <i class="bi bi-circle"></i><span>Related Professions</span>
+            <li>
+            <a href="{% url 'blog_tag_index' %}">
+              <i class="bi bi-circle"></i><span>Tag</span>
             </a>
           </li>
         </ul>
       </li>
-      {% endif %}
+
 
       {% if 'admin_site.view_siteinfomodel' in perms or 'auth.view_group' in perms %}
       <li class="nav-item">
@@ -402,14 +271,14 @@
       <li class="nav-heading">Account</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="% url'staff_profile' %}">
+        <a class="nav-link collapsed" href="% url 'staff_profile' %}">
           <i class="bi bi-person"></i>
           <span>My Profile</span>
         </a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="% url'admin_logout' %}">
+        <a class="nav-link collapsed" href="{% url 'admin_logout' %}">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>

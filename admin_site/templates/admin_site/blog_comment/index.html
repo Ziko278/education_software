@@ -1,0 +1,57 @@
+{% extends 'site_admin/layout.html' %}
+{% block 'page' %} Menu Categories {% endblock %}
+{% block 'subpage' %} Index {% endblock %}
+{% load static %}
+{% load humanize %}
+{% block 'main' %}
+<form>
+    <div class="col-12">
+        <div class="card recent-sales overflow-auto">
+
+            <div class="card-body">
+                    <h5 class="card-title">Blog Post Comments List</h5>
+                <table class="table table-borderless datatable">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col" style="min-width:120px">Full Name</th>
+                        <th scope="col" style="min-width:120px">Email</th>
+                        <th scope="col" style="min-width:120px">Post</th>
+                        <th scope="col" style="min-width:120px">Commnent</th>
+                        <th scope="col" style="min-width:120px">Reply</th>
+                       <th scope="col" class="text-center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% if comment_list %}
+                    {% for comment in comment_list %}
+
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{ comment.full_name|title }} </td>
+                            <td>{{ comment.email|lower }} </td>
+                            <td>{{ comment.post.title }} </td>
+                           <td>{{ comment.comments }} </td>
+                        <td>{{ comment.comment.reply }} </td>
+
+                            <td class="text-center">
+                                                                <a class="btn btn-success" href="{% url 'blog_comment_edit' comment.id %}">Reply</a>
+                                                                <a class="btn btn-danger" href="{% url 'blog_comment_delete' comment.id %}">Delete</a>
+                                                        </td>
+                        </tr>
+
+                    {% endfor %}
+                    {% else %}
+                        <tr><td colspan="5"><h3 class="text-center">No Comment Added Yet</h3></td></tr>
+                    {% endif %}
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</form>
+
+
+{%endblock %}

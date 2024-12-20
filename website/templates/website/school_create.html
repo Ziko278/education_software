@@ -1,0 +1,197 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+<!-- Start home -->
+<section class="bg-half page-next-level">
+    <div class="bg-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="text-center text-white">
+                    <h4 class="text-uppercase title mb-4">School Finder</h4>
+                    <ul class="page-next d-inline-block mb-0">
+                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
+                        <li><a class="text-uppercase font-weight-bold" href="#">School</a></li>
+                        <li>
+                            <span class="text-uppercase text-white font-weight-bold">Register School</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="col-lg-12 mt-4 pt-2">
+    <div class="component-wrapper rounded shadow">
+        <div class="p-4 border-bottom bg-light">
+            <h4 class="title mb-0"> Register Your School </h4>
+            <div class="text-danger">
+                {% if form.errors %}
+                {{ form.errors }}
+                {% endif %}
+
+                {% if messages %}
+                  {% for message in messages %}
+                  <div class="alert alert-{{message.tags}} {% if message.tags == 'error' %} alert-danger {% endif %} alert-dismissible fade show non-printable" role="alert">
+                      <i class="bi bi-exclamation-octagon me-1"></i>
+                      {{message}}
+                  </div>
+                  {% endfor %}
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="p-4">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% if request.user.is_authenticated %}
+                <input type="hidden" name="user" value="{{request.user.id}}">
+                {% endif %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Name <span class="text-danger">*</span></label>
+                            {{ form.name }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>Phone Number <span class="text-danger">*</span></label>
+                            {{ form.mobile_1 }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>Auxiliary Phone Number <span class="text-danger"></span></label>
+                            {{ form.mobile_2 }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Email <span class="text-danger">*</span></label>
+                            {{ form.email }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Logo <span class="text-danger">*</span></label>
+                            {{ form.logo }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Address <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" name="address" required>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>State <span class="text-danger"></span></label>
+                            <select class="form-control" name="state" id="state" style="width:100%;height:40px;border-radius:10px;padding-left:30px">
+                                        <option value="">-------------</option>
+                                        {% for state, lga_list in state_list.items %}
+                                        <option value="{{ state|lower }}"
+                  lga="<option value=''>-------------</option>
+                                                      {% for lga in lga_list %}
+                                                      <option value='{{lga|lower}}'>{{lga|upper}}</option>
+                                                      {% endfor %}
+                                                      ">{{ state|title }}</option>
+                                        {% endfor %}
+                                    </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>LGA <span class="text-danger"></span></label>
+                            <select class="demo-default" name="lga" id="lga" style="width:100%;height:40px;border-radius:10px;padding-left:30px">
+                                <option value="">-------------</option>
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Website <span class="text-danger"></span></label>
+                            {{ form.website }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Owner Name <span class="text-danger"></span></label>
+                            <input type="text" class="form-control" name="school_owner_name">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>School Head Name <span class="text-danger"></span></label>
+                            {{ form.school_head_name }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>Registrar Name <span class="text-danger"></span></label>
+                            {{ form.registrar_name }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>Registrar Position  <span class="text-danger"></span></label>
+                            {{ form.registrar_position }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="form-group position-relative">
+                            <label>Registrar Phone Number  <span class="text-danger"></span></label>
+                            {{ form.registrar_mobile }}
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="form-group position-relative">
+                            <label>Short Description of School</label>
+                            <textarea class="form-control" id="comments" name="short_description" placeholder="Short summary of the post :"
+                                      rows="4" minlength="10" maxlength="500"></textarea>
+                        </div>
+                    </div>
+
+                </div><!--end row-->
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <input class="btn btn-primary" id="submit" name="send" type="submit" value="Register" >
+                    </div><!--end col-->
+                </div><!--end row-->
+            </form><!--end form-->
+        </div>
+    </div>
+</div><!--end col-->
+
+  <script src="{% static 'admin_dashboard/scripts/jquery.js' %}"></script>
+<script>
+$(document).ready(function(){
+
+  $('#state').change(function(){
+
+    lga = $('option:selected', this).attr('lga')
+
+    $('#lga').html(lga)
+  })
+})
+
+</script>
+{% endblock %}

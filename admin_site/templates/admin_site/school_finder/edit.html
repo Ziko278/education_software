@@ -1,0 +1,225 @@
+{% extends 'admin_site/layout.html' %}
+{% load static %}
+{% block 'main' %}
+<form action="" class="row g-3 needs-validation" enctype="multipart/form-data" method="POST" novalidate>
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">SCHOOL REGISTRATION</h5>
+                    <p class="card-description">All fields with a red star <span style="color:red"><b>*</b></span> are
+                        required.</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">SCHOOL MAIN DETAIL</h5>
+                    <div class="row mb-3">
+                        <div class="form-floating mb-3 col-md-8">
+                            <input name="user" type="hidden" value="{{ user.id }}"/>
+                            {{form.name}}
+                            <label for="floatingInput"> School Name <span style="color:red"><b>*</b></span></label>
+                            <div class="invalid-tooltip">School Name is required!</div>
+                        </div>
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.mobile_1}}
+                          <label for="floatingPassword">Phone Number <span style="color:red"><b>*</b></span></label>
+                        </div>
+                        <div class="form-floating mb-3 col-md-4">
+                              {{form.mobile_2}}
+                              <label for="floatingPassword">Phone Number 2 </label>
+                          </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.email}}
+                            <label for="floatingInput">Email Address</label>
+                        </div>
+
+                      <div class="form-floating mb-3 col-md-4">
+                            <select class="form-control" id="state" name="state">
+                  <option value="">-----------------</option>
+                  {% for state, lga_list in state_list.items %}
+                  <option value="{{state|lower}}" {% if state|lower == school.state|lower %} selected {% endif %} lga="<option value=''>----------</option>
+                  {% for lga in lga_list %}
+                  <option value='{{lga|lower}}'>{{lga|upper}}</option>
+                  {% endfor %}
+                  ">
+
+                  {{state|upper}}</option>
+                  {% endfor %}
+                </select>
+                            <label for="floatingInput">State </label>
+                            <div class="invalid-tooltip">Select State</div>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            <select name="lga" class="form-control" id="lga">
+                    {% if school.state %}
+                        <option value="">----- select lga -----</option>
+                        {% for state, lga_list in state_list.items %}
+                            {% if state|lower == school.state|lower %}
+                                {% for lga in lga_list %}
+                                <option value="{{lga|lower}}" {% if lga|lower == school.lga|lower %} selected {% endif %}>{{ lga|upper }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                    <option value="">----------</option>
+                    {% endif %}
+                </select>
+                            <label for="floatingInput">LGA </label>
+                            <div class="invalid-tooltip">Select LGA</div>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-8">
+                            {{form.address}}
+                            <label for="floatingPassword">Address</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.city}}
+                            <label for="floatingInput">City <span style="color:red">*</span></label>
+                            <div class="invalid-tooltip">City</div>
+                        </div>
+
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.area}}
+                            <label for="floatingPassword">Area</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.logo}}
+                            <label for="floatingPassword">Logo</label>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">OTHER INFORMATION</h5>
+                    <div class="row mb-3">
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.boarding_type}}
+                            <label for="floatingPassword">Boarding Type <span style="color:red">*</span></label>
+                            <div class="invalid-tooltip">Boarding Type</div>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.gender}}
+                            <label for="floatingInput">Gender</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.website}}
+                            <label for="floatingPassword">Website</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.school_owner_name}}
+                            <label for="floatingPassword">School Owner Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.school_head_name}}
+                            <label for="floatingPassword">School Head Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.registrar_name}}
+                            <label for="floatingPassword">Registrar Name</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.registrar_position}}
+                            <label for="floatingPassword">Registrar Position</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.registrar_mobile}}
+                            <label for="floatingPassword">Registrar Mobile</label>
+                        </div>
+
+                        <div class="form-floating mb-3 col-md-4">
+                            {{form.short_description}}
+                            <label for="floatingPassword">Short School Description</label>
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <h4 class="text-primary">School Type</h4>
+                            {{form.school_type}}
+
+                        </div>
+
+                        <div class="mb-3 col-md-4">
+                            <h4 class="text-primary">School Amenities</h4>
+                            {{form.amenities}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+
+                    <div class="row mb-3">
+
+                    </div>
+
+
+                    <div class="row mb-3">
+
+                        <div class="form-floating mb-3 col-md-12">
+                            <br/>
+                            <button class="btn btn-primary" style="float:right" type="submit">Update School</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+</form>
+<script src="{% static 'admin_dashboard/scripts/jquery.js' %}"></script>
+<script>
+    $(document).ready(function(){
+      $('#id_department').change(function(){
+        position = $('option:selected', this).attr('position')
+        $('#id_position').html(position)
+      })
+
+      $('#state').change(function(){
+        lga = $('option:selected', this).attr('lga')
+        $('#lga').html(lga)
+      })
+    })
+
+</script>
+{%endblock %}

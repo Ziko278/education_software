@@ -1,3 +1,6 @@
 from django.contrib import admin
+from admin_site.models import SchoolTypeModel, SchoolFinderModel
 
-# Register your models here.
+
+admin.site.register(SchoolTypeModel)
+admin.site.register(SchoolFinderModel)
