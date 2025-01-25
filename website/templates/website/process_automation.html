@@ -1,0 +1,96 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+  <!-- ==================== Page-Title (Start) ==================== -->
+  <div class="page-title">
+
+    <div class="title">
+      <h2>Process Automation</h2>
+    </div>
+
+    <div class="link">
+      <a href="{% url 'homepage' %}">Home</a>
+      <i class="fa-solid fa-angles-right"></i>
+      <span class="page">Process Automation</span>
+    </div>
+
+  </div>
+  <!-- ==================== Page-Title (End) ==================== -->
+
+
+
+  <!-- ==================== Service Single (Start) ==================== -->
+  <section class="service-single page-single">
+
+    <!-- ========== Service Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+      <div class="category sidebar-item">
+
+        <!-- Sidebar Heading -->
+        <div class="sidebar-heading">
+          <h2>our services</h2>
+        </div>
+
+        <!-- Services List -->
+        <div class="box-container">
+          <a href="{% url 'process_automation_page' %}"><span><i class="fa-solid fa-compass"></i>School Management</span></a>
+          <a href="{% url 'training_and_workshop_page' %}"><span><i class="fa-solid fa-chalkboard-teacher"></i>Trainings & Workshops</span></a>
+          <a href="{% url 'excursion_page' %}"><span><i class="fas fa-vr-cardboard"></i>Exhibitions & Excursions</span></a>
+          <a href="{% url 'study_abroad_page' %}"><span><i class="fa-solid fa-certificate"></i>Overseas Admission</span></a>
+          <a href="{% url 'catalog_page' %}"><span><i class="fa-solid fa-book"></i>Educational Resources</span></a>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ========== Service Sidebar Area (End) ========== -->
+
+    <!-- ========== Service Info Container (Start) ========== -->
+    <div class="service-info page-info">
+
+      <!-- Service Image -->
+
+      <div class="content">
+
+        <!-- Service Main Heading -->
+        <h1 class="main-heading">Porcess Automation</h1>
+
+        <!-- Service Description -->
+
+<p>
+  We are well grounded in streamlining business processes to enhance productivity and efficiency by integrating  technology into clients'
+  operations. This transformation optimizes workflows, increasing effectiveness and supporting sustainable growth.
+
+  Our reputation is built on delivering user-friendly school management software. Our experienced team of educators, developers, and support
+  specialists works collaboratively to create intuitive solutions that enable schools to operate more efficiently.
+  Our software simplifies the management of student information, grade tracking, and communication between teachers, students, and parents.
+
+  Beyond school management, we focus on analyzing and optimizing business processes, helping organizations identify key areas for improvement. By implementing cutting-edge technologies such as automation, artificial intelligence, and machine learning, we drive greater efficiency and provide customized software solutions that meet the unique needs of each client.
+
+  We also offer comprehensive training and ongoing support to ensure clients make the most of our solutions. With a proven track record in process automation, we are committed to delivering measurable results. Our team works closely with clients, collaborating to ensure that our solutions are perfectly aligned with their operations and provide a strong return on investment.
+</p>
+
+        <!-- Service Gallery -->
+        <div class="page-gallery">
+            <img src="{% static 'website/images/Service/Services/Service-1.jpg' %}" alt="Guided Tours">
+         <img src="{% static 'website/images/Service/Services/Service-1a.jpg' %}" alt="Guided Tours">
+
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- ========== Service Info Container (End) ========== -->
+
+  </section>
+  <!-- ==================== Service Single (End) ==================== -->
+
+
+
+{% endblock %}

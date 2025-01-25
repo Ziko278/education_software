@@ -2,6 +2,7 @@
 {% load static %}
 {% block 'main' %}
 
+
 <!-- ==================== Page-Title (Start) ==================== -->
 <div class="page-title">
 
@@ -30,69 +31,22 @@
 
             <!-- Sidebar Heading: Categories -->
             <div class="sidebar-heading">
-                <h2>categories</h2>
+                <!-- <h2>categories</h2> -->
             </div>
 
             <!-- Shop Categories -->
             <div class="box-container">
-                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>All Products</span>
-                    <p>(30)</p></a>
-                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Art Prints</span>
-                    <p>(08)</p></a>
-                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Jewelry Boutique</span>
-                    <p>(06)</p></a>
-                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Books & Journals:</span>
-                    <p>(04)</p></a>
-                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Home Decor</span>
-                    <p>(06)</p></a>
-                <a class="item" href="#"> <span><i class="fa-solid fa-building-columns"></i>Fashion Accessories:</span>
-                    <p>(06)</p></a>
+                <!-- <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>All Products</span> <p>(30)</p> </a>
+                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Art Prints</span> <p>(08)</p> </a>
+                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Jewelry Boutique</span> <p>(06)</p> </a>
+                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Books & Journals:</span> <p>(04)</p> </a>
+                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Home Decor</span> <p>(06)</p> </a>
+                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Fashion Accessories:</span> <p>(06)</p> </a> -->
             </div>
 
         </div>
         <!-- ===== Category Area (End) ===== -->
 
-        <!-- ===== Filter Products (Start) ===== -->
-        <div class="filter sidebar-item">
-
-            <!-- Sidebar Heading: Filter Products -->
-            <div class="sidebar-heading">
-                <h2>Product Filter</h2>
-            </div>
-
-            <div class="box-container">
-                <!-- Slider -->
-                <div class="slider">
-                    <div class="progress"></div>
-                </div>
-                <!-- Range Input -->
-                <div class="range-input">
-                    <input class="range-min" max="1000" min="0" step="10" type="range" value="250">
-                    <input class="range-max" max="1000" min="0" step="10" type="range" value="750">
-                </div>
-                <!-- Price Wrap -->
-                <div class="price-wrap">
-                    <!-- Price Input -->
-                    <div class="price-input">
-                        <!-- Minimum Price Field -->
-                        <div class="field">
-                            <span>$</span>
-                            <input class="input-min" type="number" value="250">
-                        </div>
-                        <!-- Separator -->
-                        <div class="separator">-</div>
-                        <!-- Maximum Price Field -->
-                        <div class="field">
-                            <span>$</span>
-                            <input class="input-max" type="number" value="750">
-                        </div>
-                    </div>
-                    <!-- Filter Button -->
-                    <span class="btn">FILTER</span>
-                </div>
-            </div>
-        </div>
-        <!-- ===== Filter Products (End) ===== -->
 
         <!-- ===== Popular Products Area (Start) ===== -->
         <div class="popular-products sidebar-item">
@@ -104,41 +58,10 @@
 
             <!-- Popular Products -->
             <div class="box-container">
+                <div id="Popular-Products">
 
-                <!-- Popular Product 1 -->
-                <div class="post-item">
-                    <img alt="Diamond Brooch" src="{% static 'website/images/Shop/Products/Product-1.jpg' %}">
-                    <!-- Product Image -->
-                    <div class="content">
-                        <a href="Product-Single.html">Diamond Brooch</a> <!-- Product Title -->
-                        <div class="price">
-                            <p>$40.00 <span>$50.00</span></p> <!-- Product Price -->
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Popular Product 2 -->
-                <div class="post-item">
-                    <img alt="Wall Clock" src="{% static 'website/images/Shop/Products/Product-3.jpg' %}"> <!-- Product Image -->
-                    <div class="content">
-                        <a href="Product-Single.html">Wall Clock</a> <!-- Product Title -->
-                        <div class="price">
-                            <p>$40.00 <span>$50.00</span></p> <!-- Product Price -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Popular Product 3 -->
-                <div class="post-item">
-                    <img alt="Ceramic Vase" src="{% static 'website/images/Shop/Products/Product-5.jpg' %}">
-                    <!-- Product Image -->
-                    <div class="content">
-                        <a href="Product-Single.html">Ceramic Vase</a> <!-- Product Title -->
-                        <div class="price">
-                            <p>$40.00 <span>$50.00</span></p> <!-- Product Price -->
-                        </div>
-                    </div>
-                </div>
 
             </div>
 
@@ -155,28 +78,32 @@
         <div class="intro">
 
             <!-- Showing Products Count -->
-            <div class="showing">showing 4 of 30 products</div>
+            <!-- <div class="showing">showing 4 of 30 products  </div> -->
 
             <!-- Display Styles -->
             <div class="styles">
-                <a class="fas fa-th" href="Shop-Grid.html"></a>
-                <a class="fas fa-list" href="Shop-List.html"></a>
+                <!-- <a href="Shop-Grid.html" class="fas fa-th"></a> -->
+                <!-- <a href="Shop-List.html" class="fas fa-list"></a>                -->
+            </div>
+
+            <div class="btn" style="width: 100%;">
+                <a href="{% url 'school_finder_page' %}">Go to school search</a>
             </div>
 
             <!-- Sorting Type -->
             <div class="sorting-type">
 
                 <!-- Sorting Label -->
-                <label for="sort">sort by:</label>
+                <!-- <label for="sort">sort by:</label> -->
 
                 <!-- Sorting Options -->
-                <select id="sort" name="sort">
-                    <option value="default">default</option>
-                    <option value="name, A to Z">name, A to Z</option>
-                    <option value="mname, Z to A">name, Z to A</option>
-                    <option value="price, low to high">price, low to high</option>
-                    <option value="price, high to low">price, high to low</option>
-                </select>
+                <!-- <select name="sort" id="sort">
+                  <option value="default">default</option>
+                  <option value="name, A to Z">name, A to Z</option>
+                  <option value="mname, Z to A">name, Z to A</option>
+                  <option value="price, low to high">price, low to high</option>
+                  <option value="price, high to low">price, high to low</option>
+                </select> -->
 
             </div>
 
@@ -187,147 +114,15 @@
         <div class="product-container list">
 
             <!-- Product-1 -->
-            <div class="product-item">
-                <div class="image">
-                    <img alt="Diamond Brooch" src="{% static 'website/images/Shop/Products/Product-1.jpg' %}">
-                    <!-- Product Image -->
-                    <div class="options">
-                        <a class="icon" href="Wishlist.html"><i class="far fa-heart"></i></a>
-                        <!-- Add to Wishlist Button -->
-                        <a class="icon" href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <!-- Add to Cart Button -->
-                        <a class="icon" href="Product-Single.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <!-- Product Detail Page Button -->
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="rating"> <!-- Product Rating -->
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <a href="Product-Single.html"><h3>Diamond Brooch</h3></a> <!-- Product Title -->
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit inventore numquam
-                        error odit dolorum veniam recusandae doloribus dolor et minus sed hic distinctio, tenetur,
-                        voluptatem quia excepturi maxime repellat!</p> <!-- Product Description -->
-                    <div class="price">$40.00 <span>$50.00</span></div> <!-- Product Price -->
-                </div>
+
+            <div id="dump-here">
+
             </div>
 
-            <!-- Product-2 -->
-            <div class="product-item">
-                <div class="image">
-                    <img alt="Gemstone Ring" src="{% static 'website/images/Shop/Products/Product-2.jpg' %}">
-                    <!-- Product Image -->
-                    <div class="options">
-                        <a class="icon" href="Wishlist.html"><i class="far fa-heart"></i></a>
-                        <!-- Add to Wishlist Button -->
-                        <a class="icon" href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <!-- Add to Cart Button -->
-                        <a class="icon" href="Product-Single.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <!-- Product Detail Page Button -->
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="rating"> <!-- Product Rating -->
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <a href="Product-Single.html"><h3>Gemstone Ring</h3></a> <!-- Product Title -->
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit inventore numquam
-                        error odit dolorum veniam recusandae doloribus dolor et minus sed hic distinctio, tenetur,
-                        voluptatem quia excepturi maxime repellat!</p> <!-- Product Description -->
-                    <div class="price">$40.00 <span>$50.00</span></div> <!-- Product Price -->
-                </div>
-            </div>
-
-            <!-- Product-3 -->
-            <div class="product-item">
-                <div class="image">
-                    <img alt="Wall Clock" src="{% static 'website/images/Shop/Products/Product-3.jpg' %}"> <!-- Product Image -->
-                    <div class="options">
-                        <a class="icon" href="Wishlist.html"><i class="far fa-heart"></i></a>
-                        <!-- Add to Wishlist Button -->
-                        <a class="icon" href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <!-- Add to Cart Button -->
-                        <a class="icon" href="Product-Single.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <!-- Product Detail Page Button -->
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="rating"> <!-- Product Rating -->
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <a href="Product-Single.html"><h3>Wall Clock</h3></a> <!-- Product Title -->
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit inventore numquam
-                        error odit dolorum veniam recusandae doloribus dolor et minus sed hic distinctio, tenetur,
-                        voluptatem quia excepturi maxime repellat!</p> <!-- Product Description -->
-                    <div class="price">$40.00 <span>$50.00</span></div> <!-- Product Price -->
-                </div>
-            </div>
-
-            <!-- Product-4 -->
-            <div class="product-item">
-                <div class="image">
-                    <img alt="Gold Necklace" src="{% static 'website/images/Shop/Products/Product-4.jpg' %}">
-                    <!-- Product Image -->
-                    <div class="options">
-                        <a class="icon" href="Wishlist.html"><i class="far fa-heart"></i></a>
-                        <!-- Add to Wishlist Button -->
-                        <a class="icon" href="Cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
-                        <!-- Add to Cart Button -->
-                        <a class="icon" href="Product-Single.html"><i class="fa-solid fa-magnifying-glass"></i></a>
-                        <!-- Product Detail Page Button -->
-                    </div>
-                </div>
-                <div class="content">
-                    <div class="rating"> <!-- Product Rating -->
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <a href="Product-Single.html"><h3>Gold Necklace</h3></a> <!-- Product Title -->
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptates fugit inventore numquam
-                        error odit dolorum veniam recusandae doloribus dolor et minus sed hic distinctio, tenetur,
-                        voluptatem quia excepturi maxime repellat!</p> <!-- Product Description -->
-                    <div class="price">$40.00 <span>$50.00</span></div> <!-- Product Price -->
-                </div>
-            </div>
 
         </div>
         <!-- ===== Products (End) ===== -->
 
-        <!-- ===== Pagination (Start) ===== -->
-        <div class="pages-no">
-            <div class="container">
-                <!-- Previous Page Button -->
-                <div class="item">
-                    <i class="fas fa-arrow-left"></i>
-                </div>
-                <!-- Page Numbers -->
-                <div class="numbers">
-                    <div class="item active">1</div>
-                    <div class="item">2</div>
-                    <div class="item">3</div>
-                </div>
-                <!-- Next Page Button -->
-                <div class="item">
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-            </div>
-        </div>
-        <!-- ===== Pagination (End) ===== -->
 
     </div>
     <!-- ========== Shop Container (End) ========== -->
@@ -335,5 +130,8 @@
 </section>
 <!-- ==================== Shop-List Area (End) ==================== -->
 
+{% endblock %}
 
+{% block 'script' %}
+    <script src="{% static 'website/js/Product-Loader.js' %}"></script> <!-- filters for the name search directory. -->
 {% endblock %}

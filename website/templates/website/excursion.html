@@ -1,0 +1,115 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>Exhibitions</h2>
+    </div>
+
+    <div class="link">
+        <a href="{% url 'homepage' %}">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">Exhibitions</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Service Single (Start) ==================== -->
+<section class="service-single page-single">
+
+    <!-- ========== Service Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+        <div class="category sidebar-item">
+
+            <!-- Sidebar Heading -->
+            <div class="sidebar-heading">
+                <h2>our services</h2>
+            </div>
+
+            <!-- Services List -->
+            <div class="box-container">
+                <a href="{% url 'school_management_portal_page' %}"><span><i
+                        class="fa-solid fa-compass"></i>School Management</span></a>
+                <a href="{% url 'training_and_workshop_page' %}"><span><i class="fa-solid fa-chalkboard-teacher"></i>Trainings & Workshops</span></a>
+                <a href="{% url 'process_automation_page' %}"><span><i
+                        class="fas fa-calendar-alt"></i>Process Automation</span></a>
+
+                <a href="{% url 'study_abroad_page' %}"><span><i
+                        class="fa-solid fa-certificate"></i>Overseas Admission</span></a>
+                <a href="{% url 'catalog_page' %}"><span><i class="fa-solid fa-book"></i>Educational Resources</span></a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- ========== Service Sidebar Area (End) ========== -->
+
+    <!-- ========== Service Info Container (Start) ========== -->
+    <div class="service-info page-info">
+
+        <!-- Service Image -->
+
+        <div class="content">
+
+            <!-- Service Main Heading -->
+            <h1 class="main-heading">Exhibitions</h1>
+
+            <!-- Service Description -->
+            <p>
+                We offer a variety of educational tours and excursions that provide participants with valuable
+                real-world
+                experiences. These excursions go beyond traditional field trips, allowing students to visit industry
+                sites,
+                museums, historical landmarks, and cultural institutions. These immersive opportunities help students
+                connect
+                classroom knowledge with the world around them, broadening their perspectives and deepening their
+                understanding.
+
+                In addition to our excursions, we organize expert visitations to schools, where professionals from
+                various industries
+                interact directly with students and educators. These visits offer students the chance to gain insights
+                from industry
+                leaders, bridging the gap between education and the workplace and providing a practical perspective on
+                their studies.
+
+                Through a combination of educational excursions and expert-led visitations, we enrich the learning
+                experience with
+                hands-on opportunities that foster deeper engagement and understanding. We also host a wide range of
+                educational events
+                such as book fairs, literary festivals, and exhibitions, all designed to inspire curiosity, promote
+                literacy, and nurture
+                a love for reading and learning.
+                Our goal is to provide students and educators with the tools, experiences, and insights needed for
+                success in today's
+                ever-changing world, empowering them to grow, learn, and thrive.
+            </p>
+
+
+            <!-- Service Gallery -->
+            <div class="page-gallery">
+
+                <img alt="Guided Tours" src="{% static 'website/images/Service/Services/Service-1.jpg' %}">
+
+                <img alt="Guided Tours" src="{% static 'website/images/Service/Services/Service-1a.jpg' %}">
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- ========== Service Info Container (End) ========== -->
+
+</section>
+<!-- ===============
+{% endblock %}

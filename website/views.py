@@ -1,4 +1,8 @@
+import json
+
 from django.contrib.messages.views import SuccessMessageMixin
+from django.core.mail import send_mail
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import TemplateView, DetailView, CreateView
@@ -129,6 +133,33 @@ class SchoolManagementPortalPageView(TemplateView):
         return context
 
 
+class TrainingAndWorkshopPageView(TemplateView):
+    template_name = 'website/training_and_workshop.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+    
+    
+class ProcessAutomationPageView(TemplateView):
+    template_name = 'website/process_automation.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+
+class ExcursionPageView(TemplateView):
+    template_name = 'website/excursion.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+
 def forum_index_view(request):
     context = {
         'post_list': ForumPostModel.objects.all().order_by('-id')
@@ -218,3 +249,36 @@ def search_page_view(request):
 
     }
     return render(request, 'website/search.html', context)
+
+
+def send_update_mail(request):
+    if request.method == 'GET':
+        # Retrieve the raw data (sent as 'updated_data' in the request)
+        updated_data = request.GET.get('updated_data', None)
+
+        if updated_data:
+            try:
+                # Parse the JSON string into a Python dictionary
+                data = json.loads(updated_data)
+
+                # Construct the email body in 'key: Value' format
+                message = ""
+                for key, value in data.items():
+                    message += f"{key}: {value}\n"  # Format the message
+
+                # Prepare the email details
+                subject = 'UPDATED SCHOOL DATA'
+                from_email = 'odekeziko@gmail.com'
+                recipient_list = ['contact@braintree.com.ng', 'braintreeresources@gmail.com']  # List of email addresses
+
+                # Send the email
+                send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+
+                # Return a success response
+                return JsonResponse({'status': 'success', 'message': 'Email sent successfully'})
+            except json.JSONDecodeError:
+                return JsonResponse({'status': 'fail', 'message': 'Failed to decode JSON data'}, status=400)
+        else:
+            return JsonResponse({'status': 'fail', 'message': 'No data received'}, status=400)
+
+    return JsonResponse({'status': 'fail', 'message': 'Invalid request method'}, status=400)

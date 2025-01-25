@@ -1,188 +1,530 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block 'main' %}
-<!-- Start home -->
-<section class="bg-half page-next-level">
-    <div class="bg-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center text-white">
-                    <h4 class="text-uppercase title mb-4">School Finder</h4>
-                    <ul class="page-next d-inline-block mb-0">
-                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
-                        <li><a class="text-uppercase font-weight-bold" href="#">School</a></li>
-                        <li>
-                            <span class="text-uppercase text-white font-weight-bold">School Finder</span>
-                        </li>
+
+
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>School Finder</h2>
+    </div>
+
+    <div class="link">
+        <a href="../../index.html">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">School finder</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Blog Single (Start) ==================== -->
+<section class="blog-single">
+
+    <!-- ========== Blog-Info Container (Start) ========== -->
+    <div class="blog-container">
+
+        <!-- Blog Information -->
+        <div class="blog-info page-info">
+
+            <!-- <div class="image">
+              <img src="../../assets/images/School Finder/school finder.JPG" alt="School premises">  Houseplants Image
+            </div>
+             -->
+            <div class="introduction">
+
+                <div class="sub-section">
+                    <h3 class="sub-heading">A world of convenience</h3>
+                    <p>Explore our one-stop platform to search and compare schools near you to identify the best fit for
+                        your ward.</p>
+                    <ul class="school-search-benefits">
+                        <li><i class="fa-solid fa-angle-right"></i>saves time and effort.</li>
+                        <li><i class="fa-solid fa-angle-right"></i>contact school.</li>
+                        <li><i class="fa-solid fa-angle-right"></i>Compare school.</li>
+                        <li><i class="fa-solid fa-angle-right"></i>Comprehensive Information.</li>
+                        <li><i class="fa-solid fa-angle-right"></i>User Reviews.</li>
+                        <li><i class="fa-solid fa-angle-right"></i>wider range of choice.</li>
                     </ul>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!-- end home -->
-<form class="registration-form">
-<div class="container">
-    <div class="home-form-position">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="home-registration-form job-list-reg-form bg-light shadow p-4 mb-3">
 
-                        <div class="row">
-                            <div class="col-lg-3 col-md-6">
-                                <div class="registration-form-box">
-                                    <i class="fa fa-briefcase"></i>
-                                    <input class="form-control rounded registration-input-box" id="exampleInputName1"
-                                           placeholder="School keywords..."
-                                           type="text" name="keyword">
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="registration-form-box">
-                                    <i class="fa fa-location-arrow"></i>
-                                    <select class="" name="state" id="elect-country" style="width:100%;height:40px;border-radius:10px;padding-left:30px">
-                                        <option value="">Location</option>
-                                        {% for state, lga_list in state_list.items %}
-                                        <option value="{{ state|lower }}"
-                  lga="<option value=''>LGA---</option>
-                                                      {% for lga in lga_list %}
-                                                      <option value='{{lga|lower}}'>{{lga|upper}}</option>
-                                                      {% endfor %}
-                                                      ">{{ state|title }}</option>
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="registration-form-box">
-                                    <i class="fa fa-list-alt"></i>
-                                    <select class="demo-default" name="lga" id="elect-category" style="width:100%;height:40px;border-radius:10px;padding-left:30px">
-                                        <option value="">LGA...</option>
 
-                                    </select>
+            <div class="information-group" style="display: none;">
+                <div class="content">
+
+                    <!-- Blog Main Heading -->
+                    <h2 class="main-heading">Provide School Information</h2>
+
+                    <!-- Blog Details -->
+
+
+                    <!-- Blog Description -->
+                    <!-- Event Agenda -->
+                    <div class="sub-section">
+                        <div class="uploads-content" id="review-attachment">
+                            <div class="uploads-top">
+                                <!-- <div class="uploads-back">Update School information</div> -->
+                                <div class="information information-0">Details of person submitting information</div>
+                                <div class="information information-1">School Contact information</div>
+                                <div class="information information-2">Description of school</div>
+                                <div class="information information-3">Amenities Available</div>
+                                <!-- <div class="uploads-next" id="item1"></div> -->
+                            </div>
+
+
+                            <div class="overseas-form">
+
+
+                                <!-- ================ Applicants details (start)================ -->
+                                <!-- Name Input Field -->
+
+                                <div class="information information-0">
+                                    <div class="input-box">
+                                        <div class="input-field">
+                                            <label class="fas fa-user" for="name"></label>
+                                            <input class="box" id="name" name="name" placeholder="Name" required=""
+                                                   type="text">
+                                        </div>
+                                    </div>
+
+                                    <!-- Email Input Field -->
+                                    <div class="input-box">
+                                        <div class="input-field">
+                                            <label class="fa-solid fa-envelope" for="email"></label>
+                                            <input class="box" id="email" name="email" placeholder="Email" required=""
+                                                   type="email">
+                                        </div>
+                                    </div>
+
+                                    <!-- date Input Field -->
+                                    <div class="input-box">
+                                        <div class="input-field">
+                                            <label class="fas fa-briefcase" for="text"></label>
+                                            <!-- <label for="number" class="fas fa-laptop"></label> -->
+                                            <input class="box" id="designation" name="number" placeholder="Position Held"
+                                                   required="" type="text">
+                                        </div>
+                                    </div>
+
+                                    <!-- Phone Number Input Field -->
+                                    <div class="input-box">
+                                        <div class="input-field">
+                                            <label class="fas fa-phone" for="number"></label>
+                                            <input class="box" id="number" name="number" placeholder="Phone Number"
+                                                   required="" type="text">
+                                        </div>
+                                    </div>
+
+                                    <div class="information information-0">
+                                        <div class="uploads-navigation">
+                                            <button class="return-introduction-btn uploads-btn" link="information-0o">
+                                                cancel
+                                            </button>
+                                            <!-- <button class="uploads-btn" id="loaderr" link="information-1">loader</button> -->
+                                            <button class="uphdate-next loader load-editor-detail uploads-btn"
+                                                    link="information-1">next
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="information information-1">
+                                <div>
+                                    <div id="address-information"></div>
+                                </div>
+
+                                <div class="uploads-navigation">
+                                    <button class="update-back uploads-btn" link="information-0">Back</button>
+                                    <button class="update-next load-school-details uploads-btn" link="information-2">
+                                        next
+                                    </button>
                                 </div>
                             </div>
-                            <div class="col-lg-3 col-md-6">
-                                <div class="registration-form-box">
-                                    <input class="submitBnt btn btn-primary btn-block" id="submit" name="send"
-                                           type="submit" value="Search">
+
+                            <div class="information information-2">
+                                <fieldset class="wrap-reviewer-page" name=""
+                                          style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                                    <legend>Sections</legend>
+                                    <div class="reviewer-page"
+                                         style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; max-width: 600px;">
+                                        <div style="flex-basis: 22%; text-align: center;">
+                                            <label for="section-checkbox1a"><p>Nursery</p></label>
+                                            <input class="search-selector" id="section-checkbox1a" name="section[]"
+                                                   type="checkbox" value="Nursery">
+                                        </div>
+                                        <div style="flex-basis: 22%; text-align: center;">
+                                            <label for="section-checkbox2a"><p>Primary</p></label>
+                                            <input class="search-selector" id="section-checkbox2a" name="section[]"
+                                                   type="checkbox" value="Primary">
+                                        </div>
+                                        <div style="flex-basis: 22%; text-align: center;">
+                                            <label for="section-checkbox3a"><p>JSS</p></label>
+                                            <input class="search-selector" id="section-checkbox3a" name="section[]" type="checkbox"
+                                                   value="JSS">
+                                        </div>
+
+                                        <div style="flex-basis: 22%; text-align: center;">
+                                            <label for="section-checkbox4a"><p>SSS</p></label>
+                                            <input class="search-selector" id="section-checkbox4a" name="section[]" type="checkbox"
+                                                   value="SSS">
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <div id="facility-information"></div>
+                                <div class="uploads-navigation">
+                                    <button class="update-back uploads-btn" link="information-1">back</button>
+                                    <button class="update-next uploads-btn" link="information-3">next</button>
                                 </div>
                             </div>
+
+
+                            <div class="information information-3">
+                                <fieldset class="wrap-reviewer-page" name=""
+                                          style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                                    <legend>Available</legend>
+
+                                    <!-- Container for checkboxes arranged in rows of three -->
+                                    <div class="reviewer-page"
+                                         style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; max-width: 600px;">
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox1"><p>Library</p></label>
+                                            <input class="search-selector" id="checkbox1" name="search[]"
+                                                   type="checkbox" value="library">
+                                        </div>
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox2"><p>Science Laboratory</p></label>
+                                            <input class="search-selector" id="checkbox2" name="search[]"
+                                                   type="checkbox" value="science_laboratory">
+                                        </div>
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox3"><p>ICT Studio</p></label>
+                                            <input class="search-selector" id="checkbox3" name="search[]"
+                                                   type="checkbox" value="ict_studio">
+                                        </div>
+
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox4"><p>Airconditioning</p></label>
+                                            <input class="search-selector" id="checkbox4" name="search[]"
+                                                   type="checkbox" value="airconditioning">
+                                        </div>
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox5"><p>Tuck Shop</p></label>
+                                            <input class="search-selector" id="checkbox5" name="search[]"
+                                                   type="checkbox" value="tuck_shop">
+                                        </div>
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox6"><p>Primary 6</p></label>
+                                            <input class="search-selector" id="checkbox6" name="search[]"
+                                                   type="checkbox" value="primary_6">
+                                        </div>
+
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox7"><p>Sports Arena</p></label>
+                                            <input class="search-selector" id="checkbox7" name="search[]"
+                                                   type="checkbox" value="sports_arena">
+                                        </div>
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox8"><p>CBT Centre</p></label>
+                                            <input class="search-selector" id="checkbox8" name="search[]" type="checkbox"
+                                                   value="CBT">
+                                        </div>
+                                        <div style="flex-basis: 30%; text-align: center;">
+                                            <label for="checkbox9"><p>Sick Bay</p></label>
+                                            <input class="search-selector" id="checkbox9" name="search[]"
+                                                   type="checkbox" value="sickbay">
+                                        </div>
+                                    </div>
+
+
+                                </fieldset>
+                                <!-- <fieldset name="" class="wrap-reviewer-page" style="width: 100%;">
+                                  <legend>School description </legend>
+                                  <textarea name="school-descriptor" id="" placeholder="brief descrition of your school"></textarea>
+
+                                </fieldset> -->
+                                <div class="uploads-navigation">
+                                    <button class="update-back uploads-btn" link="information-2">back</button>
+                                    <button class="new-search uploads-btn transfer-info" id="submitdetail" link="information-0">next
+                                    </button>
+                                </div>
+
+
+                            </div>
+
+
                         </div>
 
+                        <!-- ================ Review Attachments (End)================ -->
+                    </div>
+
                 </div>
+
+
             </div>
         </div>
+
+
     </div>
-</div>
+    <!-- ========== Blog-Info Container (End) ========== -->
 
-<!-- JOB LIST START -->
-<section class="section pt-0">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="section-title text-center mb-4 pb-2">
-                    <h4 class="title title-line pb-5">Available Schools</h4>
-                </div>
+    <!-- ========== Blog Sidebar Area (Start) ========== -->
+
+    <div class="sidebar">
+        <div class="search sidebar-item">
+            <div class="sidebar-heading">
+                <!-- <h2>Name search</h2> -->
             </div>
+
+            <!-- Search Result and contact -->
+            <div class="leave-reply">
+
+                <!-- Comment Form -->
+                <form action="#" class="form mail-school" style="display: none;">
+                    <h3>Contact This School</h3> <!-- Heading -->
+                    <div class="input-box">
+                        <input class="box" id="contact-name" name="name" placeholder="Name" required="" type="text">
+                        <!-- Name Input -->
+                        <input class="box" id="contact-email" name="email" placeholder="Email" required="" type="email">
+                        <!-- Email Input -->
+                    </div>
+                    <textarea class="box" cols="30" id="comment" name="comment" placeholder="Request/Enquiry" required=""
+                              rows="10"></textarea> <!-- Comment Textarea -->
+                    <input class="btn" type="submit" value="Send"> <!-- Submit Button -->
+                </form>
+
+
+            </div>
+
+
+            <div class="box-container scrollable-container" id="business-search-result" style="height: 150px;">
+
+
+                <!-- <p class="business-search-result" style="display: none;" id="serial"></p> -->
+                <p class="business-search-result name-item" id="school_name"></p>
+                <p class="business-search-result detail-item" id="ownership"></p>
+                <p class="business-search-result detail-item" id="nursery"></p>
+                <p class="business-search-result detail-item" id="primary"></p>
+                <p class="business-search-result detail-item" id="junior"></p>
+                <p class="business-search-result detail-item" id="senior"></p>
+                <p class="business-search-result detail-item" id="address"></p>
+                <p class="business-search-result detail-item" id="area"></p>
+                <p class="business-search-result detail-item" id="city"></p>
+                <p class="business-search-result detail-item" id="lga"></p>
+                <p class="business-search-result detail-item" id="state"></p>
+                <p class="business-search-result detail-item" id="email"></p>
+                <p class="business-search-result detail-item" id="telephone"></p>
+                <p class="business-search-result detail-item" id="website"></p>
+                <p class="business-search-result detail-item" id="faith"></p>
+                <p class="business-search-result detail-item" id="hostel"></p>
+                <p class="business-search-result detail-item" id="gender"></p>
+                <p class="business-search-result detail-item" id="bus"></p>
+                <p class="business-search-result detail-item" id="airconditioning"></p>
+                <p class="business-search-result detail-item" id="library"></p>
+                <p class="business-search-result detail-item" id="sports_arena"></p>
+                <p class="business-search-result detail-item" id="science_laboratory"></p>
+                <p class="business-search-result detail-item" id="ict_studio"></p>
+                <p class="business-search-result detail-item" id="tuck_shop"></p>
+                <p class="business-search-result detail-item" id="primary_6"></p>
+                <p class="business-search-result detail-item" id="sickbay"></p>
+
+
+                <!-- <br><br> -->
+                <h2 class="business-search-result" id="nature_of_business"></h2>
+                <!-- <p class="business-search-result detail-item" id="State"></p> -->
+                <!-- <input type="submit" value="contact this school" class="Contact-School">  -->
+                <!-- Submit Button -->
+                <!-- Button to show the upload field  -->
+                <!-- <div> -->
+                <button class="correction-btn" id="correct-details" style="display: none;"><a href="#"></a>Correct
+                    details
+                </button>
+
+                <!-- </div> -->
+
+            </div>
+
         </div>
 
-        <div class="row">
-            <div class="col-lg-12 mt-4 pt-2">
-                <div class="row align-items-center">
-                    <div class="col-lg-12">
-                        <div class="show-results">
-                            <div class="float-left">
-                                <h5 class="text-dark mb-0 pt-2 f-18"><p>Showing results {{ school_list.start_index }} - {{ school_list.end_index }} of {{ school_list.paginator.count }} Schools</p>
-                                </h5>
-                                {% if school_list.has_other_pages %}
-                                    <ul class="pagination">
-                                        {% if school_list.has_previous %}
 
-                                            <li style="width:35px" ><a href="?page={{ school_list.previous_page_number }}">Prev</a></li>
-                                        {% endif %}
-                                        {% for num in school_list.paginator.page_range %}
-                                            <li style="width:35px" {% if num == school_list.number %} class="active"{% endif %}><a href="?page={{ num }}">{{ num }}</a></li>
-                                        {% endfor %}
-                                        {% if school_list.has_next %}
-                                            <li style="width:35px"><a href="?page={{ school_list.next_page_number }}">Next</a></li>
-                                        {% endif %}
-                                    </ul>
-                                {% endif %}
-                            </div>
+        <!-- ===== Search Area (Start) ===== -->
+        <div class="all-search-group">
+            <div class="search sidebar-item">
+                <div style="display: flex; flex-direction: row; justify-content: space-around;">
+                    <div style="display: inline-block; text-align: center;">
+                        <label for="location"><p>Search by name</p></label><input checked class="search-selector"
+                                                                                  id="name-search" id-linker="name-filter"
+                                                                                  name="search" type="radio">
+                    </div>
+                    <div style="display: inline-block; text-align: center;">
+                        <label for="location"><p>Search by location</p></label><input class="search-selector"
+                                                                                      id="location-search"
+                                                                                      id-linker="location-filter" name="search"
+                                                                                      type="radio">
 
-                        </div>
                     </div>
                 </div>
-                {% if school_list %}
-                <div class="row">
-                    {% for school in school_list %}
-                    <div class="col-lg-12 mt-4 pt-2">
-                        <div class="job-list-box border rounded">
-                            <div class="p-3">
-                                <div class="row align-items-center">
-                                    <div class="col-lg-2">
-                                        <div class="company-logo-img">
-                                            <img alt="" style="height:150px" class="img-fluid mx-auto d-block"
-                                                 src="{% if school.logo %}{{school.logo.url}}{% else %}{% endif %}">
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-7 col-md-9">
-                                        <div class="job-list-desc">
-                                            <h6 class="mb-2"><a class="text-dark" href="{% url 'school_finder_detail_page' school.id %}">{{ school.name|title }}</a></h6>
-                                            <p class="text-muted mb-0"><i class="mdi mdi-phone mr-2"></i>{{ school.mobile_1 }}</p>
-                                            <ul class="list-inline mb-0">
-                                                <li class="list-inline-item mr-3">
-                                                    <p class="text-muted mb-0"><i class="mdi mdi-map-marker mr-2"></i>Confederate
-                                                        {{ school.address }}</p>
-                                                </li>
 
-                                                <li class="list-inline-item">
-                                                    <p class="text-muted mb-0"><i
-                                                            class="mdi mdi-clock-outline mr-2"></i>{{ school.email|lower}}</p>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-3 col-md-3">
-                                        <div class="job-list-button-sm text-right">
-                                            <div class="mt-3">
-                                                <a class="btn btn-sm btn-primary" href="{% url 'school_finder_detail_page' school.id %}">More Info</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-
-                </div>
-                {% else %}
-                <div class="row">
-                    <h4 class="col-12 text-center">No School Found</h4>
-                </div>
-                {% endif %}
             </div>
+            <!-- ====================== category search (start) ================== -->
+            <div class="category location-filter sidebar-item" style="display: none;">
 
+                <div class="sidebar-heading">
+                    <h2 class="state-name-loader">Location filter </h2>
+                </div>
+
+
+                <!-- Blog Categories -->
+                <div class="state-name-details box-container" id="">
+                    <!-- <p class= "state-name-loader" id="all-state-loader">All States</p> -->
+                    <p class="scrollable-container" id="all-state-names"></p>
+                    <p id="found-state"></p>
+                    <p class="scrollable-container" id="found-schools"></p>
+
+
+                </div>
+
+            </div>
+            <div class="search category name-filter sidebar-item">
+
+                <div class="sidebar-heading">
+                    <h2 class="Name-Search">Name search</h2>
+                </div>
+
+                <!-- Blog Search Form -->
+                <form class="school-search-container box-container">
+                    <div class="input-box">
+                        <input id="school-name-search" placeholder="search..." required="" type="search">
+                        <!-- Search Input -->
+                        <button type=""><i class="fas fa-search"></i></button> <!-- Submit Button -->
+                    </div>
+                </form>
+                <div id="found_items"></div>
+
+
+            </div>
         </div>
+
+        <!-- ====================================== submitted changes(start) ====================================== -->
+        <h3 id="clear-all"></h3>
+        <!-- -----------------populated by ("#load-editor-detail")------------------------ -->
+        <p class="items-sent" id="sent-modifier-name"></p>
+        <p class="items-sent" id="sent-modifier-email"></p>
+        <p class="items-sent" id="sent-modifier-designation"></p>
+        <p class="items-sent" id="sent-modifier-phone"></p>
+
+        <!-- -----------------populated by (".load-school-details")------------------------ -->
+        <p class="items-sent" id="sent-school_name"></p>
+        <p class="items-sent" id="sent-ownership"></p>
+        <p class="items-sent" id="sent-serial"></p>
+        <p class="items-sent" id="sent-address"></p>
+        <p class="items-sent" id="sent-area"></p>
+        <p class="items-sent" id="sent-city"></p>
+        <p class="items-sent" id="sent-lga"></p>
+        <p class="items-sent" id="sent-state"></p>
+        <p class="items-sent" id="sent-email"></p>
+        <p class="items-sent" id="sent-telephone"></p>
+        <p class="items-sent" id="sent-website "></p>
+
+
+        <!-- -------------------- populated from click of the class: input = name function---- -->
+        <ul id="selected-values">
+
+        </ul>
+        <p class="items-sent" id="sent-faith"></p>
+        <p class="items-sent" id="sent-hostel"></p>
+        <p class="items-sent" id="sent-transport"></p>
+        <p class="items-sent" id="sent-gender"></p>
+
+        <!-- -------------------- populated from click of the class: input = name function---- -->
+        <ul id="sent-search">
+
+        </ul>
+        <!-- <p class="items-sent" id="sent-transport"></p>
+        <p class="items-sent" id="sent-airconditioning"></p>
+        <p class="items-sent" id="sent-library"></p>
+        <p class="items-sent" id="sent-sports_arena"></p>
+        <p class="items-sent" id="sent-science_laboratory"></p>
+        <p class="items-sent" id="sent-ict_studio"></p>
+        <p class="items-sent" id="sent-tuck_shop"></p>
+        <p class="items-sent" id="sent-primary_6"></p>
+        <p class="items-sent" id="sent-sickbay"></p> -->
+        <!-- ====================================== submitted changes(end) ====================================== -->
+        <!-- <div class="hidden-item">
+          hidden-item
+          <p class="items-submitted" id="new-serial"></p>
+          <p class="items-submitted" id="new-school_name"></p>
+          <p class="items-submitted" id="new-ownership"></p>
+          <p class="items-submitted" id="new-nursery"></p>
+          <p class="items-submitted" id="new-primary"></p>
+          <p class="items-submitted" id="new-junior"></p>
+          <p class="items-submitted" id="new-senior"></p>
+          <p class="items-submitted" id="new-address"></p>
+          <p class="items-submitted" id="new-area"></p>
+          <p class="items-submitted" id="new-city"></p>
+          <p class="items-submitted" id="new-lga"></p>
+          <p class="items-submitted" id="new-state"></p>
+          <p class="items-submitted" id="new-email"></p>
+          <p class="items-submitted" id="new-telephone"></p>
+          <p class="items-submitted" id="new-website "></p>
+          <p class="items-submitted" id="new-faith"></p>
+          <p class="items-submitted" id="new-hostel"></p>
+          <p class="items-submitted" id="new-gender"></p>
+          <p class="items-submitted" id="new-transport"></p>
+          <p class="items-submitted" id="new-airconditioning"></p>
+          <p class="items-submitted" id="new-library"></p>
+          <p class="items-submitted" id="new-sports_arena"></p>
+          <p class="items-submitted" id="new-science_laboratory"></p>
+          <p class="items-submitted" id="new-ict_studio"></p>
+          <p class="items-submitted" id="new-tuck_shop"></p>
+          <p class="items-submitted" id="new-primary_6"></p>
+          <p class="items-submitted" id="new-sickbay"></p>
+
+        </div> -->
+
+
+        <!-- ====================== category search (end) ================== -->
+
+
+        <div class="box-container add-school">
+            <div class="error-message">School not found</div>
+            <div class="uploads-navigation">
+                <button class="error-option new-search uploads-btn">search another</button>
+                <button class="error-option update-school uploads-btn">add new school</button>
+            </div>
+            <!-- <div  class="error-options">
+              <button  class="error-option">g</button>
+              <button  class="error-option">h</button>
+            </div> -->
+        </div>
+
+        <!-- ===== Search Area (End) ===== -->
+
+        <!-- ===== Category Area (Start) ===== -->
+        <!-- <div class="category  sidebar-item">
+
+
+
+        </div> -->
+
+
+        <!-- ===== Category Area (End) ===== -->
+
+
     </div>
+    <!-- ========== Blog Sidebar Area (End) ========== -->
+
 </section>
-<!-- JOB LIST START -->
- </form>
+<!-- ==================== Blog Single (End) ==================== -->
 
-  <script src="{% static 'admin_dashboard/scripts/jquery.js' %}"></script>
-<script>
-$(document).ready(function(){
+{% block 'script' %}
+    <script src="{% static 'website/js/name-search-directory.js' %}"></script> <!-- filters for the name search directory. -->
+<script src="{% static 'website/js/school-directory.js' %}"></script> <!-- filters for the school directory. -->
+<script src="{% static 'website/js/school-details-updater.js' %}"></script> <!-- filters for the school directory. -->
+{% endblock %}
 
-  $('#elect-country').change(function(){
-
-    lga = $('option:selected', this).attr('lga')
-
-    $('#elect-category').html(lga)
-  })
-})
-
-</script>
 {% endblock %}

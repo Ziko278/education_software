@@ -1,0 +1,100 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+  <!-- ==================== Page-Title (Start) ==================== -->
+  <div class="page-title">
+
+    <div class="title">
+      <h2>Training and Workshop</h2>
+    </div>
+
+    <div class="link">
+      <a href="{% url 'homepage' %}">Home</a>
+      <i class="fa-solid fa-angles-right"></i>
+      <span class="page">Training and Workshop</span>
+    </div>
+
+  </div>
+  <!-- ==================== Page-Title (End) ==================== -->
+
+
+
+  <!-- ==================== Service Single (Start) ==================== -->
+  <section class="service-single page-single">
+
+    <!-- ========== Service Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+      <div class="category sidebar-item">
+
+        <!-- Sidebar Heading -->
+        <div class="sidebar-heading">
+          <h2>our services</h2>
+        </div>
+
+        <!-- Services List -->
+        <div class="box-container">
+          <a href="{% url 'school_management_portal_page' %}"><span><i class="fa-solid fa-compass"></i>School Management</span></a>
+          <a href="{% url 'process_automation_page' %}"><span><i class="fas fa-calendar-alt"></i>Process Automation</span></a>
+          <a href="{% url 'excursion_page' %}"><span><i class="fas fa-vr-cardboard"></i>Exhibitions & Excursions</span></a>
+          <a href="{% url 'study_abroad_page' %}"><span><i class="fa-solid fa-certificate"></i>Overseas Admission</span></a>
+          <a href="{% url 'catalog_page' %}"><span><i class="fa-solid fa-book"></i>Educational Resources</span></a>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ========== Service Sidebar Area (End) ========== -->
+
+    <!-- ========== Service Info Container (Start) ========== -->
+    <div class="service-info page-info">
+
+      <!-- Service Image -->
+
+      <div class="content">
+
+        <!-- Service Main Heading -->
+        <h1 class="main-heading">Trainings and workshops</h1>
+
+        <!-- Service Description -->
+
+        <p>We offer a variety of training options, led by experienced instructors who bring real-world knowledge and
+          practical insights to every session. Whether through in-person courses, online programs, or a mix of both,
+          we strive to create engaging and impactful learning environments that cater to the specific needs of each participant.
+
+          Our training programs are tailored to address the unique requirements of individuals, teams, and organizations.
+          We work closely with our clients to design customized solutions that align with their goals, ensuring relevant
+          and practical learning outcomes. In addition to traditional courses, we also offer e-learning resources, workshops,
+          seminars, and conferences to provide flexible and accessible learning opportunities.
+
+          Our instructors have extensive experience in their fields and bring real-world expertise
+          to the training process. We continuously update our training content to ensure it reflects the
+          latest industry trends and best practices. Our commitment to delivering exceptional learning experiences
+          means we go beyond simply teaching as we focus on creating an environment where participants are motivated and empowered to grow.
+        </p>
+
+        <!-- Service Gallery -->
+        <div class="page-gallery">
+
+          <a href="../../assets/images/Blog/Blog-Gallery/1.jpg">
+            <img src="../../assets/images/Service/Services/Service-2.jpg" alt="Guided Tours">
+          </a>
+          <a href="../../assets/images/Blog/Blog-Gallery/2.jpg">
+            <img src="../../assets/images/Service/Services/Service-2a.jpg" alt="Guided Tours">
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <!-- ========== Service Info Container (End) ========== -->
+
+  </section>
+  <!-- ==================== Service Single (End) ==================== -->
+
+
+{% endblock %}

@@ -3,57 +3,56 @@
 <html lang="en">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- Title -->
-  <title> Braintree Educational Resources</title>
+    <!-- Title -->
+    <title> Braintree Educational Resources</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{% static 'website/images/favicon.png' %}">
+    <!-- Favicon -->
+    <link href="{% static 'website/images/favicon.png' %}" rel="icon" type="image/x-icon">
 
-  <!-- Font-Awesome (CSS) -->
-  <link rel="stylesheet" href="{% static 'website/vendors/font-awesome/css/all.min.css' %}">
+    <!-- Font-Awesome (CSS) -->
+    <link href="{% static 'website/vendors/font-awesome/css/all.min.css' %}" rel="stylesheet">
 
-  <!-- Magnific-Popup (CSS) -->
-  <link rel="stylesheet" href="{% static 'website/vendors/magnific-popup/magnific-popup.css' %}">
+    <!-- Magnific-Popup (CSS) -->
+    <link href="{% static 'website/vendors/magnific-popup/magnific-popup.css' %}" rel="stylesheet">
 
-  <!-- Swiper (CSS) -->
-  <link rel="stylesheet" href="{% static 'website/vendors/swiper/swiper-bundle.min.css' %}">
+    <!-- Swiper (CSS) -->
+    <link href="{% static 'website/vendors/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
 
-  <!-- Custom Stylesheets -->
-  <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
-  <link rel="stylesheet" href="{% static 'website/css/responsive.css' %}">
+    <!-- Custom Stylesheets -->
+    <link href="{% static 'website/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'website/css/responsive.css' %}" rel="stylesheet">
 
 </head>
 <body>
 
-  <!-- ==================== Scroll-Top Area (Start) ==================== -->
-  <a href="#" class="scroll-top">
+<!-- ==================== Scroll-Top Area (Start) ==================== -->
+<a class="scroll-top" href="#">
     <i class="fa-solid fa-arrow-up-long"></i>
-  </a>
-  <!-- ==================== Scroll-Top Area (End) ==================== -->
+</a>
+<!-- ==================== Scroll-Top Area (End) ==================== -->
 
 
-
-  <!-- ==================== Header Area (Start) ==================== -->
-  <header class="header">
+<!-- ==================== Header Area (Start) ==================== -->
+<header class="header">
 
     <!-- ===== Header-1 Area (Start) ===== -->
     <div class="header-1">
 
-      <!-- == Contacts == -->
-      <ul class="header-contacts">
-        <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>
-        <li><i class="fa-solid fa-phone"></i><span>+234-809-4022-810</span></li>
-        <li><i class="fa-solid fa-envelope"></i><span class="gmail">contact@braintree.com</span></li>
-      </ul>
+        <!-- == Contacts == -->
+        <ul class="header-contacts">
+            <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>
+            <li><i class="fa-solid fa-phone"></i><span>+234-809-4022-810</span></li>
+            <li><i class="fa-solid fa-envelope"></i><span class="gmail">contact@braintree.com</span></li>
+        </ul>
 
-      <!-- == Social == -->
-      <ul class="social-contacts">
-        <li><a href="#" class="fab fa-facebook-f"></a></li>
-      </ul>
+        <!-- == Social == -->
+        <ul class="social-contacts">
+            <li><a class="fab fa-facebook-f" href="#"></a></li>
+        </ul>
 
     </div>
     <!-- ===== Header-1 Area (End) ===== -->
@@ -61,194 +60,191 @@
     <!-- ===== Header-2 Area (Start) ===== -->
     <div class="header-2">
 
-      <!-- == Logo == -->
-      <a class="logo" href="{% url 'homepage' %}">
-        <img src="{% static 'website/images/Logo/Logo.png' %}" alt="logo">
-      </a>
+        <!-- == Logo == -->
+        <a class="logo" href="{% url 'homepage' %}">
+            <img alt="logo" src="{% static 'website/images/Logo/Logo.png' %}">
+        </a>
 
-      <div class="container">
+        <div class="container">
 
-        <!-- == Navbar == -->
-        <nav class="navbar" style="padding-right: 200px;">
+            <!-- == Navbar == -->
+            <nav class="navbar" style="padding-right: 200px;">
 
-          <a class="nav-btn" href="{% url 'homepage' %}">home</a>
-          <a class="nav-btn" href="{% url 'about_page' %}">About Us</a>
-          <div class="dropdown-menu">
-            <button class="nav-btn">calendar</button>
-            <div class="dropdown-content">
-              <a href="pages/Calendar/Examination-list.html">Examination</a>
-              <a href="pages/Calendar/Examinations.html">Examiners</a>
-              <a href="pages/Calendar/state Academic calendar.html">States</a>
+                <a class="nav-btn" href="{% url 'homepage' %}">home</a>
+                <a class="nav-btn" href="{% url 'about_page' %}">About Us</a>
+                <div class="dropdown-menu">
+                    <button class="nav-btn">calendar</button>
+                    <div class="dropdown-content">
+                        <a href="{% url 'calendar_examination_page' %}">Examination</a>
+                        <a href="{% url 'calendar_examiner_page' %}">Examiners</a>
+                        <a href="{% url 'calendar_state_page' %}">States</a>
+                    </div>
+                </div>
+                <a class="nav-btn" href="{% url 'school_finder_page' %}">School Finder</a>
+                <a class="nav-btn" href="{% url 'catalog_page' %}">Resources</a>
+
+
+            </nav>
+
+            <!-- == Icon Container == -->
+            <div class="icon-container">
+                <div class="icon fa-solid fa-bars-staggered" id="menu-btn"></div>
+                <!-- <a href="pages/Shop/Shop-Gbagyi.html" class="btn">Shop Gbagyi Cultural items</a> -->
             </div>
-          </div>
-          <a class="nav-btn" href="pages/Resources/Resources-Catalogue.html">Resources</a>
 
+            <!-- == Search Container == -->
+            <form class="search-container">
 
-        </nav>
+            </form>
 
-        <!-- == Icon Container == -->
-        <div class="icon-container">
-          <div id="menu-btn" class="icon fa-solid fa-bars-staggered"></div>
-          <!-- <a href="pages/Shop/Shop-Gbagyi.html" class="btn">Shop Gbagyi Cultural items</a> -->
         </div>
-
-        <!-- == Search Container == -->
-        <form class="search-container">
-
-        </form>
-
-      </div>
 
     </div>
     <!-- ===== Header-2 Area (End) ===== -->
 
-   <!-- ===== Mobile Menu Area (Start) ===== -->
-   <div class="mobile-menu">
+    <!-- ===== Mobile Menu Area (Start) ===== -->
+    <div class="mobile-menu">
 
-    <nav class="mobile-navbar">
+        <nav class="mobile-navbar">
 
-      <div class="nav-link">
-        <div class="main-nav-link"> <a class="nav-btn" href="{% url 'homepage' %}">home</a> </div>
-      </div>
-      <div class="nav-link">
-        <div class="main-nav-link"> <div class="nav-btn">Calendar</div> <i class="fas fa-plus"></i> </div>
-        <div class="sub-nav-link">
-          <a href="pages/Calendar/Examination-list.html">Examination</a>
-          <a href="pages/Calendar/Examinations.html">Examiners</a>
-          <a href="pages/Calendar/state Academic calendar.html">State</a>
-        </div>
-      </div>
-      <div class="nav-link">
-        <div class="main-nav-link"> <a class="nav-btn" href="pages/School Finder/School finder.html">School finder</a> </div>
-      </div>
+            <div class="nav-link">
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'homepage' %}">home</a></div>
+            </div>
+          <div class="nav-link">
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'about_page' %}">About Us</a></div>
+            </div>
+            <div class="nav-link">
+                <div class="main-nav-link">
+                    <div class="nav-btn">Calendar</div>
+                    <i class="fas fa-plus"></i></div>
+                <div class="sub-nav-link">
+                  <a href="{% url 'calendar_examination_page' %}">Examination</a>
+                  <a href="{% url 'calendar_examiner_page' %}">Examiners</a>
+                  <a href="{% url 'calendar_state_page' %}">States</a>
+                </div>
+            </div>
+            <div class="nav-link">
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'school_finder_page' %}">School
+                    finder</a></div>
+            </div>
 
-      <div class="nav-link">
-        <div class="main-nav-link"> <div class="nav-btn">Resources</div> <i class="fas fa-plus"></i> </div>
-        <div class="sub-nav-link">
-          <a href="pages/Resources/Shop-Grid.html">Catalogue</a>
-          <a href="pages/Resources/Shop-List.html">Categories</a>
-        </div>
-      </div>
-
-
-    </nav>
-
-  </div>
-  <!-- ===== Mobile Menu Area (End) ===== -->
-
-  </header>
-  <!-- ==================== Header Area (End) ==================== -->
+            <div class="nav-link">
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'school_finder_page' %}">
+                    Resources
+                </a></div>
+            </div>
 
 
+        </nav>
 
- <!-- ==================== MAIN ==================== -->
+    </div>
+    <!-- ===== Mobile Menu Area (End) ===== -->
+
+</header>
+<!-- ==================== Header Area (End) ==================== -->
+
+
+<!-- ==================== MAIN ==================== -->
 {% block 'main' %} {% endblock %}
 <!-- ==================== MAIN (End) ==================== -->
 
 
-
+<!-- ==================== Footer Area (Start) ==================== -->
 <!-- ==================== Footer Area (Start) ==================== -->
 <footer class="footer">
 
-  <div class="box-container">
+    <div class="box-container">
 
-    <!-- Museum Information & Social Media Links -->
-    <div class="footer-item">
+        <!-- Information & Social Media Links -->
+        <div class="footer-item">
 
-      <!-- Museum Logo -->
-      <a class="logo" href="index.html">
-        <img src="{% static 'website/images/Logo/Logo.png' %}" alt="Museum Logo">
-      </a>
+            <!-- Braintree Logo -->
+            <a class="logo" href="{% url 'homepage' %}">
+                <img alt="Braintree Logo" src="{% static 'website/images/Logo/Logo.png' %}">
+            </a>
 
-      <!-- Description -->
-      <p>Unleash learner potentials in our one stop shop of educational resources.</p>
+            <!-- Description -->
+            <p>Unleash learner potentials in our one stop shop of educational resources.</p>
 
-      <!-- Contact Information -->
-      <div class="info connect">
-        <p><i class="fas fa-phone"></i><span>+123-456-7890</span></p>
-        <p><i class="fas fa-envelope"></i><span class="gmail">info@braintree.com</span></p>
-        <p><i class="fas fa-map-marker-alt"></i><span>Braintree Educational Resources</span></p>
-      </div>
+            <!-- Contact Information -->
+            <div class="info connect">
+                <p><i class="fas fa-phone"></i><span>+234-809-4022-810</span></p>
+                <p><i class="fas fa-envelope"></i><span class="gmail">contact@braintree.com.ng</span></p>
+                <p><i class="fas fa-map-marker-alt"></i><span>Braintree Educational Resources</span></p>
+            </div>
 
-    </div>
-
-    <!-- Our Services -->
-    <div class="footer-item">
-      <h2>Our Services</h2>
-      <div class="info links">
-        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/School Management.html">School Management</a></p>
-        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Educational Resources.html">Educational Resources</a></p>
-        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Exhibitions.html">Exhibitions</a></p>
-        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Process Automation.html">Process Automation</a></p>
-        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Study Abroad.html">School Placement</a></p>
-        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Trainings and Workshops.html">Trainings and Workshops</a></p>
-      </div>
-    </div>
-
-    <!-- Quick Links -->
-    <div class="footer-item">
-      <h2>Quick Links</h2>
-      <div class="info links">
-        <p><i class="fa-solid fa-link"></i><a href="pages/Communities/Register.html">Join our community</a></p>
-        <p><i class="fa-solid fa-link"></i><a href="{% url 'admin_dashboard' %}">School Management Portal</a></p>
-        <p><i class="fa-solid fa-link"></i><a href="pages/Past Questions/Past Questions.html">Past Examination Questions</a></p>
-        <p><i class="fa-solid fa-link"></i><a href="pages/Study Abroad/Student Placement.html">Study Abroad</a></p>
-        <p><i class="fa-solid fa-link"></i><a href="pages/Resources/Resources-Categories.html">Upcoming events</a></p>
-        <p><i class="fa-solid fa-link"></i><a href="pages/Blog/Blog-Grid.html">Blog</a></p>
-        <p><i class="fa-solid fa-link"></i><a href="pages/Contact/Contact.html">Contact Us</a></p>
-      </div>
-    </div>
-
-    <!-- Newsletter Subscription -->
-    <div class="footer-item">
-      <h2>Newsletter</h2>
-      <p>Stay updated and informed about upcoming exhibitions, events, and special offers by subscribing to our newsletter.</p>
-      <form class="dark-form" method="post" id="newsletter-form-2">
-        <div class="input-field">
-          <label for="news-email-2" class="fas fa-envelope"></label>
-          <input type="email" id="news-email-2" name="email" class="box" placeholder="Your email address" required="">
         </div>
-        <button type="submit" class="btn" name="submit" id="submit-2">Subscribe</button>
-        <span class="alert" id="msg-2"></span>
-      </form>
+
+        <!-- Quick Links -->
+        <div class="footer-item">
+            <h2>Quick Links</h2>
+            <div class="info links">
+                <p><i class="fa-solid fa-link"></i><a href="">Join our
+                    community</a></p>
+                <p><i class="fa-solid fa-link"></i><a
+                        href="{% url 'admin_dashboard' %}">School Management Portal</a>
+                </p>
+                <p><i class="fa-solid fa-link"></i><a href="../../pages/Study Abroad/Student Placement.html">Study
+                    Abroad</a></p>
+                <!-- <p><i class="fa-solid fa-link"></i><a href="../../pages/Resources/Resources-Categories.html">Upcoming events</a></p> -->
+                <!-- <p><i class="fa-solid fa-link"></i><a href="../../pages/Blog/Blog-Grid.html">Blog</a></p> -->
+                <p><i class="fa-solid fa-link"></i><a href="../../pages/Contact/Contact.html">Contact Us</a></p>
+            </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="footer-item">
+            <h2>Newsletter</h2>
+            <p>Stay updated and informed about upcoming exhibitions, events, and special offers by subscribing to our
+                newsletter.</p>
+            <form class="dark-form" id="newsletter-form-2" method="post">
+                <div class="input-field">
+                    <label class="fas fa-envelope" for="news-email-2"></label>
+                    <input class="box" id="news-email-2" name="email" placeholder="Your email address" required=""
+                           type="email">
+                </div>
+                <button class="btn" id="submit-2" name="submit" type="submit">Subscribe</button>
+                <span class="alert" id="msg-2"></span>
+            </form>
+        </div>
+
     </div>
 
-  </div>
-
-  <!-- Museum Name and Copyright -->
-  <div class="content">
-    <p>Braintree Educational Resources 2024</p>
-  </div>
+    <!-- Museum Name and Copyright -->
+    <div class="content">
+        <p>Braintree Educational Resources 2024</p>
+    </div>
 
 </footer>
 <!-- ==================== Footer Area (End) ==================== -->
+<!-- ==================== Footer Area (End) ==================== -->
 
 
+<!-- Jquery -->
+<script src="{% static 'website/vendors/jquery/jquery.min.js' %}"></script>
 
+<!-- Swiper (JS) -->
+<script src="{% static 'website/vendors/swiper/swiper-bundle.min.js' %}"></script>
 
-  <!-- Jquery -->
-  <script src="{% static 'website/vendors/jquery/jquery.min.js' %}"></script>
+<!-- Magnific-Popup JS -->
+<script src="{% static 'website/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
 
-  <!-- Swiper (JS) -->
-  <script src="{% static 'website/vendors/swiper/swiper-bundle.min.js' %}"></script>
+<!-- Isotope (JS) -->
+<script src="{% static 'website/vendors/isotope/isotope.pkgd.min.js' %}"></script>
 
-  <!-- Magnific-Popup JS -->
-  <script src="{% static 'website/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
-
-  <!-- Isotope (JS) -->
-  <script src="{% static 'website/vendors/isotope/isotope.pkgd.min.js' %}"></script>
-
-  <!-- Custom Script Files -->
-  <script src="{% static 'website/js/script.js' %}"></script> <!-- Additional website functionality -->
-  <script src="{% static 'website/js/nav-link-toggler.js' %}"></script> <!-- Mobile navigation link toggling -->
-  <script src="{% static 'website/js/newsletter.js' %}"></script> <!-- 1. Script to handle newsletter subscription functionality -->
-  <script src="{% static 'website/js/home-slider.js' %}"></script> <!-- Dynamic Home Slider -->
-  <script src="{% static 'website/js/counter-up.js' %}"></script> <!-- Numerical counting animation -->
-  <script src="{% static 'website/js/service-slider.js' %}"></script> <!-- 2. Service slider control -->
-  <script src="{% static 'website/js/portfolio.js' %}"></script>  <!-- Projects functionality, including image filtering -->
-  <script src="{% static 'website/js/testi-slider.js' %}"></script> <!-- 3. Interactive Testimonial Slider -->
-  <script src="{% static 'website/js/partner-slider.js' %}"></script> <!-- 4. Interactive Partner Slider -->
-
+<!-- Custom Script Files -->
+<script src="{% static 'website/js/script.js' %}"></script> <!-- Additional website functionality -->
+<script src="{% static 'website/js/nav-link-toggler.js' %}"></script> <!-- Mobile navigation link toggling -->
+<script src="{% static 'website/js/newsletter.js' %}"></script>
+<!-- 1. Script to handle newsletter subscription functionality -->
+<script src="{% static 'website/js/home-slider.js' %}"></script> <!-- Dynamic Home Slider -->
+<script src="{% static 'website/js/counter-up.js' %}"></script> <!-- Numerical counting animation -->
+<script src="{% static 'website/js/service-slider.js' %}"></script> <!-- 2. Service slider control -->
+<script src="{% static 'website/js/portfolio.js' %}"></script>
+<!-- Projects functionality, including image filtering -->
+<script src="{% static 'website/js/testi-slider.js' %}"></script> <!-- 3. Interactive Testimonial Slider -->
+<script src="{% static 'website/js/partner-slider.js' %}"></script> <!-- 4. Interactive Partner Slider -->
+{% block 'script' %}{% endblock %}
 
 </body>
 </html>

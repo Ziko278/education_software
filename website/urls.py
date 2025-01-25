@@ -13,10 +13,15 @@ urlpatterns = [
     path('resource-category', ResourceCategoryPageView.as_view(), name='resource_category_page'),
     path('study-abroad', StudyAbroadPageView.as_view(), name='study_abroad_page'),
     path('school-management-portal', SchoolManagementPortalPageView.as_view(), name='school_management_portal_page'),
+    path('training-and-workshop', TrainingAndWorkshopPageView.as_view(), name='training_and_workshop_page'),
+    path('process-automation', ProcessAutomationPageView.as_view(), name='process_automation_page'),
+    path('excursion', ExcursionPageView.as_view(), name='excursion_page'),
 
     path('calendar/examination', CalendarExaminationPageView.as_view(), name='calendar_examination_page'),
     path('calendar/examiner', CalendarExaminerPageView.as_view(), name='calendar_examiner_page'),
     path('calendar/state', CalendarStatePageView.as_view(), name='calendar_state_page'),
+
+    path('send-update-mail', send_update_mail, name='send_update_mail'),
 
     path('forum/index', forum_index_view, name='forum_index_page'),
     path('forum/ask-question', forum_question_create_view, name='forum_ask_question'),

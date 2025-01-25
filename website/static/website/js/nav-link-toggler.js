@@ -47,7 +47,27 @@ $(document).ready(function(){
     
   });
   
+    $(".uploads-headings").click(function() {
+    // Toggle "active" class for the clicked main-states-list
+    $(this).toggleClass("active");
+    // Toggle slide for the corresponding sub-navigation
+    $(".hulled").toggle();
+    $(".uploads-content").hide();
+    $("#frees").show();
+    // $(this).next(".sub-states-list").toggleClass("active").slideToggle();
+    // Toggle icon class for the clicked main-states-list
+    $(this).find("i").toggleClass("fa-minus fa-plus");
+  });
 
+  
+    $(".overseas-content").click(function() {
+      
+      $(".overseas-content-description").slideUp("slow");
+      $(this).nextUntil(".overseas-content").slideDown("slow");
+      $(this).find("i").toggleClass("fa-minus fa-plus");
+      $(".overseas-content").find("i").removeClass("fa-minus").addClass("fa-plus");
+      $(this).find("i").addClass("fa-minus").removeClass("fa-plus");
 
+  });
 
 }); 
