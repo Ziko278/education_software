@@ -1,165 +1,130 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block 'main' %}
-<section class="bg-half page-next-level">
-    <div class="bg-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center text-white">
-                    <h4 class="text-uppercase title mb-4">Contact Us</h4>
-                    <ul class="page-next d-inline-block mb-0">
-                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
-                        <li><a class="text-uppercase font-weight-bold" href="#">Pages</a></li>
-                        <li>
-                            <span class="text-uppercase text-white font-weight-bold">Contact Us</span>
-                        </li>
-                    </ul>
-                </div>
+
+<!-- ==================== Page-Title (Start) ==================== -->
+<div class="page-title">
+
+    <div class="title">
+        <h2>Contact</h2>
+    </div>
+
+    <div class="link">
+        <a href="{% url 'homepage' %}">Home</a>
+        <i class="fa-solid fa-angles-right"></i>
+        <span class="page">Contact</span>
+    </div>
+
+</div>
+<!-- ==================== Page-Title (End) ==================== -->
+
+
+<!-- ==================== Contact Area (Start) ==================== -->
+<section class="contact" id="contact">
+
+    <!-- ========== Contact Info (Start) ========== -->
+    <div class="contact-info">
+
+        <!-- Address Info -->
+        <div class="info-item">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <div class="content">
+                <h3>address</h3>
+                <p>E-093 Off Bakery Road, Zone E, Kurudu Abuja</p>
             </div>
         </div>
+
+        <!-- Phone Info -->
+        <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <div class="content">
+                <h3>call us</h3>
+                <p>+234-809-4022-810</p>
+            </div>
+        </div>
+
+        <!-- Email Info -->
+        <div class="info-item">
+            <i class="fas fa-envelope"></i>
+            <div class="content">
+                <h3>mail us</h3>
+                <p class="gmail">contact@braintree.com.ng</p>
+            </div>
+        </div>
+
+        <!-- Email Info -->
+        <div class="info-item">
+            <i class="fa-solid fa-clock"></i>
+            <div class="content">
+                <h3>Opening Hours</h3>
+                <p>Mon - Fri: 9 AM - 5 PM</p>
+
+            </div>
+        </div>
+
     </div>
+    <!-- ========== Contact Info (End) ========== -->
+
+    <div class="box-container">
+
+        <!-- ========== Google Map (Start) ========== -->
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31530.53760858251!2d7.526339326377497!3d8.942889875740061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0e220d17ff37%3A0x84fe8b2cddbf5260!2sKurudu%20900109%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1737825257403!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- ========== Google Map (End) ========== -->
+
+        <!-- ========== Contact Form (Start) ========== -->
+        <form class="dark-form" id="contact-form" method="post">
+
+            <!-- Form Heading -->
+            <div class="heading">
+                <div class="sub"><span>Contact Us for Assistance</span><i class="fa-solid fa-building-columns"></i>
+                </div> <!-- Sub Heading -->
+                <h2>Send Us a Message</h2>
+            </div>
+
+            <!-- Name Input Field -->
+            <div class="input-box">
+                <div class="input-field">
+                    <label class="fas fa-user" for="name"></label>
+                    <input class="box" id="name" name="name" placeholder="Name" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Email Input Field -->
+            <div class="input-box">
+                <div class="input-field">
+                    <label class="fa-solid fa-envelope" for="email"></label>
+                    <input class="box" id="email" name="email" placeholder="Email" required="" type="email">
+                </div>
+            </div>
+
+            <!-- Phone Number Input Field -->
+            <div class="input-box">
+                <div class="input-field">
+                    <label class="fas fa-phone" for="number"></label>
+                    <input class="box" id="number" name="number" placeholder="Phone Number" required="" type="text">
+                </div>
+            </div>
+
+            <!-- Comment/Message Textarea -->
+            <div class="input-box">
+                <div class="input-field text-area">
+                    <label class="fas fa-comment" for="comment"></label>
+                    <textarea class="box" cols="30" id="comment" name="comment" placeholder="Message" required=""
+                              rows="10"></textarea>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <button class="btn" id="submit" name="submit" type="submit">Submit</button>
+
+            <!-- Alert Message -->
+            <span class="alert" id="msg"></span>
+
+        </form>
+        <!-- ========== Contact Form (End) ========== -->
+
+    </div>
+
 </section>
-<!-- end home -->
-
-<!-- MAP START -->
-<section class="section pt-0 bg-light">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-12 p-0">
-                <div class="map">
-
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126093.78244273872!2d7.367464835462986!3d9.024416368785994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e745f4cd62fd9%3A0x53bd17b4a20ea12b!2sAbuja%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1733919181471!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container mt-100 mt-60">
-        <div class="row align-items-center">
-            <div class="col-lg-4">
-                <div class="contact-item mt-40">
-                    <div class="float-left">
-                        <div class="contact-icon d-inline-block border rounded-pill shadow text-primary mt-1 mr-4">
-                            <i class="mdi mdi-earth"></i>
-                        </div>
-                    </div>
-                    <div class="contact-details">
-                        <h4 class="text-dark mb-1">Website</h4>
-                        <p class="mb-0 text-muted">braintree.com.ng</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="contact-item mt-40">
-                    <div class="float-left">
-                        <div class="contact-icon d-inline-block border rounded-pill shadow text-primary mt-1 mr-4">
-                            <i class="mdi mdi-cellphone-iphone"></i>
-                        </div>
-                    </div>
-                    <div class="contact-details">
-                        <h4 class="text-dark mb-1">Call us</h4>
-                        <p class="mb-0 text-muted">{{ site_info.mobile_1 }}</p>
-                        <p class="mb-0 text-muted">{% if site_info.mobile_2 %}{{ site_info.mobile_2 }}{% endif %}</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4">
-                <div class="contact-item mt-40">
-                    <div class="float-left">
-                        <div class="contact-icon d-inline-block border rounded-pill shadow text-primary mt-1 mr-4">
-                            <i class="mdi mdi-email"></i>
-                        </div>
-                    </div>
-                    <div class="contact-details">
-                        <h4 class="text-dark mb-1">Email</h4>
-                        <p class="mb-0 text-muted">{{ site_info.email|lower }}</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- CONTACT END -->
-
-<!-- CONTACT FORM START -->
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h4 class="text-dark mb-0">Get In Touch :</h4>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-lg-8 col-md-7 mt-4 pt-2">
-                <div class="custom-form rounded border p-4">
-                    <div id="message"></div>
-                    <form action="" id="contact-form" name="contact-form">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group app-label">
-                                    <label class="text-muted">Name</label>
-                                    <input class="form-control resume" id="name" name="name" placeholder="Enter Name.."
-                                           type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group app-label">
-                                    <label class="text-muted">Email address</label>
-                                    <input class="form-control resume" id="email" name="email" placeholder="Enter Email.."
-                                           type="email">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group app-label">
-                                    <label class="text-muted">Subject</label>
-                                    <input class="form-control resume" id="subject" placeholder="Subject.." type="text">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group app-label">
-                                    <label class="text-muted">Message</label>
-                                    <textarea class="form-control resume" id="comments" name="comments" placeholder="Message.."
-                                              rows="5"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <input class="submitBnt btn btn-primary" id="submit" name="send" type="submit"
-                                       value="Send Message">
-                                <div id="simple-msg"></div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-5 mt-4 pt-2">
-                <div class="border rounded text-center p-4">
-                    <h5 class="text-dark pb-3">Contact Info</h5>
-                    <div class="contact-location rounded mt-5 p-4">
-                        <div class="contact-location-icon bg-white text-primary rounded-pill">
-                            <i class="mdi mdi-map-marker"></i>
-                        </div>
-                        <p class="text-muted pt-4 f-20 mb-0">{{ site_info.address }}</p>
-                    </div>
-
-                    <ul class="list-unstyled social-icon mt-3 mb-0">
-                        {% if site_info.facebook_handle %}<li class="list-inline-item"><a class="rounded" target="_blank" href="{{site_info.facebook_handle}}"><i class="mdi mdi-facebook"></i></a></li>{% endif %}
-                        {% if site_info.twitter_handle %}<li class="list-inline-item"><a class="rounded"  target="_blank" href="{{site_info.twitter_handle}}"><i class="mdi mdi-twitter"></i></a></li>{% endif %}
-                        {% if site_info.instagram_handle %}<li class="list-inline-item"><a class="rounded" target="_blank" href="{{site_info.instagram_handle}}"><i class="mdi mdi-instagram"></i></a></li>{% endif %}
-
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- CONTACT FORM END -->
+<!-- ==================== Contact Area (End) ==================== -->
 {% endblock %}

@@ -160,6 +160,15 @@ class ExcursionPageView(TemplateView):
         return context
 
 
+class SolarDetailPageView(TemplateView):
+    template_name = 'website/detail/solar.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
+
+
 def forum_index_view(request):
     context = {
         'post_list': ForumPostModel.objects.all().order_by('-id')

@@ -64,7 +64,7 @@ $(document).ready(function() {
     // Loop through the productLoad array to build the catalog
     for (let i = 0; i < forSale; i++) {
         buildCatalogue += `
-            <div class="product-item">
+            <div class="product-item" style="margin-bottom:30px">
                 <div class="image">
                     <img src="/static/website/images/Shop/Products/${productLoad[i]["Product-group"]}/Product-1.jpg" alt="${productLoad[i]["Product-Title"]}"> <!-- Product Image -->
                     <div class="options">

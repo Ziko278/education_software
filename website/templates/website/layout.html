@@ -44,13 +44,13 @@
 
         <!-- == Contacts == -->
         <ul class="header-contacts">
-            <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>
+<!--            <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>-->
             <li><i class="fa-solid fa-phone"></i><span>+234-809-4022-810</span></li>
             <li><i class="fa-solid fa-envelope"></i><span class="gmail">contact@braintree.com</span></li>
         </ul>
 
         <!-- == Social == -->
-        <ul class="social-contacts">
+        <ul class="social-contacts" >
             <li><a class="fab fa-facebook-f" href="#"></a></li>
         </ul>
 
@@ -70,18 +70,11 @@
             <!-- == Navbar == -->
             <nav class="navbar" style="padding-right: 200px;">
 
-                <a class="nav-btn" href="{% url 'homepage' %}">home</a>
+                <a class="nav-btn" href="{% url 'homepage' %}">Home</a>
                 <a class="nav-btn" href="{% url 'about_page' %}">About Us</a>
-                <div class="dropdown-menu">
-                    <button class="nav-btn">calendar</button>
-                    <div class="dropdown-content">
-                        <a href="{% url 'calendar_examination_page' %}">Examination</a>
-                        <a href="{% url 'calendar_examiner_page' %}">Examiners</a>
-                        <a href="{% url 'calendar_state_page' %}">States</a>
-                    </div>
-                </div>
-                <a class="nav-btn" href="{% url 'school_finder_page' %}">School Finder</a>
                 <a class="nav-btn" href="{% url 'catalog_page' %}">Resources</a>
+                <a class="nav-btn" href="{% url 'contact_page' %}">Contact Us</a>
+
 
 
             </nav>
@@ -108,30 +101,21 @@
         <nav class="mobile-navbar">
 
             <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'homepage' %}">home</a></div>
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'homepage' %}">Home</a></div>
             </div>
           <div class="nav-link">
                 <div class="main-nav-link"><a class="nav-btn" href="{% url 'about_page' %}">About Us</a></div>
             </div>
+
             <div class="nav-link">
-                <div class="main-nav-link">
-                    <div class="nav-btn">Calendar</div>
-                    <i class="fas fa-plus"></i></div>
-                <div class="sub-nav-link">
-                  <a href="{% url 'calendar_examination_page' %}">Examination</a>
-                  <a href="{% url 'calendar_examiner_page' %}">Examiners</a>
-                  <a href="{% url 'calendar_state_page' %}">States</a>
-                </div>
-            </div>
-            <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'school_finder_page' %}">School
-                    finder</a></div>
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'catalog_page' %}">
+                    Resources
+                </a></div>
             </div>
 
             <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'school_finder_page' %}">
-                    Resources
-                </a></div>
+                <div class="main-nav-link"><a class="nav-btn" href="{% url 'contact_page' %}">
+                    Contact Us</a></div>
             </div>
 
 
@@ -184,11 +168,11 @@
                 <p><i class="fa-solid fa-link"></i><a
                         href="{% url 'admin_dashboard' %}">School Management Portal</a>
                 </p>
-                <p><i class="fa-solid fa-link"></i><a href="../../pages/Study Abroad/Student Placement.html">Study
+                <p><i class="fa-solid fa-link"></i><a href="{% url 'study_abroad_page' %}">Study
                     Abroad</a></p>
                 <!-- <p><i class="fa-solid fa-link"></i><a href="../../pages/Resources/Resources-Categories.html">Upcoming events</a></p> -->
                 <!-- <p><i class="fa-solid fa-link"></i><a href="../../pages/Blog/Blog-Grid.html">Blog</a></p> -->
-                <p><i class="fa-solid fa-link"></i><a href="../../pages/Contact/Contact.html">Contact Us</a></p>
+                <p><i class="fa-solid fa-link"></i><a href="{% url 'contact_page' %}">Contact Us</a></p>
             </div>
         </div>
 
