@@ -32,10 +32,6 @@ def create_parent_account(sender, instance, created, **kwargs):
                                                        default_password=password)
         user_profile.save()
 
-        id_generator = ParentIDGeneratorModel.objects.filter(last_parent_id=parent.parent_id).last()
-        id_generator.status = 's'
-        id_generator.save()
-
 
 @receiver(post_save, sender=StudentsModel)
 def create_student_account(sender, instance, created, **kwargs):
@@ -60,11 +56,6 @@ def create_student_account(sender, instance, created, **kwargs):
             student_setting = StudentSettingModel.objects.filter(type=student.type).first()
         else:
             student_setting = StudentSettingModel.objects.first()
-
-        if student_setting.auto_generate_student_id:
-            id_generator = StudentIDGeneratorModel.objects.filter(last_student_id=student.registration_number).last()
-            id_generator.status = 's'
-            id_generator.save()
 
 
 @receiver(post_save, sender=StudentsModel)

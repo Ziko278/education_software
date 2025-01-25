@@ -118,7 +118,6 @@ class ClassCreateForm(ModelForm):
         super().__init__(*args, **kwargs)
         if division:
             self.fields['section'].queryset = ClassSectionModel.objects.filter(type=division)
-            self.fields['promotion_class'].queryset = ClassesModel.objects.filter(type=division)
         for field in self.fields:
             if field != 'section' and field != 'is_graduation_class':
                 self.fields[field].widget.attrs.update({
@@ -147,7 +146,6 @@ class ClassEditForm(ModelForm):
         super().__init__(*args, **kwargs)
         if division:
             self.fields['section'].queryset = ClassSectionModel.objects.filter(type=division)
-            self.fields['promotion_class'].queryset = ClassesModel.objects.filter(type=division)
         for field in self.fields:
             if field != 'section' and field != 'is_graduation_class':
                 self.fields[field].widget.attrs.update({
@@ -157,7 +155,7 @@ class ClassEditForm(ModelForm):
 
     class Meta:
         model = ClassesModel
-        fields = ['name', 'code', 'result_type', 'section', 'is_graduation_class', 'promotion_class', 'updated_by']
+        fields = ['name', 'code', 'result_type', 'section', 'updated_by']
 
         widgets = {
             'section': CheckboxSelectMultiple(attrs={

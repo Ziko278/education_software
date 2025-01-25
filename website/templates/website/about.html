@@ -1,193 +1,177 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block 'main' %}
-<!-- Start home -->
-<section class="bg-half page-next-level">
-    <div class="bg-overlay"></div>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center text-white">
-                    <h4 class="text-uppercase title mb-4">About Us</h4>
-                    <ul class="page-next d-inline-block mb-0">
-                        <li><a class='text-uppercase font-weight-bold' href="{% url 'homepage' %}">Home</a></li>
-                        <li><a class="text-uppercase font-weight-bold" href="#">Pages</a></li>
-                        <li>
-                            <span class="text-uppercase text-white font-weight-bold">About</span>
-                        </li>
-                    </ul>
+<!-- ==================== Services Area (Start) ==================== -->
+<section class="blog-single">
+
+    <!-- ========== Blog-Info Container (Start) ========== -->
+    <div class="blog-container">
+
+        <!-- Blog Information -->
+        <div class="blog-info page-info">
+
+            <div class="content">
+
+
+                <div class="heading">
+                    <!-- <div class="sub"><i class="fa-solid fa-building-columns"></i><h2>Explore Our Collections</h2><i class="fa-solid fa-building-columns"></i></div> -->
+                    <h2>About Us</h2>
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- end home -->
+                <!-- Blog Details -->
 
-<!-- ABOUT US START -->
-<section class="section">
-    <div class="container">
-        <div class="row ">
-            <div class="col-lg-5 col-md-4">
-                <img alt="" class="img-fluid rounded shadow" src="{% static 'website/images/home2.jpeg' %}">
-            </div>
 
-            <div class="col-lg-7 col-md-8">
-                <div class="about-desc ml-lg-4">
-                    <h4 class="text-dark">About us</h4>
+                <!-- Blog Description -->
+                <p>
 
-                    <p class="text-muted">
-                        Braintree Educational Resources offers comprehensive educational services for private
-                        further/higher education colleges, training providers, and other independent educational
-                        based organizations and centres in Nigeria and abroad. Braintree Educational Resources also
-                        provides education consultancy services to students who desiring to study abroad through our
-                        partnerships with institutions in kenya, the UK, Canada, Sweden, Germany, Hungary, Denmark,
-                        Cyprus, Australia and New Zealand. We have established expertise in academic and administrative
-                        management, educational-based training, inclusion and inclusive practices as well as strategic
-                        management and planning of private education and training providers.
-                    </p>
-                    <p class="text-muted">
-                        The founder of BER, Yusuf Mohammed, a former lecturer with over 30 years experience in the
-                        academia in such roles as as Lecturer, Course Coordinator, Exam committee scertary, seminar
-                        and workshop committee secretary, accreditation committee member backed with courses in
-                        education management, strategic management & leadership, improvement planning, student
-                        recruitment and selection and quality management has brpught these years of experienve into
-                        evolving ber as a consultancy support to private further/higher education colleges, training
-                        providers, and other independent educational based organizations and centres in the UK and
-                        abroad for their growth and success as an institution.
-                    </p>
-                    <p class="text-muted">Braintree Educational Resources consists of a dedicated team
-                        of experienced professionals with many combined years of experience within
-                        education, training, consulting and management. Our History Braintree Educational Resources was
-                        established in 2007 in Jos, Nigeria. Our experienced education counsellors are ready to advise
-                        students on courses and career opportunities according to their educational background,
-                        interests, aptitude, and aspirations. Have a broad network with education providers, we are able
-                        to suggest a wide range of study options and programs to meet the students' needs. Our firm is
-                        proficient in advising potential Students or Migrants regarding any Australian Visa Matters from
-                        Student Visas to Skilled Visas, Business Visas, and Family Visas etc. Please do fill in Our
-                        Enquiry Form available in this website, if you are interested in finding out more information
-                        regarding Australian Visas.
-                    </p>
+                    Braintree Educational Resources offers comprehensive educational services for private further/higher
+                    education colleges, training providers, and other independent educational based organizations and
+                    centres in Nigeria and abroad. Braintree Educational Resources also provides education consultancy
+                    services to students who desiring to study abroad through our partnerships with institutions in
+                    kenya, the UK, Canada, Sweden, Germany, Hungary, Denmark, Cyprus, Australia and New Zealand.
+                    We have established expertise in academic and administrative management, educational-based training,
+                    inclusion and inclusive practices as well as strategic management and planning of private education
+                    and training providers.
+
+
+                    The founder of BER, Yusuf Mohammed, a former lecturer with over 30 years experience in the academia
+                    in such roles as as Lecturer, Course Coordinator, Exam committee scertary, seminar and workshop
+                    committee secretary, accreditation committee member backed with courses in education management,
+                    strategic management & leadership, improvement planning, student recruitment and selection and
+                    quality management has brpught these years of experienve into evolving ber as a consultancy support
+                    to private further/higher education colleges, training providers, and other independent educational
+                    based organizations and centres in the UK and abroad for their growth and success as an institution.
+
+                    Braintree Educational Resources consists of a dedicated team of experienced professionals with many
+                    combined years of experience within education, training, consulting and management.
+
+
+                    Our History
+                    Braintree Educational Resources was established in 2007 in Jos, Nigeria.
+
+                    Our experienced education counsellors are ready to advise students on courses and career
+                    opportunities according to their educational background, interests, aptitude, and aspirations. Have
+                    a broad network with education providers, we are able to suggest a wide range of study options and
+                    programs to meet the students' needs.
+
+
+                    Our firm is proficient in advising potential Students or Migrants regarding any Australian Visa
+                    Matters from Student Visas to Skilled Visas, Business Visas, and Family Visas etc.
+
+                    Please do fill in Our Enquiry Form available in this website, if you are interested in finding out
+                    more information regarding Australian Visas.
+
+                </p>
+
+
+                <!-- End Details -->
+                <div class="end-details">
+
+
                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- ABOUT US END -->
 
-<!-- popular category start -->
-<section class="section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="section-title text-center mb-4 pb-2">
-                    <h4 class="title title-line pb-5">Offered Services</h4>
-                    <p class="text-muted para-desc mx-auto mb-1">
-                        Here is a comprehensive list of the offered services. Click on any for more Details
-                    </p>
-                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="{% url 'school_management_portal_page' %}">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-account d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">School Portal</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="javascript:void(0)">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-desktop-classic d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">Study Abroad</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="{% url 'school_finder_page' %}">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-bank d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">School Finder</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="javascript:void(0)">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-auto-fix d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">Resource Finder</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="javascript:void(0)">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-office-building d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">Exam Finder</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="javascript:void(0)">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-telegram d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">Job Finder</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="javascript:void(0)">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-television-classic d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">Trainings/workshops</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-6 mt-4 pt-2">
-                <a href="{% url 'forum_index_page' %}">
-                    <div class="popu-category-box bg-light rounded text-center p-4">
-                        <div class="popu-category-icon mb-3">
-                            <i class="mdi mdi-human d-inline-block rounded-pill h3 text-primary"></i>
-                        </div>
-                        <div class="popu-category-content">
-                            <h5 class="mb-2 text-dark title">Find Answers</h5>
-                        </div>
-                    </div>
-                </a>
-            </div>
+
         </div>
 
 
     </div>
-</section>
+    <!-- ========== Blog-Info Container (End) ========== -->
 
+
+</section>
+<section class="services">
+
+    <!-- Section Heading -->
+    <div class="heading">
+        <h2>Our Services</h2>
+    </div>
+
+    <!-- Services Container -->
+    <div class="box-container">
+
+        <!-- Service 1: Guided Tours -->
+        <div class="service-item">
+            <img alt="Guided Tours" src="{% static 'website/images/Service/Services/Service.jpg' %}"> <!-- Service Image -->
+            <div class="content">
+                <i class="fa-solid fa-compass"></i> <!-- Guided Tours Icon -->
+                <a href="../About/School Management.html"><h3>School Management</h3></a> <!-- Service Title -->
+                <span></span>
+                <p>Explore our exhibitions and collections with knowledgeable guides who provide insights into our
+                    artifacts, artworks, and historical contexts.</p> <!-- Service Description -->
+                <a class="btn" href="../About/School Management.html">Read More</a>
+            </div>
+        </div>
+
+        <!-- Service 2: Educational Workshops -->
+        <div class="service-item">
+            <img alt="Educational Workshops" src="{% static 'website/images/Service/Services/Service.jpg' %}">
+            <!-- Service Image -->
+            <div class="content">
+                <i class="fa-solid fa-chalkboard-teacher"></i> <!-- Educational Workshops Icon -->
+                <a href="../About/Trainings and Workshops.html"><h3>Trainings & Workshops</h3></a>
+                <!-- Service Title -->
+                <span></span>
+                <p>Participate in hands-on workshops and interactive sessions designed to deepen your understanding of
+                    art, history, and science.</p> <!-- Service Description -->
+                <a class="btn" href="../About/Trainings and Workshops.html">Read More</a>
+            </div>
+        </div>
+
+        <!-- Service 3: Special Events -->
+        <div class="service-item">
+            <img alt="Special Events" src="{% static 'website/images/Service/Services/Service.jpg' %}"> <!-- Service Image -->
+            <div class="content">
+                <i class="fas fa-calendar-alt"></i> <!-- Special Events Icon -->
+                <a href="../About/Process Automation.html"><h3>process automation</h3></a> <!-- Service Title -->
+                <span></span>
+                <p>Attend exclusive events, receptions, and cultural celebrations hosted by the museum throughout the
+                    year.</p> <!-- Service Description -->
+                <a class="btn" href="../About/Process Automation.html">Read More</a>
+            </div>
+        </div>
+
+        <!-- Service 4: Virtual Tours -->
+        <div class="service-item">
+            <img alt="Virtual Tours" src="{% static 'website/images/Service/Services/Service.jpg' %}"> <!-- Service Image -->
+            <div class="content">
+                <i class="fas fa-vr-cardboard"></i> <!-- Virtual Tours Icon -->
+                <a href="../About/Exhibitions.html"><h3>Excursions & Exhibitions</h3></a> <!-- Service Title -->
+                <span></span>
+                <p>Educational fairs and book exhibition experiences.</p> <!-- Service Description -->
+                <a class="btn" href="../About/Exhibitions.html">Read More</a>
+            </div>
+        </div>
+
+        <!-- Service 5: Membership Benefits -->
+        <div class="service-item">
+            <img alt="Membership Benefits" src="{% static 'website/images/Service/Services/Service.jpg' %}">
+            <!-- Service Image -->
+            <div class="content">
+                <i class="fa-solid fa-certificate"></i> <!-- Membership Benefits Icon -->
+                <a href="../About/Study Abroad.html"><h3>Overseas admission</h3></a> <!-- Service Title -->
+                <span></span>
+                <p>Unlock exclusive benefits, discounts, and access to special privileges by becoming a museum
+                    member.</p> <!-- Service Description -->
+                <a class="btn" href="../About/Study Abroad.html">Read More</a>
+            </div>
+        </div>
+
+        <!-- Service 6: Educational Resources -->
+        <div class="service-item">
+            <img alt="Educational Resources" src="{% static 'website/images/Service/Services/Service.jpg' %}">
+            <!-- Service Image -->
+            <div class="content">
+                <i class="fa-solid fa-book"></i> <!-- Educational Resources Icon -->
+                <a href="../About/Educational Resources.html"><h3>Educational Resources</h3></a> <!-- Service Title -->
+                <span></span>
+                <p>Access educational materials, lesson plans, and digital resources designed for teachers, students,
+                    and lifelong learners.</p> <!-- Service Description -->
+                <a class="btn" href="../About/Educational Resources.html">Read More</a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- ==================== Services Area (End) ==================== -->
 {% endblock %}

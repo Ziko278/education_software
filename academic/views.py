@@ -221,6 +221,61 @@ class ClassDeleteView(LoginRequiredMixin, PermissionRequiredMixin, SuccessMessag
         return context
 
 
+def set_promotion_class(request):
+    if request.method == 'POST':
+        class_list = request.POST.getlist('class')
+        section_list = request.POST.getlist('section')
+        promotion_class_list = request.POST.getlist('promotion_class')
+        promotion_section_list = request.POST.getlist('promotion_section')
+        is_graduation_list = request.POST.getlist('is_graduation')
+
+        if not (len(class_list) == len(section_list) == len(promotion_class_list) == len(promotion_section_list) == len(is_graduation_list)):
+            messages.error(request, "Input lists have mismatched lengths. Please check your form submission.")
+            return redirect(reverse('promotion_count_index'))
+
+        save_count = 0
+
+        for idx in range(len(class_list)):
+            try:
+                student_class = ClassesModel.objects.get(pk=class_list[idx])
+                class_section = ClassSectionModel.objects.get(pk=section_list[idx])
+
+                promotion_class, created = PromotionClassModel.objects.get_or_create(
+                    student_class=student_class, class_section=class_section
+                )
+
+                promotion_class.is_graduation_class = is_graduation_list[idx] == 'true'
+
+                if promotion_class_list[idx]:
+                    promotion_class.promotion_class = ClassesModel.objects.get(pk=promotion_class_list[idx])
+
+                if promotion_section_list[idx]:
+                    promotion_class.promotion_section = ClassSectionModel.objects.get(pk=promotion_section_list[idx])
+
+                promotion_class.save()
+                save_count += 1
+            except (ClassesModel.DoesNotExist, ClassSectionModel.DoesNotExist):
+                messages.error(request, f"Invalid class or section data at index {idx + 1}. Skipping.")
+            except Exception as e:
+                messages.error(request, f"An error occurred: {e}. Skipping record at index {idx + 1}.")
+
+        messages.success(request, f"Saved {save_count} of {len(class_list)} Promotion Classes.")
+        return redirect(reverse('promotion_count_index'))
+
+    school_setting = SchoolGeneralInfoModel.objects.first()
+    class_list = (
+        ClassesModel.objects.filter(type=request.user.profile.type).order_by('name')
+        if school_setting and school_setting.separate_school_section
+        else ClassesModel.objects.all().order_by('name')
+    )
+
+    context = {
+        'class_list': class_list
+    }
+    return render(request, 'academic/class/promotion.html', context)
+
+
+
 class SubjectCreateView(LoginRequiredMixin, PermissionRequiredMixin, SuccessMessageMixin, CreateView):
     model = SubjectsModel
     permission_required = 'academic.add_subjectsmodel'
@@ -869,7 +924,6 @@ def subject_list(self):
             for class_info in class_info_list:
                 if class_info.subject not in subject_list:
                     subject_list.append(class_info.subject)
-
     else:
         if self.request.user.is_superuser:
             subject_list = SubjectsModel.objects.all()

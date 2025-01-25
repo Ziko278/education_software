@@ -20,7 +20,7 @@
 
                 <div class="tab-content pt-2">
                     <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                        <h5 class="card-title">Fee Collection For {{student|title}}, {{ student.student_class }} {{ student.class_section }} - {{ academic_setting.term|title }} {{ academic_setting.session }} <span style="float:right">{% now "D d M Y" %}</span> </h5>
+                        <h5 class="card-title">Fees For {{student|title}}, {{ student.student_class }} {{ student.class_section }} - {{ academic_setting.term|title }} {{ academic_setting.session }} <span style="float:right">{% now "D d M Y" %}</span> </h5>
                         <table class="table table-hover">
                             <thead>
                             <tr>
@@ -28,8 +28,6 @@
                                 <th scope="col">Fee</th>
                                 <th scope="col">Amount</th>
                                 <th scope="col">Paid</th>
-                                <th scope="col">Discount</th>
-                                <th scope="col">Penalty</th>
                                 <th scope="col">Balance</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Action</th>
@@ -55,8 +53,6 @@
                                 </td>
                                 {% endif %}
                                 <td>{{ fee|get_amount_paid:student.id|intcomma }}</td>
-                                <td>{{ fee|get_fee_discount:student.id }}</td>
-                                <td>{{ fee|get_fee_penalty:student.id }}</td>
                                 <td>{{ fee|get_fee_balance:student.id }}</td>
                                 <td>
                                     {% if fee|get_fee_balance:student.id == 0 %}
@@ -68,7 +64,7 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <button type="button" title="pay fee" data-bs-toggle="modal" data-bs-target="#payfee{{ forloop.counter }}" {% if fee|get_fee_balance:student.id == 0 %} disabled {% endif %} class="btn btn-primary"><i class="bi bi-cash-coin"></i> </button>
+                                    {% if fee|get_fee_balance:student.id > 0 %}<a title="pay fee" href="{% url 'student_fee_create' %}" class="btn btn-sm btn-primary">Pay </a>{% endif %}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -119,116 +115,5 @@
         </div>
     </div>
 </div>
-
-{% for fee in termly_fee_list %}
-<form method="POST" action="{% url 'select_fee_method' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="modal fade" id="payfee{{ forloop.counter }}" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Make Fee Payment - {{ fee }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5 class="card-title">Student: {{ student|title }} | {{ academic_setting.term }} {{ academic_setting.session }} |
-                        Paid: N{{ fee|get_amount_paid:student.id|intcomma }} | Balance: N{{ fee|get_fee_balance:student.id|intcomma }}</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="hidden" name="type" value="{{ user.profile.type }}" />
-                                <input type="hidden" name="user" value="{{ user.id }}" />
-                                <input type="hidden" name="fee" value="{{ fee.id }}" />
-                                <input type="hidden" name="student" value="{{ student.id }}" />
-                                <input type="hidden" name="session" value="{{ academic_setting.session.id }}" />
-                                <input type="hidden" name="term" value="{{ academic_setting.term }}" />
-                                <input type="number" name="amount" value="{{ fee|get_fee_balance:student.id }}" min="100" max="{{ fee|get_fee_balance:student.id }}" autocomplete="off" required class="form-control">
-                                <label for="floatingName">Amount <span style="color:red"><b>*</b></span></label>
-                                <br />
-                            </div><br />
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <select name="payment_method" class="form-control" required>
-                                    <option value="">-----------</option>
-                                    {% for method in payment_method_list %}
-                                        <option>{{ method|upper }}</option>
-                                    {% endfor %}
-                                </select>
-
-                                <label for="floatingName">Payment Method <span style="color:red"><b>*</b></span></label>
-                                <br />
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Make Payment</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-{% endfor %}
-
-
-{% for fee in one_time_fee_list %}
-<form method="POST" action="{% url 'select_fee_method' %}" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="modal fade" id="payfee{{ termly_fee_list|length|add:forloop.counter }}" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Make Fee Payment - {{ fee }}</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h5 class="card-title">Student: {{ student|title }} | {{ academic_setting.term }} {{ academic_setting.session }} |
-                        Paid: N{{ fee|get_amount_paid:student.id|intcomma }} | Balance: N{{ fee|get_fee_balance:student.id|intcomma }}</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <input type="hidden" name="type" value="{{ user.profile.type }}" />
-                                <input type="hidden" name="user" value="{{ user.id }}" />
-                                <input type="hidden" name="fee" value="{{ fee.id }}" />
-                                <input type="hidden" name="student" value="{{ student.id }}" />
-                                <input type="hidden" name="session" value="{{ academic_setting.session.id }}" />
-                                <input type="hidden" name="term" value="{{ academic_setting.term }}" />
-                                <input type="number" name="amount" value="{{ fee|get_fee_balance:student.id }}" min="1" max="{{ fee|get_fee_balance:student.id }}" autocomplete="off" required class="form-control">
-                                <label for="floatingName">Amount <span style="color:red"><b>*</b></span></label>
-                                <br />
-                            </div><br />
-                        </div>
-
-
-                        <div class="col-md-6">
-                            <div class="form-floating">
-                                <select name="payment_method" class="form-control" required>
-                                    <option value="">-----------</option>
-                                    {% for method in payment_method_list %}
-                                        <option value="{{method|lower}}">{{ method|upper }}</option>
-                                    {% endfor %}
-                                </select>
-
-                                <label for="floatingName">Payment Method <span style="color:red"><b>*</b></span></label>
-                                <br />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Make Payment</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-{% endfor %}
 
 {% endblock %}

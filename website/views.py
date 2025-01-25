@@ -2,7 +2,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import TemplateView, DetailView, CreateView
-from admin_dashboard.utility import state_list
 from admin_site.forms import ForumQuestionForm, ForumPostForm, SchoolFinderForm
 from admin_site.models import SchoolFinderModel, ForumQuestionModel, ForumPostModel, BlogPostModel, BlogCategoryModel
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
@@ -13,8 +12,7 @@ class HomePageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['state_list'] = state_list
-        context['post_list'] = BlogPostModel.objects.all().order_by('-id')[:3]
+
         return context
 
 
@@ -41,36 +39,6 @@ class SchoolFinderPageView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['state_list'] = state_list
-
-        # Filter schools based on user input
-        school_list = SchoolFinderModel.objects.filter(status='active')
-        keyword = self.request.GET.get('keyword')
-        if keyword:
-            school_list = school_list.filter(name__icontains=keyword)
-
-        state = self.request.GET.get('state')
-        if state:
-            school_list = school_list.filter(state=state)
-
-        lga = self.request.GET.get('lga')
-        if lga:
-            school_list = school_list.filter(lga=lga)
-
-        # Paginate the school list
-        paginator = Paginator(school_list, 12)  # 20 schools per page
-        page_number = self.request.GET.get('page')
-        try:
-            page_obj = paginator.page(page_number)
-        except PageNotAnInteger:
-            # If page number is not an integer, deliver first page.
-            page_obj = paginator.page(1)
-        except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
-            page_obj = paginator.page(paginator.num_pages)
-
-        context['school_list'] = page_obj
-        context['paginator'] = paginator
         return context
 
 
@@ -81,7 +49,6 @@ class SchoolFinderDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['state_list'] = state_list
         return context
 
 
@@ -96,7 +63,6 @@ class SchoolFinderCreateView(SuccessMessageMixin, CreateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['state_list'] = state_list
         return context
 
 

@@ -6,16 +6,7 @@ import requests
 from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.db import transaction
-from django.db.models import Sum, Q, F
-from django.db.models.functions import Lower
-from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-from django.http import HttpResponse, HttpRequest
-from django.urls import reverse
-# from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.messages.views import SuccessMessageMixin, messages
@@ -24,8 +15,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
-
-from admin_dashboard.utility import state_list
 from admin_site.forms import SiteInfoForm, SchoolAmenityForm, SchoolFinderForm, BlogResponseForm, BlogCommentForm, \
     BlogPostForm, BlogTagForm, BlogCategoryForm
 from admin_site.models import SiteInfoModel, SchoolAmenityModel, SchoolFinderModel, BlogResponseModel, BlogCommentModel, \
@@ -226,7 +215,6 @@ class SchoolFinderCreateView(LoginRequiredMixin, PermissionRequiredMixin, Succes
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['state_list'] = state_list
         return context
 
 
@@ -271,7 +259,6 @@ class SchoolFinderUpdateView(LoginRequiredMixin, PermissionRequiredMixin, Succes
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['state_list'] = state_list
         context['school'] = self.object
         return context
 

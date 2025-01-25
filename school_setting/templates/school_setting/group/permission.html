@@ -302,7 +302,7 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-finance-permission">
                                 <button class="accordion-button collapsed card-title" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapseOne">
-                                    Finance Permissions
+                                    Fee Permissions
                                 </button>
                             </h2>
                             <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="finance-permission" data-bs-parent="#accordionFlushExample">
@@ -387,84 +387,6 @@
                                         </div>
                                     </div>
 
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Finance Permissions</h5>
-                                            <ul class="list-group">
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Record Incomes
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="add_incomemodel"
-                                                        {% if "add_incomemodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Update Income Records
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="change_incomemodel"
-                                                        {% if "change_incomemodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Record Expenses
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="add_expensemodel"
-                                                        {% if "add_expensemodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Update Expense Records
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="change_incomemodel"
-                                                        {% if "change_expensemodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Add and Update Expense Category
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="add_expensecategorymodel"
-                                                        {% if "add_expensecategorymodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Add and Update Expense Type
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="add_expensetypemodel"
-                                                        {% if "add_expensetypemodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Add and Update Income Category
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="add_incomecategorymodel"
-                                                        {% if "add_incomecategorymodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Add and Update Income Source
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="add_incomesourcemodel"
-                                                        {% if "add_incomesourcemodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-
-                                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                    Update Finance Setting
-                                                    <span class="badge">
-                                                        <input type="checkbox" name="permissions[]" value="change_financesettingmodel"
-                                                        {% if "change_financesettingmodel" in permission_codenames %} checked {% endif %}>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -233,6 +233,25 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#sb_att" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-alarm"></i><span>ATTENDANCE</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="sb_att" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'class_attendance_select_class' %}">
+              <i class="bi bi-circle"></i><span>Take Class Attendance</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'check_class_attendance_select_class' %}">
+              <i class="bi bi-circle"></i><span>Check Class Attendance</span>
+            </a>
+          </li>
+
+        </ul>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#lnote" data-bs-toggle="collapse" href="#">
           <i class="bi bi-pencil"></i><span>LESSON NOTE</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -351,15 +370,96 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#fee" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-cash-stack"></i><span>FEE COLLECTION</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="fee" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a href="{% url 'fee_select_student' %}">
+              <i class="bi bi-circle"></i><span>Make Payment</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'fee_payment_index' %}?session={{academic_info.session.id}}&term={{academic_info.term}}">
+              <i class="bi bi-circle"></i><span>Paid Fees</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'fee_dashboard' %}?session={{academic_info.session.id}}&term={{academic_info.term}}">
+              <i class="bi bi-circle"></i><span>Fee Dashboard</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'fee_index' %}">
+              <i class="bi bi-circle"></i><span>Fees</span>
+            </a>
+          </li>
+
+
+          <li>
+            <a href="{% url 'fee_group_index' %}">
+              <i class="bi bi-circle"></i><span>Fee Groups</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'fee_master_index' %}">
+              <i class="bi bi-circle"></i><span>Fee Master</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'fee_discount_index' %}">
+              <i class="bi bi-circle"></i><span>Fee Discounts</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'fee_discount_group_index' %}">
+              <i class="bi bi-circle"></i><span>Fee Discount Groups</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'fee_penalty_index' %}">
+              <i class="bi bi-circle"></i><span>Fee Penalties</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'online_payment_index' %}">
+              <i class="bi bi-circle"></i><span>Payment Methods</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="{% url 'finance_info' %}">
+              <i class="bi bi-circle"></i><span>Finance Settings</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#hr" data-bs-toggle="collapse" href="#">
           <i class="bi bi-people"></i><span>HUMAN RESOURCE</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="hr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{% url 'staff_index' %}">
-              <i class="bi bi-circle"></i><span>Staff</span>
+            <a href="{% url 'staff_create' %}">
+              <i class="bi bi-circle"></i><span>Register Staff</span>
             </a>
           </li>
+
+          <li>
+            <a href="{% url 'staff_index' %}">
+              <i class="bi bi-circle"></i><span>View Staff</span>
+            </a>
+          </li>
+
 
           <li>
             <a href="{% url 'position_index' %}">

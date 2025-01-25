@@ -113,21 +113,6 @@
                                 <label for="floatingName">Result Type <span style="color:red"><b>*</b></span></label>
                             </div><br />
 
-                            <div class="form-floating">
-                                {{ form.is_graduation_class }}
-                                <label for="floatingName">Is Graduation Class </span></label>
-                            </div><br />
-
-
-                            <div class="form-floating">
-                                {{ form.promotion_class }}
-                                <label for="floatingName">Promotion Class <span style="color:red"><b>*</b></span></label>
-                            </div><br />
-
-                            <div class="form-floating">
-                                {{ form.is_nursery_class }}
-                                <label for="floatingName">Is Nursery Class </span></label>
-                            </div><br />
 
                         </div>
 
@@ -183,29 +168,6 @@
                                 <label for="floatingName">Result Type <span style="color:red"><b>*</b></span></label>
                             </div><br />
 
-                            <div class="form-floating">
-                                <input type="checkbox" name="is_graduation_class" value=true {% if class.is_graduation_class %} checked {% endif %}>
-                                <label for="floatingName">Is Graduation Class </span></label>
-                            </div><br />
-
-                            <div class="form-floating">
-                                <input type="checkbox" name="is_nursery_class" value=true {% if class.is_nursery_class %} checked {% endif %}>
-                                <label for="floatingName">Is Nursery Class </span></label>
-                            </div><br />
-
-
-                            <div class="form-floating">
-                                <select class="form-control" name="promotion_class">
-                                    <option value="">----------------</option>
-                                    {% for inner_class in class_list %}
-                                        {% if class != inner_class %}
-                                        <option value="{{ inner_class.id }}" {% if class.promotion_class == inner_class %} selected {% endif %}>{{ inner_class }}</option>
-                                        {% endif %}
-                                    {% endfor %}
-                                </select>
-
-                                <label for="floatingName">Promotion Class <span style="color:red"><b>*</b></span></label>
-                            </div><br />
                         </div>
 
                         <div class="col-md-6">

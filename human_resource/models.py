@@ -4,7 +4,6 @@ from school_setting.models import SchoolSettingModel, SchoolGeneralInfoModel
 from user_management.models import UserProfileModel
 from io import BytesIO
 from django.apps import apps
-from django.core.files.base import ContentFile
 
 
 class DepartmentModel(models.Model):
@@ -107,21 +106,10 @@ class StaffModel(models.Model):
     bank_name = models.CharField(max_length=100, null=True, blank=True)
     account_name = models.CharField(max_length=100, null=True, blank=True)
     account_number = models.CharField(max_length=50, null=True, blank=True)
-    BG = (
-        ('a+', 'A+'), ('a-', 'A-'), ('b+', 'B+'), ('b-', 'B-'), ('ab+', 'AB+'), ('ab-', 'AB-'), ('o+', 'O+'),
-        ('o-', 'O-'),
-    )
-    blood_group = models.CharField(max_length=20, null=True, choices=BG, blank=True)
-    GENOTYPE = (
-        ('aa', 'AA'), ('as', 'AS'), ('ac', 'AC'), ('ss', 'SS')
-    )
-    genotype = models.CharField(max_length=20, null=True, blank=True, choices=GENOTYPE)
     age = models.IntegerField(null=True, blank=True)
-    health_issues = models.TextField(null=True, blank=True)
 
     status = models.CharField(max_length=30, blank=True, default='active')
     can_teach = models.BooleanField(default=True, blank=True)
-
     TYPE = (
         ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
     )
@@ -159,9 +147,9 @@ class StaffModel(models.Model):
 
         if staff_setting.auto_generate_staff_id and not self.staff_id:
             if setting.school_type == 'mix' and setting.separate_school_section:
-                last_staff = StaffIDGeneratorModel.objects.filter(type=self.type, status='s').last()
+                last_staff = StaffIDGeneratorModel.objects.filter(type=self.type).last()
             else:
-                last_staff = StaffIDGeneratorModel.objects.filter(status='s').last()
+                last_staff = StaffIDGeneratorModel.objects.filter().last()
             if last_staff:
                 staff_id = str(int(last_staff.last_id) + 1)
             else:
@@ -169,9 +157,10 @@ class StaffModel(models.Model):
             while True:
                 gen_id = staff_id
                 if setting.school_type == 'mix':
-                    staff_id = 's' + self.type[0] + staff_id.rjust(7, '0')
+                    staff_id = f"{staff_setting.staff_id_prefix}{self.type[0]}s-{staff_id.rjust(7, '0')}"
                 else:
-                    staff_id = 's' + staff_id.rjust(8, '0')
+                    staff_id = f"{staff_setting.staff_id_prefix}s-{staff_id.rjust(7, '0')}"
+
                 staff_exist = StaffModel.objects.filter(staff_id=staff_id).first()
                 if not staff_exist:
                     break
@@ -179,7 +168,7 @@ class StaffModel(models.Model):
                     staff_id = str(int(gen_id) + 1)
             self.staff_id = staff_id
 
-            generate_id = StaffIDGeneratorModel.objects.create(last_id=gen_id, last_staff_id=self.staff_id, status='f',
+            generate_id = StaffIDGeneratorModel.objects.create(last_id=gen_id, last_staff_id=self.staff_id,
                                                                type=self.type)
             generate_id.save()
 
@@ -203,6 +192,8 @@ class StaffModel(models.Model):
         ]
 
     def subject_list(self):
+        SubjectsModel = apps.get_model('academic', 'SubjectsModel')
+        ClassSectionSubjectTeacherModel = apps.get_model('academic', 'ClassSectionSubjectTeacherModel')
         school_setting = SchoolGeneralInfoModel.objects.first()
         if school_setting.separate_school_section:
             if self.user.is_superuser:
@@ -247,4 +238,6 @@ class HRSettingModel(models.Model):
         ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
     )
     type = models.CharField(max_length=10, choices=TYPE, blank=True)
+    staff_id_prefix = models.CharField(max_length=5, blank=True, null=True, default='')
+
 

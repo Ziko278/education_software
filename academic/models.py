@@ -82,9 +82,6 @@ class ClassesModel(models.Model):
         ('score', 'SCORE BASED'), ('text', 'TEXT BASED'), ('mix', 'MIX')
     )
     result_type = models.CharField(max_length=20, choices=RESULT_TYPE)
-    is_graduation_class = models.BooleanField(default=False)
-    is_nursery_class = models.BooleanField(default=False)
-    promotion_class = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
 
     TYPE = (
         ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
@@ -114,6 +111,35 @@ class ClassesModel(models.Model):
     def save(self, *args, **kwargs):
 
         super(ClassesModel, self).save(*args, **kwargs)
+
+
+class PromotionClassModel(models.Model):
+    student_class = models.ForeignKey(ClassesModel, on_delete=models.CASCADE)
+    class_section = models.ForeignKey(ClassSectionModel, on_delete=models.CASCADE)
+    promotion_class = models.ForeignKey(ClassesModel, on_delete=models.CASCADE, related_name='promotion_class')
+    promotion_section = models.ForeignKey(ClassSectionModel, on_delete=models.CASCADE, related_name='promotion_section')
+    is_graduation_class = models.BooleanField(default=False)
+
+    TYPE = (
+        ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
+    )
+    type = models.CharField(max_length=10, choices=TYPE, blank=True)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['student_class', 'class_section', 'type'],
+                name='unique_promotion_class_combo'
+            )
+        ]
+
+    def __str__(self):
+        if self.is_graduation_class:
+            return f"{self.student_class.__str__()} {self.class_section.__str__()} Graduates"
+        return f"{self.student_class.__str__()} {self.class_section.__str__()} promotes to {self.promotion_class.__str__()} {self.promotion_section.__str__()}"
 
 
 class ClassSectionInfoModel(models.Model):

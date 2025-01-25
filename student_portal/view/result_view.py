@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -11,11 +12,80 @@ from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
+from finance.models import FinanceSettingModel, FeeMasterModel, FeePaymentModel
+from finance.templatetags.fee_custom_filters import get_amount_paid, get_fee_balance
 from school_setting.models import SchoolGeneralInfoModel, SchoolAcademicInfoModel
 from school_setting.models import SchoolGeneralInfoModel
 from student.models import StudentsModel
 from result.models import *
 from academic.models import *
+
+
+def student_fee_percentage_paid(student, school_setting):
+    student_class = student.student_class
+    class_section = student.class_section
+    if school_setting.separate_school_section:
+        academic_setting = SchoolAcademicInfoModel.objects.filter(type=student.type).first()
+        fee_setting = FinanceSettingModel.objects.filter(type=student.type).first()
+        if student_class and class_section:
+            termly_fee_list = FeeMasterModel.objects.filter(type=student.type,
+                                                            fee__fee_occurrence='termly',
+                                                            student_class__in=[student_class.id],
+                                                            class_section__in=[class_section.id])
+            one_time_fee_list = FeeMasterModel.objects.filter(type=student.type,
+                                                              student_class__in=[student_class.id],
+                                                              class_section__in=[class_section.id]).exclude(
+                fee__fee_occurrence='termly').filter(
+                Q(fee__payment_term='any term') | Q(fee__payment_term=academic_setting.term))
+        else:
+            termly_fee_list = []
+            one_time_fee_list = []
+    else:
+        academic_setting = SchoolAcademicInfoModel.objects.first()
+        fee_setting = FinanceSettingModel.objects.first()
+        if student_class and class_section:
+            termly_fee_list = FeeMasterModel.objects.filter(fee__fee_occurrence='termly',
+                                                            student_class__in=[student_class.id],
+                                                            class_section__in=[class_section.id])
+            one_time_fee_list = FeeMasterModel.objects.filter(student_class__in=[student_class.id],
+                                                              class_section__in=[class_section.id]).exclude(
+                fee__fee_occurrence='termly').filter(
+                Q(fee__payment_term='any term') | Q(fee__payment_term=academic_setting.term))
+
+        else:
+            termly_fee_list = []
+            one_time_fee_list = []
+    current_fee, fee_paid, fee_balance, outstanding_fee = 0, 0, 0, 0
+    for fee_master in termly_fee_list:
+        if fee_master.same_termly_price:
+            amount = fee_master.amount
+        else:
+            if academic_setting.term == '1st term':
+                amount = fee_master.first_term_amount
+            elif academic_setting.term == '2nd term':
+                amount = fee_master.second_term_amount
+            elif academic_setting.term == '3rd term':
+                amount = fee_master.third_term_amount
+        current_fee += amount
+        fee_paid += get_amount_paid(fee_master, student.id)
+
+    for fee_master in one_time_fee_list:
+        if fee_master.fee.payment_term == 'any term':
+            amount = fee_master.amount
+        elif fee_master.fee.payment_term == academic_setting.term:
+            amount = fee_master.amount
+        else:
+            amount = 0
+
+        current_fee += amount
+        fee_paid += get_amount_paid(fee_master, student.id)
+        fee_balance += get_fee_balance(fee_master, student.id)
+
+    if current_fee:
+        return round((fee_paid / current_fee) * 100)
+    else:
+        return 0
 
 
 @login_required
@@ -36,9 +106,20 @@ def current_term_result(request, pk):
     session = academic_setting.session
     term = academic_setting.term
 
-    result_is_published = False
-    if result_setting.result_status == 'published':
-        result_is_published = True
+    if result_setting.fee_payment:
+
+        fee_paid = student_fee_percentage_paid(student, school_setting)
+        if fee_paid < result_setting.fee_payment:
+            if round(result_setting.fee_payment) == 100:
+                messages.warning(request, 'You need make complete fee payments to access result')
+            else:
+                message = f'You need to pay up to {result_setting.fee_payment}% of fees to access the result'
+                messages.warning(request, message)
+            return redirect(reverse('student_dashboard'))
+
+    if result_setting.result_status != 'published':
+        messages.warning(request, 'Results for the term are not yet published')
+        return redirect(reverse('student_dashboard'))
 
     student_class = student.student_class
     class_section = student.class_section

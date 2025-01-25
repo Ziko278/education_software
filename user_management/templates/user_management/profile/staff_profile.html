@@ -11,7 +11,7 @@
                         <img src="{{ school_info.logo.url }}" alt="Profile" class="rounded-circle">
                     {% else %}
                         {% if user.profile.staff.image %}
-                            <img src="/media/{{user.profile.staff.image}}" alt="Profile" class="rounded-circle">
+                            <img src="{{user.profile.staff.image.url}}" alt="Profile" class="rounded-circle">
                         {% else %}
                             <img src="{% static 'admin_dashboard/images/default_image.jpg' %}" alt="Profile" class="rounded-circle">
                         {% endif %}

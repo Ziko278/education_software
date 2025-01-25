@@ -7,7 +7,6 @@
             <h4 class="card-title">ACTIONS:
                 <a title="Edit Staff" href="{% url 'staff_edit' staff.id %}" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                 <a title="Delete Staff" href="{% url 'staff_delete' staff.id %}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
-                <button title="Print ID Card" onclick="printID()" class="btn btn-primary"><i class="bi bi-person-badge"></i></button>
             </h4>
         </div>
     </div>
@@ -22,9 +21,6 @@
                         <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">BIO DATA</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">ATTENDANCE</a>
-                    </li>
 
                 </ul>
 
@@ -88,10 +84,7 @@
                                                                         <p>Employment Date : <i><b>{% if staff.employment_date %} {{staff.employment_date|date }} {% else %} Not Provided {% endif %}</b></i></p>
                                                                         <p>Teacher : <i><b> {% if staff.can_teach %} Yes {% else %} No {% endif %} </b></i></p>
                                                                         <p>CV : <i><b>{% if staff.cv %} <a target="_blank" href="{{staff.cv.url}}">Download</a> {% endif %}</b></i></p>
-                                                                        <p>Blood Group : <i><b>{% if staff.blood_group %} {{staff.blood_group|upper }} {% else %} Not Provided {% endif %}</b></i></p>
-                                                                        <p>Genotype : <i><b>{% if staff.genotype %} {{staff.genotype|upper }} {% else %} Not Provided {% endif %}</b></i></p>
-                                                                        <p>Health Note : <i><b>{% if staff.health_issues %} {{staff.health_issues }} {% endif %}</b></i></p>
-                                                                        <p>Username : <i><b  id="username">{{ staff.staff_id }}</b></i>
+                                                                         <p>Username : <i><b  id="username">{{ staff.staff_id }}</b></i>
                                                                             <span class="copy" id="copy_username_alert" style="float:right;position:relative;top:-20px;color:green;font-family:cursive"></span>
                                                                             <button class="btn btn-secondary copy_button" style="float:right" id="copy_username"><i class="bx bxs-copy" style="height:100%"></i></button>
                                                                         </p>
@@ -104,64 +97,6 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div id="id-card" class="row" style="margin-top:20px">
-                                                                <div class="col-6" style="margin-bottom:20px">
-                                                                    <div id="card-front">
-                                                                        <div style="width:400px;height:500px;border:2px solid blue;">
-                                                                            <div style="background-color:blue;border-radius: 0px 0px 30px 30px;height:170px;background:linear-gradient(to bottom right, #ff0000, #0000ff);padding:10px">
-                                                                                <h4 style="color:white;font-family:cursive;text-shadow:2px 2px black">{{ school_info }}</h4>
-                                                                                <img src="{{school_info.logo.url}}" style="width:100px;height:70px;border-radius:5px">
-                                                                                <div class="text-center" style="text-align:center;padding:auto">
-                                                                                    <image {% if staff.image %} src="{{ staff.image.url }}" {% else %} src="{% static 'admin_dashboard/images/default_image.jpg' %}" {% endif %} style="display:block;width:150px;height:150px;border-radius:75px;margin:auto" />
-                                                                                </div>
-
-                                                                            </div>
-                                                                            <div style="padding-top:100px">
-                                                                                <h3 class="text-center" style="color:black;font-weight:bold;font-family:courier">{{ staff|title}}</h3>
-                                                                                <p class="text-center" style="font-weight:bold;font-family:sans serif">{{ staff.position.name|title}}</p>
-                                                                            </div>
-
-                                                                            <div style="padding:5px;padding-left:10px;">
-                                                                                <p><label><b>Staff ID</b></label> : <span class="info">{{ staff.staff_id|upper }}</span></p>
-                                                                                <p style="margin-top:-15px"><label><b>Phone No</b></label> : <span class="info">{% if staff.mobile %} {{ staff.mobile }} {% endif %}</span></p>
-                                                                                <p style="margin-top:-15px"><label><b>Email</b></label> : <span class="info">{% if staff.email %} {{ staff.email|lower }} {% endif %}</span></p>
-                                                                                <p style="margin-top:-15px"><label><b>Blood Grp</b></label> : <span class="info">{% if staff.blood_group %} {{ staff.blood_group|upper }} {% endif %}</span></p>
-                                                                            </div>
-
-                                                                            <div style="background:blue;color:blue;margin-top:-5px;border-radius: 30px 30px 0px 0px;">
-                                                                                .
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="col-6">
-                                                                    <div id="card-back">
-                                                                        <div style="width:400px;height:500px;border:2px solid blue;">
-                                                                            <div style="background-color:blue;border-radius: 0px 0px 30px 30px;height:170px;background:linear-gradient(to bottom right, #ff0000, #0000ff);padding:10px">
-                                                                                <h4 style="color:white;font-family:cursive;text-shadow:2px 2px black;float:right">{{ school_info }}</h4>
-                                                                                <img src="{{school_info.logo.url}}" style="width:100px;height:70px;border-radius:5px;">
-                                                                                <div class="text-center" style="text-align:center;padding:auto">
-                                                                                    <br />
-                                                                                    <image {% if staff.barcode %} src="{{ staff.barcode.url }}" {% else %} src="{% static 'admin_dashboard/images/default_image.jpg' %}" {% endif %} style="display:block;width:250px;height:200px;margin:auto" />
-                                                                                </div>
-
-                                                                            </div>
-
-                                                                            <div style="padding:5px;padding-left:10px;padding-top:140px">
-                                                                                <p class="text-center">This Card remains the Property of {{ school_info }}. If found, Please return to the address below.</p>
-                                                                                <p class="text-center" style="margin-top:-15px">{{ school_info }}</p>
-                                                                                <p class="text-center" style="margin-top:-15px">{{ school_info.mobile_1 }}{% if school_info.mobile_2 %}, {{ school_info.mobile_2 }}{% endif %}</p>
-                                                                                <p class="text-center" style="margin-top:-15px">{{ school_info.address|title }}</p>
-                                                                            </div>
-
-                                                                            <div style="background:blue;color:blue;margin-top:-5px;border-radius: 30px 30px 0px 0px;">
-                                                                                .
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>

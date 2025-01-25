@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 class SessionModel(models.Model):
     start_year = models.IntegerField()
     end_year = models.IntegerField()
-    DELIMETER = (('-', '-'), ('/', '/'))
-    delimeter = models.CharField(max_length=1, choices=DELIMETER)
+    SEPERATOR = (('-', '-'), ('/', '/'))
+    seperator = models.CharField(max_length=1, choices=SEPERATOR)
     SessionStatus = (
         ('a', 'ACTIVE'), ('p', 'PAST'), ('n', 'NEXT')
     )
@@ -17,7 +17,7 @@ class SessionModel(models.Model):
     type = models.CharField(max_length=200, choices=TYPE)
 
     def __str__(self):
-        return str(round(self.start_year)) + self.delimeter + str(round(self.end_year))
+        return str(round(self.start_year)) + self.seperator + str(round(self.end_year))
 
 
 class SchoolAcademicInfoModel(models.Model):

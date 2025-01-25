@@ -1,246 +1,257 @@
 <!DOCTYPE html>
 {% load static %}
-<html class="no-js" lang="en">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>{{site_info.name|title}} - </title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-    <meta content="HKStudio" name="author">
 
-    <link href="{% static 'website/images/favicon.ico' %}" rel="shortcut icon">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'website/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+  <!-- Title -->
+  <title> Braintree Educational Resources</title>
 
-    <!--Material Icon -->
-    <link href="{% static 'website/css/materialdesignicons.min.css' %}" rel="stylesheet" type="text/css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{% static 'website/images/favicon.png' %}">
 
-    <link href="{% static 'website/css/fontawesome.css' %}" rel="stylesheet" type="text/css">
+  <!-- Font-Awesome (CSS) -->
+  <link rel="stylesheet" href="{% static 'website/vendors/font-awesome/css/all.min.css' %}">
 
-    <!-- selectize css -->
-    <link href="{% static 'website/css/selectize.css' %}" rel="stylesheet" type="text/css">
+  <!-- Magnific-Popup (CSS) -->
+  <link rel="stylesheet" href="{% static 'website/vendors/magnific-popup/magnific-popup.css' %}">
 
-    <!--Slider-->
-    <link href="{% static 'website/css/owl.carousel.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/owl.theme.css' %}" rel="stylesheet">
-    <link href="{% static 'website/css/owl.transitions.css' %}" rel="stylesheet">
+  <!-- Swiper (CSS) -->
+  <link rel="stylesheet" href="{% static 'website/vendors/swiper/swiper-bundle.min.css' %}">
 
-    <!-- Custom  Css -->
-    <link href="{% static 'website/css/style.css' %}" rel="stylesheet" type="text/css">
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="{% static 'website/css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'website/css/responsive.css' %}">
 
 </head>
-
 <body>
-<!-- Loader -->
-<div id="preloader">
-    <div id="status">
-        <div class="spinner">
-            <div class="double-bounce1"></div>
-            <div class="double-bounce2"></div>
-        </div>
+
+  <!-- ==================== Scroll-Top Area (Start) ==================== -->
+  <a href="#" class="scroll-top">
+    <i class="fa-solid fa-arrow-up-long"></i>
+  </a>
+  <!-- ==================== Scroll-Top Area (End) ==================== -->
+
+
+
+  <!-- ==================== Header Area (Start) ==================== -->
+  <header class="header">
+
+    <!-- ===== Header-1 Area (Start) ===== -->
+    <div class="header-1">
+
+      <!-- == Contacts == -->
+      <ul class="header-contacts">
+        <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>
+        <li><i class="fa-solid fa-phone"></i><span>+234-809-4022-810</span></li>
+        <li><i class="fa-solid fa-envelope"></i><span class="gmail">contact@braintree.com</span></li>
+      </ul>
+
+      <!-- == Social == -->
+      <ul class="social-contacts">
+        <li><a href="#" class="fab fa-facebook-f"></a></li>
+      </ul>
+
     </div>
-</div>
-<!-- Loader -->
+    <!-- ===== Header-1 Area (End) ===== -->
 
-<!-- Navigation Bar-->
-<header class="defaultscroll scroll-active" id="topnav">
-    <!-- Tagline STart -->
-    <div class="tagline">
-        <div class="container">
-            <div class="float-left">
-                <div class="email">
-                    <a href="tel:{{ site_info.mobile_1 }}">
-                        <i class="mdi mdi-phone-classic"></i> {{ site_info.mobile_1 }}
-                    </a>
-                </div>
-                <div class="email">
-                    <a href="mailto:{{ site_info.email|lower }}">
-                        <i class="mdi mdi-email"></i> {{ site_info.email.lower }}
-                    </a>
-                </div>
+    <!-- ===== Header-2 Area (Start) ===== -->
+    <div class="header-2">
+
+      <!-- == Logo == -->
+      <a class="logo" href="{% url 'homepage' %}">
+        <img src="{% static 'website/images/Logo/Logo.png' %}" alt="logo">
+      </a>
+
+      <div class="container">
+
+        <!-- == Navbar == -->
+        <nav class="navbar" style="padding-right: 200px;">
+
+          <a class="nav-btn" href="{% url 'homepage' %}">home</a>
+          <a class="nav-btn" href="{% url 'about_page' %}">About Us</a>
+          <div class="dropdown-menu">
+            <button class="nav-btn">calendar</button>
+            <div class="dropdown-content">
+              <a href="pages/Calendar/Examination-list.html">Examination</a>
+              <a href="pages/Calendar/Examinations.html">Examiners</a>
+              <a href="pages/Calendar/state Academic calendar.html">States</a>
             </div>
+          </div>
+          <a class="nav-btn" href="pages/Resources/Resources-Catalogue.html">Resources</a>
 
-            <div class="clearfix"></div>
+
+        </nav>
+
+        <!-- == Icon Container == -->
+        <div class="icon-container">
+          <div id="menu-btn" class="icon fa-solid fa-bars-staggered"></div>
+          <!-- <a href="pages/Shop/Shop-Gbagyi.html" class="btn">Shop Gbagyi Cultural items</a> -->
         </div>
+
+        <!-- == Search Container == -->
+        <form class="search-container">
+
+        </form>
+
+      </div>
+
     </div>
-    <!-- Tagline End -->
+    <!-- ===== Header-2 Area (End) ===== -->
 
-    <!-- Menu Start -->
-    <div class="container">
-        <!-- Logo container-->
-        <div>
-            <a class='logo' href="{% url 'homepage' %}">
-                <img alt="" class="logo-light" height="40" src="{{site_info.logo.url}}">
-                <img alt="" class="logo-dark" height="40" src="{{site_info.logo.url}}">
-            </a>
+   <!-- ===== Mobile Menu Area (Start) ===== -->
+   <div class="mobile-menu">
+
+    <nav class="mobile-navbar">
+
+      <div class="nav-link">
+        <div class="main-nav-link"> <a class="nav-btn" href="{% url 'homepage' %}">home</a> </div>
+      </div>
+      <div class="nav-link">
+        <div class="main-nav-link"> <div class="nav-btn">Calendar</div> <i class="fas fa-plus"></i> </div>
+        <div class="sub-nav-link">
+          <a href="pages/Calendar/Examination-list.html">Examination</a>
+          <a href="pages/Calendar/Examinations.html">Examiners</a>
+          <a href="pages/Calendar/state Academic calendar.html">State</a>
         </div>
-        <div class="buy-button">
-            <a class='btn btn-primary' href="{% url 'school_management_portal_page' %}">School Portal</a>
-        </div><!--end login button-->
-        <!-- End Logo container-->
-        <div class="menu-extras">
-            <div class="menu-item">
-                <!-- Mobile menu toggle-->
-                <a class="navbar-toggle">
-                    <div class="lines">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </a>
-                <!-- End mobile menu toggle-->
-            </div>
+      </div>
+      <div class="nav-link">
+        <div class="main-nav-link"> <a class="nav-btn" href="pages/School Finder/School finder.html">School finder</a> </div>
+      </div>
+
+      <div class="nav-link">
+        <div class="main-nav-link"> <div class="nav-btn">Resources</div> <i class="fas fa-plus"></i> </div>
+        <div class="sub-nav-link">
+          <a href="pages/Resources/Shop-Grid.html">Catalogue</a>
+          <a href="pages/Resources/Shop-List.html">Categories</a>
         </div>
-
-        <div id="navigation">
-            <!-- Navigation Menu-->
-            <ul class="navigation-menu">
-                <li><a href="{% url 'homepage' %}">Home</a></li>
-                <li><a href="{% url 'about_page' %}">About Us</a></li>
-                <li class="has-submenu">
-                    <a href="javascript:void(0)">School Finder</a><span class="menu-arrow"></span>
-                    <ul class="submenu">
-                        <li><a href="{% url 'school_finder_page' %}">Find School</a></li>
-                        <li><a href="{% url 'school_finder_add' %}">Register School</a></li>
-                    </ul>
-                </li>
-
-                <li class="has-submenu">
-                    <a href="javascript:void(0)">Blog/Forum</a><span class="menu-arrow"></span>
-                    <ul class="submenu">
-                        <li><a href="{% url 'forum_index_page' %}">Forum</a></li>
-                        <li><a href="{% url 'blog_page' %}">Blog</a></li>
-                        <li><a href="{% url 'forum_ask_question' %}">Ask a Question</a></li>
-                        <li><a href="{% url 'forum_question_index' %}">Answer a Question</a></li>
-                    </ul>
-                </li>
+      </div>
 
 
-                <li>
-                    <a href="{% url 'contact_page' %}">contact</a>
-                </li>
-            </ul><!--end navigation menu-->
-        </div><!--end navigation-->
-    </div><!--end container-->
-    <!--end end-->
-</header><!--end header-->
-<!-- Navbar End -->
+    </nav>
 
-{% block 'main' %}{% endblock %}
+  </div>
+  <!-- ===== Mobile Menu Area (End) ===== -->
 
-<!-- subscribe start -->
-<section class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4 col-md-5">
-                <div class="float-left position-relative notification-icon mr-2">
-                    <i class="mdi mdi-bell-outline text-primary"></i>
-                    <span class="badge badge-pill badge-danger">1</span>
-                </div>
-                <h5 class="mt-2 mb-0">Subscribe for Notification</h5>
-            </div>
-            <div class="col-lg-8 col-md-7 mt-4 mt-sm-0">
-                <form>
-                    <div class="form-group mb-0">
-                        <div class="input-group mb-0">
-                            <input aria-describedby="newssubscribebtn" class="form-control" id="email" name="email" placeholder="Your email :"
-                                   required="" type="email">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary submitBnt" id="newssubscribebtn" type="submit">
-                                    Subscribe
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- subscribe end -->
+  </header>
+  <!-- ==================== Header Area (End) ==================== -->
 
-<!-- footer start -->
+
+
+ <!-- ==================== MAIN ==================== -->
+{% block 'main' %} {% endblock %}
+<!-- ==================== MAIN (End) ==================== -->
+
+
+
+<!-- ==================== Footer Area (Start) ==================== -->
 <footer class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
-                <a href="javascript:void(0)"><img alt="" height="20" src="images/logo-light.png"></a>
-                <p class="mt-4">{{ site_info.name|title }} is your number one choice for all the educational related news and updates</p>
-                <ul class="social-icon social list-inline mb-0">
-                    {% if site_info.facebook_handle %}<li class="list-inline-item"><a class="rounded" target="_blank" href="{{site_info.facebook_handle}}"><i class="mdi mdi-facebook"></i></a></li>{% endif %}
-                    {% if site_info.twitter_handle %}<li class="list-inline-item"><a class="rounded"  target="_blank" href="{{site_info.twitter_handle}}"><i class="mdi mdi-twitter"></i></a></li>{% endif %}
-                    {% if site_info.instagram_handle %}<li class="list-inline-item"><a class="rounded" target="_blank" href="{{site_info.instagram_handle}}"><i class="mdi mdi-instagram"></i></a></li>{% endif %}
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <p class="text-white mb-4 footer-list-title">Quick Links</p>
-                <ul class="list-unstyled footer-list">
-                    <li><a class="text-foot" href="{% url 'homepage' %}"><i class="mdi mdi-chevron-right"></i> Home</a></li>
-                    <li><a class="text-foot" href="{% url 'about_page' %}"><i class="mdi mdi-chevron-right"></i> About Us</a></li>
-                    <li><a class="text-foot" href="{% url 'contact_page' %}"><i class="mdi mdi-chevron-right"></i> Contact us</a></li>
 
-                </ul>
-            </div>
-            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <p class="text-white mb-4 footer-list-title">Resources</p>
-                <ul class="list-unstyled footer-list">
-                    <li><a class="text-foot" href="{% url 'school_finder_page' %}"><i class="mdi mdi-chevron-right"></i> School Finder</a></li>
-                    <li><a class="text-foot" href="{% url 'forum_index_page' %}"><i class="mdi mdi-chevron-right"></i> Forum</a></li>
-                    <li><a class="text-foot" href="{% url 'blog_page' %}"><i class="mdi mdi-chevron-right"></i> Blog</a></li>
-                </ul>
-            </div>
+  <div class="box-container">
 
-            <div class="col-lg-3 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <p class="text-white mb-4 footer-list-title f-17">Contact Info</p>
-                <ul class="list-unstyled text-foot mt-4 mb-0">
-                    <li>{{ site_info.mobile_1 }}</li>
-                    <li class="mt-2">{{ site_info.email|lower }}</li>
-                    <li class="mt-2">{{ site_info.address }}</li>
-                </ul>
-            </div>
-        </div>
+    <!-- Museum Information & Social Media Links -->
+    <div class="footer-item">
+
+      <!-- Museum Logo -->
+      <a class="logo" href="index.html">
+        <img src="{% static 'website/images/Logo/Logo.png' %}" alt="Museum Logo">
+      </a>
+
+      <!-- Description -->
+      <p>Unleash learner potentials in our one stop shop of educational resources.</p>
+
+      <!-- Contact Information -->
+      <div class="info connect">
+        <p><i class="fas fa-phone"></i><span>+123-456-7890</span></p>
+        <p><i class="fas fa-envelope"></i><span class="gmail">info@braintree.com</span></p>
+        <p><i class="fas fa-map-marker-alt"></i><span>Braintree Educational Resources</span></p>
+      </div>
+
     </div>
-</footer>
-<!-- footer end -->
-<hr>
-<footer class="footer footer-bar">
-    <div class="container text-center">
-        <div class="row justify-content-center">
-            <div class="col-12">
-                <div class="">
-                    <p class="mb-0">© {% now 'Y' %} {{ site_info.name|title }}
-                    </p>
-                </div>
-            </div>
+
+    <!-- Our Services -->
+    <div class="footer-item">
+      <h2>Our Services</h2>
+      <div class="info links">
+        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/School Management.html">School Management</a></p>
+        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Educational Resources.html">Educational Resources</a></p>
+        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Exhibitions.html">Exhibitions</a></p>
+        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Process Automation.html">Process Automation</a></p>
+        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Study Abroad.html">School Placement</a></p>
+        <p><i class="fa-solid fa-arrow-right"></i><a href="pages/About/Trainings and Workshops.html">Trainings and Workshops</a></p>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-item">
+      <h2>Quick Links</h2>
+      <div class="info links">
+        <p><i class="fa-solid fa-link"></i><a href="pages/Communities/Register.html">Join our community</a></p>
+        <p><i class="fa-solid fa-link"></i><a href="{% url 'admin_dashboard' %}">School Management Portal</a></p>
+        <p><i class="fa-solid fa-link"></i><a href="pages/Past Questions/Past Questions.html">Past Examination Questions</a></p>
+        <p><i class="fa-solid fa-link"></i><a href="pages/Study Abroad/Student Placement.html">Study Abroad</a></p>
+        <p><i class="fa-solid fa-link"></i><a href="pages/Resources/Resources-Categories.html">Upcoming events</a></p>
+        <p><i class="fa-solid fa-link"></i><a href="pages/Blog/Blog-Grid.html">Blog</a></p>
+        <p><i class="fa-solid fa-link"></i><a href="pages/Contact/Contact.html">Contact Us</a></p>
+      </div>
+    </div>
+
+    <!-- Newsletter Subscription -->
+    <div class="footer-item">
+      <h2>Newsletter</h2>
+      <p>Stay updated and informed about upcoming exhibitions, events, and special offers by subscribing to our newsletter.</p>
+      <form class="dark-form" method="post" id="newsletter-form-2">
+        <div class="input-field">
+          <label for="news-email-2" class="fas fa-envelope"></label>
+          <input type="email" id="news-email-2" name="email" class="box" placeholder="Your email address" required="">
         </div>
-    </div><!--end container-->
-</footer><!--end footer-->
-<!-- Footer End -->
+        <button type="submit" class="btn" name="submit" id="submit-2">Subscribe</button>
+        <span class="alert" id="msg-2"></span>
+      </form>
+    </div>
 
-<!-- Back to top -->
-<a class="back-to-top rounded text-center" href="#" id="back-to-top">
-    <i class="mdi mdi-chevron-up d-block"> </i>
-</a>
-<!-- Back to top -->
+  </div>
 
-<!-- javascript -->
-<script src="{% static 'website/js/jquery.min.js' %}"></script>
-<script src="{% static 'website/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'website/js/jquery.easing.min.js' %}"></script>
-<script src="{% static 'website/js/plugins.js' %}"></script>
+  <!-- Museum Name and Copyright -->
+  <div class="content">
+    <p>Braintree Educational Resources 2024</p>
+  </div>
 
-<!-- selectize js -->
-<script src="{% static 'website/js/selectize.min.js' %}"></script>
-<script src="{% static 'website/js/jquery.nice-select.min.js' %}"></script>
+</footer>
+<!-- ==================== Footer Area (End) ==================== -->
 
-<script src="{% static 'website/js/owl.carousel.min.js' %}"></script>
-<script src="{% static 'website/js/counter.int.js' %}"></script>
 
-<script src="{% static 'website/js/app.js' %}"></script>
-<script src="{% static 'website/js/home.js' %}"></script>
+
+
+  <!-- Jquery -->
+  <script src="{% static 'website/vendors/jquery/jquery.min.js' %}"></script>
+
+  <!-- Swiper (JS) -->
+  <script src="{% static 'website/vendors/swiper/swiper-bundle.min.js' %}"></script>
+
+  <!-- Magnific-Popup JS -->
+  <script src="{% static 'website/vendors/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+
+  <!-- Isotope (JS) -->
+  <script src="{% static 'website/vendors/isotope/isotope.pkgd.min.js' %}"></script>
+
+  <!-- Custom Script Files -->
+  <script src="{% static 'website/js/script.js' %}"></script> <!-- Additional website functionality -->
+  <script src="{% static 'website/js/nav-link-toggler.js' %}"></script> <!-- Mobile navigation link toggling -->
+  <script src="{% static 'website/js/newsletter.js' %}"></script> <!-- 1. Script to handle newsletter subscription functionality -->
+  <script src="{% static 'website/js/home-slider.js' %}"></script> <!-- Dynamic Home Slider -->
+  <script src="{% static 'website/js/counter-up.js' %}"></script> <!-- Numerical counting animation -->
+  <script src="{% static 'website/js/service-slider.js' %}"></script> <!-- 2. Service slider control -->
+  <script src="{% static 'website/js/portfolio.js' %}"></script>  <!-- Projects functionality, including image filtering -->
+  <script src="{% static 'website/js/testi-slider.js' %}"></script> <!-- 3. Interactive Testimonial Slider -->
+  <script src="{% static 'website/js/partner-slider.js' %}"></script> <!-- 4. Interactive Partner Slider -->
+
 
 </body>
 </html>
+
+
+

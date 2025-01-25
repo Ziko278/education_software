@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models, transaction
 from academic.models import ClassesModel, ClassSectionModel, SubjectGroupModel
 from django.contrib.auth.models import User, Group
 from user_management.models import UserProfileModel
@@ -79,9 +79,9 @@ class ParentsModel(models.Model):
 
         if parent_setting.auto_generate_parent_id and not self.parent_id:
             if setting.school_type == 'mix' and setting.separate_school_section:
-                last_parent = ParentIDGeneratorModel.objects.filter(type=self.type, status='s').last()
+                last_parent = ParentIDGeneratorModel.objects.filter(type=self.type).last()
             else:
-                last_parent = ParentIDGeneratorModel.objects.filter(status='s').last()
+                last_parent = ParentIDGeneratorModel.objects.filter().last()
             if last_parent:
                 parent_id = str(int(last_parent.last_id) + 1)
             else:
@@ -100,7 +100,6 @@ class ParentsModel(models.Model):
             self.parent_id = parent_id
 
             generate_id = ParentIDGeneratorModel.objects.create(last_id=gen_id, last_parent_id=self.parent_id,
-                                                                status='f',
                                                                 type=self.type)
             generate_id.save()
 
@@ -148,13 +147,7 @@ class StudentsModel(models.Model):
         ('a+', 'A+'), ('a-', 'A-'), ('b+', 'B+'), ('b-', 'B-'), ('ab+', 'AB+'), ('ab-', 'AB-'), ('o+', 'O+'),
         ('o-', 'O-'),
     )
-    blood_group = models.CharField(max_length=20, choices=BG, null=True, blank=True)
-    GENOTYPE = (
-        ('aa', 'AA'), ('as', 'AS'), ('ac', 'AC'), ('ss', 'SS')
-    )
-    genotype = models.CharField(max_length=20, choices=GENOTYPE, null=True, blank=True)
     age = models.IntegerField(null=True, blank=True)
-    health_issue = models.TextField(null=True, blank=True)
     student_class = models.ForeignKey(ClassesModel, null=True, on_delete=models.CASCADE)
     class_section = models.ForeignKey(ClassSectionModel, null=True, on_delete=models.CASCADE)
     parent = models.ForeignKey(ParentsModel, on_delete=models.CASCADE, blank=True, related_name='students')
@@ -185,70 +178,87 @@ class StudentsModel(models.Model):
             return self.surname + ' ' + self.last_name
 
     def save(self, *args, **kwargs):
-        setting = SchoolGeneralInfoModel.objects.first()
-        if setting.school_type == 'mix' and setting.separate_school_section:
-            student_setting = StudentSettingModel.objects.filter(type=self.type).first()
-            academic_info = SchoolAcademicInfoModel.objects.filter(type=self.type).first()
-        else:
-            student_setting = StudentSettingModel.objects.first()
-            academic_info = SchoolAcademicInfoModel.objects.filter().first()
-        session = str(academic_info.session.start_year)[-2:]
+        with transaction.atomic():  # Ensuring atomicity for the entire save operation
+            # Fetch school settings
+            setting = SchoolGeneralInfoModel.objects.first()
+            student_setting = (
+                StudentSettingModel.objects.filter(type=self.type).first()
+                if setting.school_type == 'mix' and setting.separate_school_section
+                else StudentSettingModel.objects.first()
+            )
+            academic_info = (
+                SchoolAcademicInfoModel.objects.filter(type=self.type).first()
+                if setting.school_type == 'mix' and setting.separate_school_section
+                else SchoolAcademicInfoModel.objects.first()
+            )
+            session = str(academic_info.session.start_year)[-2:]  # Get last two digits of the session start year
 
-        if student_setting.auto_generate_student_id and not self.registration_number:
-            if setting.school_type == 'mix' and setting.separate_school_section:
-                last_student = StudentIDGeneratorModel.objects.filter(type=self.type, session=academic_info.session,
-                                                                      status='s').last()
-            else:
-                last_student = StudentIDGeneratorModel.objects.filter(session=academic_info.session, status='s').last()
-            if last_student:
-                student_id = str(int(last_student.last_id) + 1)
-            else:
-                student_id = str(1)
-            while True:
-                gen_id = student_id
-                if setting.school_type == 'mix':
-                    student_id = self.type[0] + session + '-' + student_id.rjust(4, '0')
-                else:
-                    student_id = session + '-' + student_id.rjust(4, '0')
-                student_exist = StudentsModel.objects.filter(registration_number=student_id).first()
-                if not student_exist:
-                    break
-                else:
+            # Generate registration number if required
+            if student_setting.auto_generate_student_id and not self.registration_number:
+                # Fetch the last student ID for the session and type
+                last_student = (
+                    StudentIDGeneratorModel.objects.filter(session=session)
+                    .filter(type=self.type if setting.school_type == 'mix' else None)
+                    .last()
+                )
+                student_id = str(int(last_student.last_id) + 1) if last_student else "1"
+
+                # Loop to ensure unique registration number
+                while True:
+                    gen_id = student_id
+                    prefix = (
+                        f"{student_setting.student_id_prefix}{self.type[0]}"
+                        if setting.school_type == 'mix'
+                        else student_setting.student_id_prefix
+                    )
+                    registration_number = f"{prefix}-{session}-{gen_id.rjust(4, '0')}"
+                    if not StudentsModel.objects.filter(registration_number=registration_number).exists():
+                        break
                     student_id = str(int(gen_id) + 1)
-            self.registration_number = student_id
 
-            generate_id = StudentIDGeneratorModel.objects.create(last_id=gen_id, session=academic_info.session,
-                                                                 last_student_id=self.registration_number,
-                                                                 status='f', type=self.type)
-            generate_id.save()
+                # Save the last ID to the generator model
+                StudentIDGeneratorModel.objects.create(
+                    last_id=gen_id, session=academic_info.session, last_student_id=registration_number, type=self.type
+                )
+                self.registration_number = registration_number
 
-        else:
+            # Handle user account creation
             if self.id:
                 try:
+                    # Check if a user profile exists for the student
                     user_profile = UserProfileModel.objects.get(student_id=self.id)
                     user = user_profile.user
-                    user.username = self.registration_number
+                    user.username = self.registration_number  # Update username to match registration number
                     if self.email:
-                        user.email = self.email
-                    user.save()
+                        user.email = self.email  # Update email if provided
+                    user.save()  # Save updated user details
                 except UserProfileModel.DoesNotExist:
+                    # Create a new user account if no profile exists
                     username = self.registration_number
                     email = self.email
-                    password = User.objects.make_random_password(length=8)
-                    try:
-                        user = User.objects.get(username=self.registration_number)
-                    except User.DoesNotExist:
-                        user = User.objects.create_user(username=username, email=email, password=password)
+                    password = User.objects.make_random_password(length=8)  # Generate random password
+                    user, created = User.objects.get_or_create(
+                        username=username,
+                        defaults={'email': email, 'password': password}
+                    )
+                    if created:
+                        user.set_password(password)  # Set the generated password
                         user.save()
+                        # Create a new user profile
+                        UserProfileModel.objects.create(
+                            user=user,
+                            student=self,
+                            type=self.type,
+                            default_password=password,
+                            reference='student',
+                            reference_id=self.id
+                        )
 
-                    user_profile = UserProfileModel.objects.create(user=user, student=self, type=self.type,
-                                                                   default_password=password, reference='student', reference_id=self.id)
-                    user_profile.save()
-
-        super(StudentsModel, self).save(*args, **kwargs)
+            # Save the student instance
+        super().save(*args, **kwargs)
 
     def no_in_class(self):
-            return StudentsModel.objects.filter(student_class=self.student_class, class_section=self.class_section).count()
+        return StudentsModel.objects.filter(student_class=self.student_class, class_section=self.class_section).count()
 
 
 class StudentAcademicRecordModel(models.Model):
@@ -275,11 +285,6 @@ class StudentIDGeneratorModel(models.Model):
     last_id = models.IntegerField()
     last_student_id = models.CharField(max_length=100, null=True, blank=True)
     session = models.ForeignKey(SessionModel, on_delete=models.CASCADE, null=True, blank=True)
-    STATUS = (
-        ('s', 'SUCCESS'), ('f', 'FAIL')
-    )
-    status = models.CharField(max_length=10, choices=STATUS, blank=True, default='f')
-
     TYPE = (
         ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
     )
@@ -289,11 +294,6 @@ class StudentIDGeneratorModel(models.Model):
 class ParentIDGeneratorModel(models.Model):
     last_id = models.IntegerField()
     last_parent_id = models.CharField(max_length=100, null=True, blank=True)
-    STATUS = (
-        ('s', 'SUCCESS'), ('f', 'FAIL')
-    )
-    status = models.CharField(max_length=10, choices=STATUS, blank=True, default='f')
-
     TYPE = (
         ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
     )
@@ -303,7 +303,6 @@ class ParentIDGeneratorModel(models.Model):
 class StudentSettingModel(models.Model):
     auto_generate_student_id = models.BooleanField(default=True)
     auto_generate_parent_id = models.BooleanField(default=True)
-    TYPE = (
-        ('pri', 'PRIMARY'), ('sec', 'SECONDARY')
-    )
+    student_id_prefix = models.CharField(max_length=5, blank=True, null=True, default='')
+    TYPE = (('pri', 'PRIMARY'), ('sec', 'SECONDARY'))
     type = models.CharField(max_length=10, choices=TYPE, blank=True)

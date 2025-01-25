@@ -230,7 +230,7 @@ class ResultModel(models.Model):
     def save(self, *args, **kwargs):
         if self.result:
             total_score = 0
-            if self.student_class.result_type == 'text' or self.student_class.result_type == 'mix':
+            if self.student_class.result_type == 'score' or self.student_class.result_type == 'mix':
                 for key, result in self.result.items():
                     try:
                         total_score += result['total']
@@ -293,8 +293,6 @@ class ResultModel(models.Model):
         else:
             academic_setting = AcademicSettingModel.objects.first()
         if academic_setting:
-            if self.student_class.is_nursery_class:
-                return academic_setting.nursery_head_teacher
             if academic_setting.head_teacher:
                 return academic_setting.head_teacher
         return ''
@@ -481,8 +479,6 @@ class TextBasedResultModel(models.Model):
         else:
             academic_setting = AcademicSettingModel.objects.first()
         if academic_setting:
-            if self.student_class.is_nursery_class:
-                return academic_setting.nursery_head_teacher
             if academic_setting.head_teacher:
                 return academic_setting.head_teacher
         return ''

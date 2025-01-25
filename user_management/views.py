@@ -83,14 +83,14 @@ def user_sign_in_view(request):
                 return redirect(reverse('login'))
         else:
             messages.error(request, 'Invalid Credentials')
-            return redirect(reverse('portal_login'))
+            return redirect(reverse('login'))
 
     return render(request, 'user_management/sign_in.html')
 
 
 def user_sign_out_view(request):
     logout(request)
-    return redirect(reverse('portal_login'))
+    return redirect(reverse('login'))
 
 
 def user_reset_password_view(request):
