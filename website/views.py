@@ -281,7 +281,7 @@ def send_update_mail(request):
                 recipient_list = ['contact@braintree.com.ng', 'braintreeresources@gmail.com']  # List of email addresses
 
                 # Send the email
-                send_mail(subject, message, from_email, recipient_list, fail_silently=True)
+                send_mail(subject, message, from_email, recipient_list)
 
                 # Return a success response
                 return JsonResponse({'status': 'success', 'message': 'Email sent successfully'})
