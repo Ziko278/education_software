@@ -226,6 +226,7 @@ $(".search-selector").click(function() {
 // kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
 $(document).ready(function () {
+  updated_data = {}
   let button_blocker = 0;  // Initialize button_blocker as an integer
   
   // When the button with class '.loader' is clicked
@@ -423,7 +424,12 @@ $(".load-editor-detail").click(function(){
   $("#sent-modifier-email").text(email)
   $("#sent-modifier-designation").text(designation)
   $("#sent-modifier-phone").text(number)
-  
+
+  updated_data["modifier_name"] = person
+  updated_data["modifier_email"] = email
+  updated_data["modifier_designation"] = designation
+  updated_data["modifier_number"] = number
+
 });
 
 
@@ -431,7 +437,7 @@ $(".load-editor-detail").click(function(){
 
 // ========extract school details (start)========
 $(document).on("click", ".load-school-details", function(){
-    updated_data = {}
+
   // serial
   school = $("#detail-0").val()
 //   // ownership
@@ -457,14 +463,14 @@ $(document).on("click", ".load-school-details", function(){
 
   updated_data["school_name"] = school
   updated_data["address"] = address
+  updated_data["address1"] = address1
   updated_data["area"] = area
   updated_data["lga"] = lga
+  updated_data["city"] = city
   updated_data["state"] = state
   updated_data["email"] = email
   updated_data["telephone"] = telephone
   updated_data["website"] = website
-
-
 
 })
 
@@ -514,6 +520,7 @@ $(document).on("click", "input[name='section[]']", function () {
   // Append new selected values as list items
   selectedSections.forEach(function (section) {
     $("#selected-values").append($('<li>').text(section));
+    updated_data[section] = 'available'
   });
 });
 // ======== Sections Selection (end) ========
