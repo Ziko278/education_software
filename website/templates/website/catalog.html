@@ -3,109 +3,87 @@
 {% block 'main' %}
 
 
-<!-- ==================== Page-Title (Start) ==================== -->
-<div class="page-title">
+  <!-- ==================== Page-Title (Start) ==================== -->
+  <div class="page-title">
 
     <div class="title">
-        <h2>Shop List</h2>
+      <h2>Shop List</h2>
     </div>
 
     <div class="link">
-        <a href="{% url 'homepage' %}">Home</a>
-        <i class="fa-solid fa-angles-right"></i>
-        <span class="page">Shop List</span>
+      <a href="{% url 'homepage' %}">Home</a>
+      <i class="fa-solid fa-angles-right"></i>
+      <span class="page">Shop List</span>
     </div>
 
-</div>
-<!-- ==================== Page-Title (End) ==================== -->
+  </div>
+  <!-- ==================== Page-Title (End) ==================== -->
 
 
-<!-- ==================== Shop-List Area (Start) ==================== -->
-<section class="shop">
 
-    <!-- ========== Shop Sidebar Area (Start) ========== -->
-    <div class="sidebar">
+  <!-- ==================== import Area (Start) ================== -->
+  <section class="resources-sections shop">
 
-        <!-- ===== Category Area (Start) ===== -->
-        <div class="category sidebar-item">
-
-            <!-- Sidebar Heading: Categories -->
-            <div class="sidebar-heading">
-                <!-- <h2>categories</h2> -->
-            </div>
-
-            <!-- Shop Categories -->
-            <div class="box-container">
-                <!-- <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>All Products</span> <p>(30)</p> </a>
-                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Art Prints</span> <p>(08)</p> </a>
-                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Jewelry Boutique</span> <p>(06)</p> </a>
-                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Books & Journals:</span> <p>(04)</p> </a>
-                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Home Decor</span> <p>(06)</p> </a>
-                <a href="#" class="item"> <span><i class="fa-solid fa-building-columns"></i>Fashion Accessories:</span> <p>(06)</p> </a> -->
-            </div>
-
-        </div>
-        <!-- ===== Category Area (End) ===== -->
+      <!-- ========== Shop Sidebar Area (Start) ========== -->
+      <div class="sidebar">
 
 
         <!-- ===== Popular Products Area (Start) ===== -->
         <div class="popular-products sidebar-item">
 
-            <!-- Sidebar Heading: Popular Products -->
-            <div class="sidebar-heading">
-                <h2>popular products</h2>
-            </div>
+          <!-- Sidebar Heading: Popular Products -->
+          <div class="sidebar-heading">
+            <h2>popular products</h2>
+          </div>
 
-            <!-- Popular Products -->
-            <div class="box-container">
-                <div id="Popular-Products">
+          <!-- Popular Products -->
+          <div class="box-container">
 
-                </div>
+            <div id="Popular-Products"></div>
 
-
-            </div>
+          </div>
 
         </div>
         <!-- ===== Popular Products Area (End) ===== -->
 
-    </div>
-    <!-- ========== Shop Sidebar Area (End) ========== -->
+      </div>
+      <!-- ========== Shop Sidebar Area (End) ========== -->
 
-    <!-- ========== Shop Container (Start) ========== -->
-    <div class="shop-container">
+      <!-- ========== Shop Container (Start) ========== -->
+      <div class="shop-container">
 
         <!-- ===== Shop Header (Start) ===== -->
         <div class="intro">
 
-            <!-- Showing Products Count -->
-            <!-- <div class="showing">showing 4 of 30 products  </div> -->
+          <!-- Showing Products Count -->
+          <!-- <div class="showing">showing 4 of 30 products  </div> -->
 
-            <!-- Display Styles -->
-            <div class="styles">
-                <!-- <a href="Shop-Grid.html" class="fas fa-th"></a> -->
-                <!-- <a href="Shop-List.html" class="fas fa-list"></a>                -->
-            </div>
+          <!-- Display Styles -->
+          <div class="styles">
+            <!-- <a href="Shop-Grid.html" class="fas fa-th"></a> -->
+            <!-- <a href="Shop-List.html" class="fas fa-list"></a>                -->
+          </div>
 
-            <div class="btn" style="width: 100%;">
-                <a style="color:white;background-color:orange;padding:10px 25px;border-radius:5px;box-shadow:1px 2px grey;"  href="{% url 'school_finder_page' %}"><b>Go to school search</b></a>
-            </div>
+          <div class="btn" style="width: 100%;">
+            <a href="{% url 'school_finder_page' %}">find a school</a>
+          </div>
 
-            <!-- Sorting Type -->
-            <div class="sorting-type">
+          <!-- Sorting Type -->
+          <div class="sorting-type">
 
-                <!-- Sorting Label -->
-                <!-- <label for="sort">sort by:</label> -->
+            <!-- Sorting Label -->
+            <!-- <label for="sort">sort by:</label> -->
 
-                <!-- Sorting Options -->
-                <!-- <select name="sort" id="sort">
-                  <option value="default">default</option>
-                  <option value="name, A to Z">name, A to Z</option>
-                  <option value="mname, Z to A">name, Z to A</option>
-                  <option value="price, low to high">price, low to high</option>
-                  <option value="price, high to low">price, high to low</option>
-                </select> -->
+            <!-- Sorting Options -->
+            <!-- <select name="sort" id="sort">
+              <option value="default">default</option>
+              <option value="name, A to Z">name, A to Z</option>
+              <option value="mname, Z to A">name, Z to A</option>
+              <option value="price, low to high">price, low to high</option>
+              <option value="price, high to low">price, high to low</option>
+            </select> -->
 
-            </div>
+          </div>
 
         </div>
         <!-- ===== Shop Header (End) ===== -->
@@ -113,25 +91,327 @@
         <!-- ===== Products (Start) ===== -->
         <div class="product-container list">
 
-            <!-- Product-1 -->
-
-            <div id="dump-here">
-
-            </div>
-
+          <div id="catalogue"></div>
 
         </div>
         <!-- ===== Products (End) ===== -->
 
 
-    </div>
-    <!-- ========== Shop Container (End) ========== -->
 
-</section>
-<!-- ==================== Shop-List Area (End) ==================== -->
+      </div>
+      <!-- ========== Shop Container (End) ========== -->
+
+    </section>
+
+
+  <!-- ==================== Product Single Area (Start) ==================== -->
+
+  <!-- <section class="product-single">
+    <div id="product-single"></div>
+
+
+   </section> -->
+
+   <section class="resources-sections product-single" style="display: none;">
+
+    <!-- ========== Product-Description Area (Start) ========== -->
+    <div class="product-des">
+
+      <div class="box-container">
+
+        <!-- Product Image -->
+        <div class="image">
+          <div class="image-container">
+
+            <!-- Main Product image -->
+            <div class="main">
+              <div id="main-btn">
+
+              </div>
+              <!-- <img src="../../../assets/images/Shop/Product-Gallery/1.jpg" alt="Product Image">  -->
+            </div>
+
+            <!-- Product Image Gallery Buttons -->
+            <div class="change-btns">
+              <div id="button-image1"></div>
+              <div id="button-image2"></div>
+              <div id="button-image3"></div>
+              <div id="button-image4"></div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="content">
+          <div class="text">
+
+            <div class="introduction">
+              <div class="intro">
+                <!-- Product Rating -->
+                <!-- <div class="rating">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div> -->
+                <!-- <span>5.0 (10)</span> Number of reviews -->
+              </div>
+
+              <h3 id="Product-Name"></h3> <!-- Product Title -->
+              <div class="price" id="Product-Price">&#x20A6;1200.00/- <span id="Product-New-Price">&#x20A6;200.00</span></div> <!-- Product price -->
+            </div>
+
+            <p  id="Product-Detail">
+              NEW Take a peek at common classrom mistakes teachers make. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Vivamus non quam id eros sodales facilisis. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus ipsa eum
+              tempore magni rerum molestias? Fugit aspernatur, omnis, quaerat quisquam ullam dolorum dolore ipsum facere officiis facilis
+              veniam maxime ipsa.
+            </p> <!-- Brooch Description -->
+
+            <!-- Quantity Box -->
+            <div class="box">
+
+              <!-- <div class='qty'>
+                <h4 id="Product-Quantity">Qty:</h4>
+                <div class="quantity buttons_added">
+                  <input type="button" value="-" class="minus">
+                  <input type="number" step="1" min="1" max="100" name="quantity" value="1" title="Qty" class="input-text qty text">
+                  <input type="button" value="+" class="plus">
+                </div>
+              </div> -->
+
+              <!-- <div id="quote-button"></div>       -->
+
+                      <div class="button-container">
+                          <a class="btn quote-button">Get Quote</a>
+                          <a id="quote-back-button" class="btn">Back</a>
+                      </div>
+
+            </div>
+
+            <!-- Product Categories -->
+            <!-- <div class='categories'>
+              <h4>Categories:</h4>
+              <a href="#">Jewelry</a>
+              <a href="#">Accessories</a>
+              <a href="#">Diamonds</a>
+            </div> -->
+
+            <!-- Product Tags -->
+            <!-- <div class='tags'>
+              <h4>Tags:</h4>
+              <a href="#">Diamond Brooch</a>
+              <a href="#">Jewelry</a>
+              <a href="#">Elegance</a>
+            </div> -->
+
+          </div>
+        </div>
+
+      </div>
+
+      <div class="product-info tab-info">
+
+        <!-- Tab Buttons -->
+        <div class="tab-buttons">
+          <button type="button" class="button active" data-target="#description">description</button> <!-- Active tab button for description -->
+          <button type="button" class="button" data-target="#additional">additional information</button> <!-- Tab button for additional information -->
+          <!-- <button type="button" class="button" data-target="#reviews">reviews (2)</button> Tab button for reviews -->
+        </div>
+
+        <!-- Tab Sections -->
+        <div class="tab-sections">
+
+          <!-- Description Tab Section -->
+          <div class="tab-section active" id="description">
+            <div class="description">
+              <p  id="Product-Description">Add a touch of sophistication to your ensemble with our elegant Diamond Brooch. Crafted with exquisite diamonds and meticulous attention to detail, this brooch is a timeless statement piece. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non quam id eros sodales facilisis. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius modi molestiae voluptatum totam quo delectus laudantium quas est sapiente, nemo id quos facere veritatis similique ipsam dignissimos. Illo, quisquam ipsam!</p>
+            </div>
+          </div>
+
+          <!-- Additional Information Tab Section -->
+          <div class="tab-section" id="additional">
+            <div class="additional-info">
+              <div class="item"><h3>Material:</h3><span id="Product-Material">Paperback</span></div> <!-- Brooch material -->
+              <div class="item"><h3>Size:</h3><span id="Product-Size">62 pages</span></div> <!-- Brooch size -->
+              <div class="item"><h3>Weight:</h3><span id="Product-Weight">0.5 kg</span></div> <!-- Brooch weight -->
+            </div>
+          </div>
+
+          <!-- Reviews Tab Section -->
+          <div class="tab-section" id="reviews">
+            <div class="reviews">
+
+              <h2>2 reviews</h2>
+
+              <!-- Review Comment 1 -->
+              <div class="comment">
+                <div class="comment-image">
+                  <img src="{% static 'website/images/Shop/Reviews/Pic-1.jpg' %}" alt="comment-author-Pic"> <!-- Reviewer's image -->
+                </div>
+                <div class="comment-content">
+                  <h3>Emily Smith</h3> <!-- Reviewer's name -->
+                  <h6>Mar 10, 2024</h6> <!-- Review date -->
+                  <p class="text">Absolutely stunning brooch! It adds a touch of glamour to any outfit.</p> <!-- Review content -->
+                </div>
+              </div>
+
+              <!-- Review Comment 2 -->
+              <div class="comment">
+                <div class="comment-image">
+                  <img src="{% static 'website/images/Shop/Reviews/Pic-2.jpg' %}" alt="comment-author-Pic"> <!-- Reviewer's image -->
+                </div>
+                <div class="comment-content">
+                  <h3>Michael Jones</h3> <!-- Reviewer's name -->
+                  <h6>Mar 8, 2024</h6> <!-- Review date -->
+                  <p class="text">Beautiful craftsmanship and excellent quality. I love wearing this brooch!</p> <!-- Review content -->
+                </div>
+              </div>
+
+              <!-- Leave a Reply Section -->
+              <div class="leave-reply">
+                <form class="form">
+                  <h2>Leave a Comment</h2>
+
+                  <div class="input-box">
+                    <input type="text" name="name" class="box" id="name" placeholder="Name" required=""> <!-- Name input -->
+                    <input type="email" name="email" class="box" id="email" placeholder="Email" required=""> <!-- Email input -->
+                  </div>
+
+                  <textarea cols="30" rows="10" name="comment" class="box" id="comment" placeholder="Comment"></textarea> <!-- Comment input -->
+
+                  <input type="submit" value="Submit" class="btn"> <!-- Submit button -->
+
+                </form>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- ========== Product-Description Area (End) ========== -->
+
+    <!-- ========== Related Products Area (Start) ========== -->
+
+    <!-- ========== Related Products Area (End) ========== -->
+
+  </section>
+
+  <!-- ==================== Product Single Area (End) ==================== -->
+
+
+   <!-- ==================== Checkout Area (Start) ==================== -->
+   <section class="quotation resources-sections" style="display: none;">
+
+    <form action="#" class="checkout" id="checkout">
+
+      <div class="box-1">
+
+        <!-- ========== Billing-Address Area (Start) ========== -->
+        <div class="billing address checkout-item">
+
+          <div class="heading">
+            <h2 id="quoted-item">Product</h2>
+          </div>
+
+          <div class="form">
+
+            <!-- First and Last name input -->
+            <div class="input-box">
+              <input type="text" name="first-name" placeholder="first name" id="b-first-name" class="box" required="">
+              <input type="text" name="last-name" placeholder="last name" id="b-last-name" class="box" required="">
+            </div>
+
+
+
+            <!-- City and State input -->
+            <div class="input-box">
+              <input type="text" name="company" placeholder="company" id="b-company" class="box" required="">
+              <input type="text" name="city" placeholder="Delivery City" id="b-city" class="box" required="">
+              <input type="text" name="state" placeholder="State" id="b-state" class="box" required="">
+            </div>
+
+            <!-- Phone and Email input -->
+            <div class="input-box">
+              <input type="number" name="number" placeholder="phone no" id="b-number" class="box" required="">
+              <input type="email" name="email" placeholder="email address" id="b-email" class="box" required="">
+            </div>
+
+                        <!-- Country input -->
+                        <div class="input-box">
+                          <input type="number" name="Item" placeholder="Quantity" id="b-quantity" class="box" required="" style="width: 12rem;">
+
+                        </div>
+
+          </div>
+
+        </div>
+        <!-- ========== Billing-Address Area (End) ========== -->
+
+
+        <button type="submit" id="submit-quotation" class="btn">Request quotation</button> <!-- Place Order Button -->
+
+      </div>
+
+    </form>
+
+  </section>
+  <!-- ==================== Checkout Area (End) ==================== -->
 
 {% endblock %}
 
 {% block 'script' %}
+    <script src="{% static 'website/js/Price-Filter.js' %}"></script> <!-- filters for the name search directory. -->
     <script src="{% static 'website/js/Product-Loader.js' %}"></script> <!-- filters for the name search directory. -->
+    <script src="{% static 'website/js/Single-Product-Loader.js' %}"></script> <!-- filters for the name search directory. -->
+    <script src="{% static 'website/js/Product-Gallery.js' %}"></script> <!-- filters for the name search directory. -->
+    <script>
+      $(document).ready(function () {
+        $("#submit-quotation").click(function (event) {
+            event.preventDefault(); // Prevent form submission
+
+          let formValid = true;
+          let formData = {};
+
+          // Check if any required field is empty
+          $(".checkout .box").each(function () {
+              let fieldValue = $(this).val().trim();
+              let fieldName = $(this).attr("placeholder");
+
+              if (fieldValue === "") {
+                  alert(fieldName + " is required");
+                  formValid = false;
+                  return false; // Stop further checking
+              }
+
+              formData[$(this).attr("name")] = fieldValue;
+          });
+
+          if (!formValid) return; // Stop if validation fails
+
+          // Convert form data to query string
+          let queryString = $.param(formData);
+
+          // Send data via AJAX GET request
+          $.ajax({
+              url: "{% url 'send_quotation_email' %}?" + queryString, // Append query string
+              type: "GET",
+              success: function (response) {
+                  alert("Quotation sent successfully!");
+                  $("#checkout")[0].reset(); // Reset the form
+              },
+              error: function () {
+                  alert("An error occurred. Please try again.");
+              }
+          });
+      });
+  });
+
+    </script>
 {% endblock %}

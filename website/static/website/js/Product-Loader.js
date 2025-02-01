@@ -1,6 +1,46 @@
 $(document).ready(function() {
     // Product Data Array
     productLoad = [
+
+        {
+            "product number": "52020103",
+            "Product-group": "Portal",
+            "Product-Title": "School Management Portal",
+            "new-price": "500 per term",
+            "old-price": "30000",
+            "details": "Reduce costs by cutting paper usage and streamlining administrative tasks. A school management portal boosts efficiency through automation, real-time data access, and seamless communication, which enhances productivity and resource management overall.",
+            "description": "Key features include a centralized dashboard, student information management, attendance tracking, grading and assessment tools, fee management, and event scheduling. It also offers secure messaging, automated report generation, and mobile compatibility. The portal enhances efficiency, transparency, and accessibility, enabling easy access to academic performance, school updates, and parent-teacher communication, while ensuring data security and role-based access.",
+            "max": "4",
+            "Material": "not available",
+            "Size": "not available",
+            "Weight": "not available"
+        },
+        {
+            "product number": "52020107",
+            "Product-group": "CCTV",
+            "Product-Title": "CCTV",
+            "new-price": "80000",
+            "old-price": "70000",
+            "details": "Boost your school's security with our advanced CCTV cameras—delivering clear HD footage, motion detection, remote access, and 24/7 monitoring. Safeguard students, staff, and property, anytime, anywhere. Stay protected, stay smart.",
+            "description": "This advanced CCTV system for schools offers real-time surveillance with high-definition cameras, providing clear footage day and night. Equipped with motion detection and smart analytics, it ensures enhanced security by alerting staff to any suspicious activity. The system supports remote access, allowing administrators to monitor live feeds from any location. With robust data encryption and cloud storage, footage is securely stored and easily accessible, promoting a safe learning environment for students and staff.",
+            "max": "4",
+            "Material": "not available",
+            "Size": "not available",
+            "Weight": "not available"
+        },
+        {
+            "product number": "52020104",
+            "Product-group": "Gowns",
+            "Product-Title": "Academic Gowns",
+            "new-price": "6000",
+            "old-price": "30000",
+            "details": "Academic gowns uphold tradition, fostering unity during key ceremonies like graduations. They add formality, allowing students and faculty to celebrate achievements with dignity, creating a professional atmosphere for a memorable experience.",
+            "description": "Our academic gown is made from durable, comfortable fabric with a classic, flowing design. It features long sleeves and an open-front style, perfect for formal ceremonies. Available in traditional black and any other colours on request, it pairs with a cap and tassel for a professional, polished look at graduations and academic events.",
+            "max": "4",
+            "Material": "not available",
+            "Size": "not available",
+            "Weight": "not available"
+        },
         {
             "product number": "52020101",
             "Product-group": "Solar",
@@ -16,61 +56,47 @@ $(document).ready(function() {
         },
         {
             "product number": "52020102",
-            "Product-group": "Portal",
+            "Product-group": "Website",
             "Product-Title": "School Website",
             "new-price": "40000",
             "old-price": "30000",
-            "details": "A school website is essential for communication, showcasing achievements, providing important updates, and fostering community engagement. Enhance your school's visibility, accessibility, and professionalism with an effective, easy-to-navigate website today!",
-            "description": "A school website is essential for communication, showcasing achievements, providing important updates, and fostering community engagement. Enhance your school's visibility, accessibility, and professionalism with an effective, easy-to-navigate website today!",
-            "max": "4",
-            "Material": "not available",
-            "Size": "not available",
-            "Weight": "not available"
-        },
-        {
-            "product number": "52020103",
-            "Product-group": "Website",
-            "Product-Title": "School Management Portal",
-            "new-price": "500 per term",
-            "old-price": "30000",
-            "details": "Our school management portal streamlines communication, simplifies administrative tasks, and enhances student performance tracking. With easy access to grades, schedules, and updates, it improves efficiency and fosters a connected school community.",
-            "description": "Our school management portal streamlines communication, simplifies administrative tasks, and enhances student performance tracking. With easy access to grades, schedules, and updates, it improves efficiency and fosters a connected school community.",
-            "max": "4",
-            "Material": "not available",
-            "Size": "not available",
-            "Weight": "not available"
-        },
-        {
-            "product number": "52020104",
-            "Product-group": "Gowns",
-            "Product-Title": "Academic Gowns",
-            "new-price": "6000",
-            "old-price": "30000",
-            "details": "Academic gowns that combine tradition with quality, providing students with a dignified and professional appearance for graduations and other school ceremonies. Tailored for comfort and prestige, ensuring a memorable academic milestone.",
-            "description": "Academic gowns that combine tradition with quality, providing students with a dignified and professional appearance for graduations and other school ceremonies. Tailored for comfort and prestige, ensuring a memorable academic milestone.",
+            "details": "A  website defines a school's brand, improves communication with students, parents, and the community, and serves as a hub for schedules, announcements, and events, boosting visibility, online learning, and engagement.",
+            "description": "Our website provide for creating online communities and forums, allowing parents to interact, share information, and engage with school activities. These features provide a safe environment, protected from the vulnerabilities of social media platforms, with robust encryption and security measures to ensure privacy. Parents can discuss topics, ask questions, and collaborate without concerns about data breaches or hacking, fostering stronger connections within the school community. Additionally, the website can include event updates, announcements, and resources, enhancing overall communication.",
             "max": "4",
             "Material": "not available",
             "Size": "not available",
             "Weight": "not available"
         }
+
+
     ];
 
     // Initialize empty string for the catalog HTML
     let buildCatalogue = "";
 
     // Get the number of products for sale
-    let forSale = productLoad.length;
+    let forSale = 3;
 
     // Loop through the productLoad array to build the catalog
     for (let i = 0; i < forSale; i++) {
         buildCatalogue += `
-            <div class="product-item" style="margin-bottom:30px">
+            <div class="product-item">
                 <div class="image">
                     <img src="/static/website/images/Shop/Products/${productLoad[i]["Product-group"]}/Product-1.jpg" alt="${productLoad[i]["Product-Title"]}"> <!-- Product Image -->
                     <div class="options">
                         <!-- <a href="Wishlist.html" class="icon"><i class="fas fa-paper-plane"></i></a>Add to Wishlist Button -->
-                        <a href="Quotation.html" class="icon"><i class="fas fa-file-invoice"></i></a><!-- Add to Cart Button -->
-                        <a href="Product-Single/${productLoad[i]["Product-group"]}.html" class="icon"><i class="fa-solid fa-magnifying-glass"></i></a><!-- Product Detail Page Button -->
+                        <a class="icon"><i class="fas fa-file-invoice  quote-button"></i></a><!-- Quotation Button -->
+                        <a class="icon"><i Image-link="${productLoad[i]["Product-group"]}"
+                              new-price ="${productLoad[i]["new-price"]}"
+                              old-price ="${productLoad[i]["old-price"]}"
+                              details ="${productLoad[i]["details"]}"
+                              description ="${productLoad[i]["description"]}"
+                              max ="${productLoad[i]["max"]}"
+                              Material ="${productLoad[i]["Material"]}"
+                              Size ="${productLoad[i]["Size"]}"
+                              Weight ="${productLoad[i]["Weight"]}"
+                        
+                        class="fa-solid fa-magnifying-glass Examine-Item"></i></a><!-- Product Detail Page Button -->
                     </div>
                 </div>
                 <div class="content">
@@ -81,31 +107,51 @@ $(document).ready(function() {
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <a href="Product-Single/${productLoad[i]["Product-group"]}.html"><h3 class="Examine-Item">${productLoad[i]["Product-Title"]}</h3></a> <!-- Product Title -->
+                    <div ><h3 Image-link="${productLoad[i]["Product-group"]}"
+                              new-price ="${productLoad[i]["new-price"]}"
+                              old-price ="${productLoad[i]["old-price"]}"
+                              details ="${productLoad[i]["details"]}"
+                              description ="${productLoad[i]["description"]}"
+                              max ="${productLoad[i]["max"]}"
+                              Material ="${productLoad[i]["Material"]}"
+                              Size ="${productLoad[i]["Size"]}"
+                              Weight ="${productLoad[i]["Weight"]}"
+
+                    class="Examine-Item">${productLoad[i]["Product-Title"]}</h3></div> <!-- Product Title -->
                     <p>${productLoad[i].details}</p> <!-- Product Details -->
                     <div class="price">From: &#x20A6;${productLoad[i]["new-price"]} <span></span></div> <!-- Product Price -->
                 </div>
             </div>`;
     }
 
-    // Append the generated HTML to the container with id 'dump-here'
-    $("#dump-here").html(buildCatalogue);
+    // Append the generated HTML to the container with id 'catalogue'
+    $("#catalogue").html(buildCatalogue);
 
     let popularList = "";
 
-    for (i=0; i<3; i++){
+    for (i=2; i<5; i++){
         popularList += `    <div class="post-item">
           <img src="/static/website/images/Shop/Products/${productLoad[i]["Product-group"]}/Product-3.jpg" alt="${productLoad[i]["Product-Title"]}"> <!-- Product Image -->
           <div class="content">
-            <a href="Product-Single/${productLoad[i]["Product-group"]}.html">${productLoad[i]["Product-Title"]}</a>
+          <a ><h3 Image-link="${productLoad[i]["Product-group"]}"
+          new-price ="${productLoad[i]["new-price"]}"
+          old-price ="${productLoad[i]["old-price"]}"
+          details ="${productLoad[i]["details"]}"
+          description ="${productLoad[i]["description"]}"
+          max ="${productLoad[i]["max"]}"
+          Material ="${productLoad[i]["Material"]}"
+          Size ="${productLoad[i]["Size"]}"
+          Weight ="${productLoad[i]["Weight"]}"
+          class="Examine-Item">${productLoad[i]["Product-Title"]}</h3></a> <!-- Product Title -->
+
             <div class="price">
             </div>
-          </div>
+            </div>
         </div>
     `;
     }
 
     $("#Popular-Products") .html(popularList);
-
+    
 
 });

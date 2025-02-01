@@ -291,3 +291,47 @@ def send_update_mail(request):
             return JsonResponse({'status': 'fail', 'message': 'No data received'}, status=400)
 
     return JsonResponse({'status': 'fail', 'message': 'Invalid request method'}, status=400)
+
+
+def send_quotation_email(request):
+    if request.method == "GET":
+        try:
+            # Get data from query parameters
+            first_name = request.GET.get("first-name", "")
+            last_name = request.GET.get("last-name", "")
+            company = request.GET.get("company", "")
+            city = request.GET.get("city", "")
+            state = request.GET.get("state", "")
+            phone = request.GET.get("number", "")
+            email = request.GET.get("email", "")
+            quantity = request.GET.get("Item", "")
+
+            subject = "New Quotation Request"
+            message = f"""
+            A new quotation request has been received:
+
+            Name: {first_name} {last_name}
+            Company: {company}
+            City: {city}
+            State: {state}
+            Phone: {phone}
+            Email: {email}
+            Quantity: {quantity}
+            """
+            from_email = 'odekeziko@gmail.com'
+            recipient_list = ['contact@braintree.com.ng', 'braintreeresources@gmail.com']  # List of email addresses
+
+            send_mail(
+                subject,
+                message,
+                from_email,  # Replace with your sender email
+                recipient_list,  # Replace with your receiver email
+                fail_silently=False,
+            )
+
+            return JsonResponse({"success": True, "message": "Quotation sent successfully!"})
+
+        except Exception as e:
+            return JsonResponse({"success": False, "message": str(e)}, status=400)
+
+    return JsonResponse({"success": False, "message": "Invalid request"}, status=400)

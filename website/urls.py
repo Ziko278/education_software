@@ -22,6 +22,7 @@ urlpatterns = [
     path('calendar/state', CalendarStatePageView.as_view(), name='calendar_state_page'),
 
     path('send-update-mail', send_update_mail, name='send_update_mail'),
+    path("send-quotation-email/", send_quotation_email, name="send_quotation_email"),
 
     path('forum/index', forum_index_view, name='forum_index_page'),
     path('forum/ask-question', forum_question_create_view, name='forum_ask_question'),

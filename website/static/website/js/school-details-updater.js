@@ -538,6 +538,7 @@ $(document).on("click", "input[name='search[]']", function () {
   // Append new selected search values as list items
   selectedSearchValues.forEach(function (value) {
     $("#sent-search").append($('<li>').text(value +": Available"));
+    updated_data[value] = 'available'
   });
 });
 
