@@ -314,36 +314,26 @@ def send_update_mail(request):
 def send_quotation_email(request):
     if request.method == "GET":
         try:
-            # Get data from query parameters
-            first_name = request.GET.get("first-name", "")
-            last_name = request.GET.get("last-name", "")
-            company = request.GET.get("company", "")
-            city = request.GET.get("city", "")
-            state = request.GET.get("state", "")
-            phone = request.GET.get("number", "")
-            email = request.GET.get("email", "")
-            quantity = request.GET.get("Item", "")
+            # Prepare the message body dynamically
+            message = "A new quotation request has been received:\n\n"
+
+            # Iterate through all GET parameters and add them to the message
+            for key, value in request.GET.items():
+                # Format the field names and values into the message
+                field_name = key.replace("-", " ").title()  # Convert keys to a more readable format
+                field_value = value
+                message += f"{field_name}: {field_value}\n"
 
             subject = "New Quotation Request"
-            message = f"""
-            A new quotation request has been received:
-
-            Name: {first_name} {last_name}
-            Company: {company}
-            City: {city}
-            State: {state}
-            Phone: {phone}
-            Email: {email}
-            Quantity: {quantity}
-            """
             from_email = 'odekeziko@gmail.com'
             recipient_list = ['contact@braintree.com.ng', 'braintreeresources@gmail.com']  # List of email addresses
 
+            # Send the email
             send_mail(
                 subject,
                 message,
-                from_email,  # Replace with your sender email
-                recipient_list,  # Replace with your receiver email
+                from_email,
+                recipient_list,
                 fail_silently=False,
             )
 
@@ -353,3 +343,4 @@ def send_quotation_email(request):
             return JsonResponse({"success": False, "message": str(e)}, status=400)
 
     return JsonResponse({"success": False, "message": "Invalid request"}, status=400)
+
