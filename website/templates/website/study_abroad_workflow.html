@@ -57,79 +57,173 @@
     </div>
     <!-- ===== Header-1 Area (End) ===== -->
 
-    <!-- ===== Header-2 Area (Start) ===== -->
-    <div class="header-2">
-
-        <!-- == Logo == -->
-        <a class="logo" href="{% url 'homepage' %}">
-            <img alt="logo" src="{% static 'website/images/Logo/Logo.png' %}">
-        </a>
-
-        <div class="container">
-
-            <!-- == Navbar == -->
-            <nav class="navbar" style="padding-right: 200px;">
-
-                <a class="nav-btn" href="{% url 'homepage' %}">Home</a>
-                <a class="nav-btn" href="{% url 'about_page' %}">About Us</a>
-                <a class="nav-btn" href="{% url 'catalog_page' %}">Resources</a>
-                <a class="nav-btn" href="{% url 'contact_page' %}">Contact Us</a>
-
-
-
-            </nav>
-
-            <!-- == Icon Container == -->
-            <div class="icon-container">
-                <div class="icon fa-solid fa-bars-staggered" id="menu-btn"></div>
-                <!-- <a href="pages/Shop/Shop-Gbagyi.html" class="btn">Shop Gbagyi Cultural items</a> -->
-            </div>
-
-            <!-- == Search Container == -->
-            <form class="search-container">
-
-            </form>
-
-        </div>
-
-    </div>
-    <!-- ===== Header-2 Area (End) ===== -->
-
-    <!-- ===== Mobile Menu Area (Start) ===== -->
-    <div class="mobile-menu">
-
-        <nav class="mobile-navbar">
-
-            <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'homepage' %}">Home</a></div>
-            </div>
-          <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'about_page' %}">About Us</a></div>
-            </div>
-
-            <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'catalog_page' %}">
-                    Resources
-                </a></div>
-            </div>
-
-            <div class="nav-link">
-                <div class="main-nav-link"><a class="nav-btn" href="{% url 'contact_page' %}">
-                    Contact Us</a></div>
-            </div>
-
-
-        </nav>
-
-    </div>
-    <!-- ===== Mobile Menu Area (End) ===== -->
 
 </header>
 <!-- ==================== Header Area (End) ==================== -->
 
 
 <!-- ==================== MAIN ==================== -->
-{% block 'main' %} {% endblock %}
+<!-- ==================== Blog List (Start) ==================== -->
+  <section class="blog list" style="margin-top: 55px; margin-bottom: 55px;">
+
+    <!-- ========== Blog Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+      <!-- ===== Recent Posts Area (Start) ===== -->
+      <div class="recent-posts sidebar-item">
+
+        <div class="sidebar-heading">
+          <h2>Our Portfolio</h2>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="box-container">
+
+
+
+          <!-- Recent Post 1 -->
+          <div class="">
+            <p class="main-heading">30+ Countries <br>
+
+              900+ Institutions<br>
+
+              70,000+ Recognized Courses
+
+              <!-- education loan Assistance<br> -->
+
+              <!-- accommodation assistance -->
+            </p> <!-- Post title -->
+          </div>
+
+
+        </div>
+
+      </div>
+      <!-- ===== Recent Posts Area (End) ===== -->
+
+      <!-- ===== Admission Process Area (End) ===== -->
+
+  <!-- ===== Popular Products Area (Start) ===== -->
+  <div class="popular-products sidebar-item">
+
+    <!-- Sidebar Heading: Popular Products -->
+    <div class="sidebar-heading">
+      <h2>Process Workflow</h2>
+    </div>
+
+    <!-- Popular Products -->
+    <div class="box-container">
+
+      <!-- Popular Product 1 -->
+      <div class="">
+        <div>
+          <p class="">Stage 1: Student counselling</p>
+          <p class="">Stage 2: Registration with unique identification number</p>
+          <p class="">Stage 3: Profile evaluation</p>
+          <p class="">Stage 4: Proposing university options</p>
+          <p class="">Stage 5: Confirmation by student</p>
+          <p class="">Stage 6: Document Verification(academic document, SOP, LOR, resume, etc)</p>
+          <p class="">Stage 7: Initiating application process</p>
+          <p class="">Stage 8: Issuance of offer letter</p>
+          <p class="">Stage 9: Issuance of acceptance /I20/CAS</p>
+          <p class="">Stage 10: Visa counselling and mock interview</p>
+          <p class="">Stage 11: Predeparture briefing and post landing ancilliary services</p>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <!-- ===== Popular Products Area (End) ===== -->
+      <!-- ===== Admission Process Area (Start) ===== -->
+      <!-- <div class="recent-posts sidebar-item"> -->
+
+        <!-- <div class="sidebar-heading"> -->
+          <div class="button-container">
+              <button class="uploads-btn return-uploads-page"><p><a style="color:white" href="{% url 'study_abroad_placement_page' %}">Return to  uploads</a></p></button><!-- button to return to ythe upload documents page -->
+
+        </div>
+        <!-- </div> -->
+        <!-- Recent Posts -->
+
+      <!-- </div> -->
+
+    </div>
+    <!-- ========== Blog Sidebar Area (End) ========== -->
+
+    <!-- ========== Blog Container (Start) ========== -->
+
+    <div class="blog-container list">
+
+      <!-- ===== Category Area (Start) ===== -->
+      <div class="category sidebar-item">
+
+        <!-- ==================== student placement Area (Start) ==================== -->
+
+        <section class="overseas-page" id="flag-page">
+          <!-- Section Heading -->
+          <div class="heading">
+            <h2>Countries Covered</h2>
+          </div>
+
+
+          <div>
+
+            <div class="main-image-container">
+
+          <div class="overseas-heading">
+            <h2 id="main-title">Our Portfolio</h2>
+          </div>
+
+<div class="country-flags">
+</div>
+
+
+        </section>
+      </div>
+    </div>
+    <!-- ===== Category Area (End) ===== -->
+
+  </section>
+  <!-- ==================== Blog List (End) ==================== -->
+   <style>
+.country-flags {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);  /* Create 5 equal columns */
+  gap: 10px;  /* Space between images */
+  justify-items: center;  /* Center images within their grid cells */
+}
+
+.country-flags img {
+  width: 100%;  /* Make images responsive */
+  height: 80px;  /* Set a fixed height for uniformity */
+  object-fit: cover;  /* Ensures images fill the box and crop if needed */
+  border-radius: 5px;  /* Optional: Adds rounded corners to the images */
+  box-shadow: 0 0 15px rgba(24, 41, 41, 0.7);  /* Glowing cyan shadow */
+}
+
+
+
+
+
+    /* Default behavior: Hidden on small screens */
+#flag-page {
+  display: none;
+}
+
+/* Show the section on large screens */
+@media (min-width: 1024px) {
+  #flag-page {
+    display: block;
+  }
+}
+
+   </style>
+  <!-- ==================== Blog List (End) ==================== -->
+
+
 <!-- ==================== MAIN (End) ==================== -->
 
 
@@ -228,7 +322,10 @@
 <!-- Projects functionality, including image filtering -->
 <script src="{% static 'website/js/testi-slider.js' %}"></script> <!-- 3. Interactive Testimonial Slider -->
 <script src="{% static 'website/js/partner-slider.js' %}"></script> <!-- 4. Interactive Partner Slider -->
-{% block 'script' %}{% endblock %}
+
+<script src="{% static 'website/js/uploads.js' %}"></script> <!-- filters for the name search directory. -->
+<script src="{% static 'website/js/attachments.js' %}"></script> <!-- filters for the school directory. -->
+<script src="{% static 'website/js/placement-fliers.js' %}"></script> <!-- filters for the school directory. -->
 
 </body>
 </html>

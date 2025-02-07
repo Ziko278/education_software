@@ -130,31 +130,73 @@ $('.admission-process').click(function() {
 
 
   // show the remove button when a file is attached
-  $(".uploads-input").change(function(){
+  $(".placement-attachment").change(function(){
     extension = $(this).attr("id-modifier")
     
     if($(this).val() ==""){
-      $("#delete-item-uploaded-"+ extension).hide()
-      $("#upload-icon-"+ extension).removeClass("fa-check").addClass("fa-x")
+      $("#delete-placement-attachment-"+ extension).hide()
+      // $("#upload-icon-"+ extension).removeClass("fa-check").addClass("fa-x")
       
     } else {
-      $("#delete-item-uploaded-"+ extension).show()
-      $("#upload-icon-"+ extension).removeClass("fa-x").addClass("fa-check")
+      $("#delete-placement-attachment-"+ extension).show()
+      // $("#upload-icon-"+ extension).removeClass("fa-x").addClass("fa-check")
       
     }
     
   })
+
+
+  // delete uploaded item and hide the remove button 
+  $(".delete-placement-attachment").click(function(){
+    delete_extension = $(this).attr("id-modifier")
+    $("#placement-attachment-"+ delete_extension).val("")
+    // $("#attachment-"+delete_extension ).text("No file attached")   
+    $(this).hide()
+    // $("#upload-icon-"+ delete_extension).removeClass("fa-check").addClass("fa-x")
+    
+  })
+
+
+  // // show the remove button when a file is attached
+  // $(".uploads-input").change(function(){
+  //   extension = $(this).attr("id-modifier")
+    
+  //   if($(this).val() ==""){
+  //     $("#delete-item-uploaded-"+ extension).hide()
+  //     $("#upload-icon-"+ extension).removeClass("fa-check").addClass("fa-x")
+      
+  //   } else {
+  //     $("#delete-item-uploaded-"+ extension).show()
+  //     $("#upload-icon-"+ extension).removeClass("fa-x").addClass("fa-check")
+      
+  //   }
+    
+  // })
+
   
-  
+
   // delete uploaded item and hide the remove button 
   $(".delete-item-uploaded").click(function(){
     delete_extension = $(this).attr("id-modifier")
     $("#item-uploaded-"+ delete_extension).val("")
-    $("#attachment-"+delete_extension ).text("No file attached")   
+    // $("#attachment-"+delete_extension ).text("No file attached")   
     $(this).hide()
-    $("#upload-icon-"+ delete_extension).removeClass("fa-check").addClass("fa-x")
+    // $("#upload-icon-"+ delete_extension).removeClass("fa-check").addClass("fa-x")
     
   })
+
+
+
+  
+  // delete uploaded item and hide the remove button 
+  // $(".delete-item-uploaded").click(function(){
+  //   delete_extension = $(this).attr("id-modifier")
+  //   $("#item-uploaded-"+ delete_extension).val("")
+  //   $("#attachment-"+delete_extension ).text("No file attached")   
+  //   $(this).hide()
+  //   $("#upload-icon-"+ delete_extension).removeClass("fa-check").addClass("fa-x")
+    
+  // })
 
   // close the review page and return to the target upload page 
   $(".attachment-link").click(function(){
@@ -163,6 +205,17 @@ $('.admission-process').click(function() {
     $(".uploads-navigation-b").show()
     $(".uploads-navigation").hide()
     $("#review-attachment").hide()
+  })
+  
+  
+  $(".show-uploads-page").click(function(){
+    $(".overseas-page").hide()
+    $("#overseas-page-3").show()
+    $("html, body").animate({
+      scrollTop: $("#placement-name").offset().top
+    },1000, "easeInOutExpo");
+
+    
   })
 
   

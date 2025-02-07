@@ -1,0 +1,367 @@
+{% extends 'website/layout.html' %}
+{% load static %}
+{% block 'main' %}
+
+
+  <!-- ==================== Page-Title (Start) ==================== -->
+  <div class="page-title">
+
+    <div class="title">
+      <h2>Study Abroad</h2>
+    </div>
+
+    <div class="link">
+      <a href="{% url 'homepage' %}">Home</a>
+      <i class="fa-solid fa-angles-right"></i>
+      <span class="page">Study Abroad</span>
+    </div>
+
+  </div>
+  <!-- ==================== Page-Title (End) ==================== -->
+
+  <!-- ==================== Blog List (Start) ==================== -->
+  <section class="blog list">
+
+    <!-- ========== Blog Sidebar Area (Start) ========== -->
+    <div class="sidebar">
+
+      <!-- ===== Recent Posts Area (Start) ===== -->
+      <div class="recent-posts sidebar-item">
+
+        <div class="sidebar-heading">
+          <h2>Services Offered</h2>
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="box-container">
+
+
+
+          <!-- Recent Post 1 -->
+          <div class="post-item">
+            <p class="main-heading">Applicants Counselling <br>
+
+              Admission Processing<br>
+
+              Examination Guidance<br>
+
+              Visas and Tickets<br>
+
+              Scholarship Assistance<br>
+
+            </p> <!-- Post title -->
+          </div>
+
+
+        </div>
+
+      </div>
+      <!-- ===== Recent Posts Area (End) ===== -->
+      <!-- ===== Admission Process Area (Start) ===== -->
+      <div class="recent-posts sidebar-item">
+
+        <div class="sidebar-heading">
+          <!-- <h2>Admission Process</h2> -->
+        </div>
+
+        <!-- Recent Posts -->
+        <div class="box-container">
+
+              <a href="#overseas-page-1">
+                <!-- <p class="admission-process" id-modifier ="1">Services Offered</p> -->
+              </a>
+
+              <a href="#overseas-page-2">
+                <!-- <p class="admission-process" id-modifier ="2">Requirements</p> -->
+              </a>
+
+              <a href="#overseas-page-3">
+                <!-- <p class="admission-process" id-modifier ="3">Process Workflow</p> -->
+              </a>
+              <!-- <a href="#overseas-page-4">
+                <p class="admission-process" id-modifier ="4">Request review</p>
+              </a> -->
+              <div style="font-size:12px">We review applicants documents to help them make infomed decisions
+                by matching their budget to country of choice and course of study in line with their
+                academic  qualification</div>
+          <button class="uploads-btn show-uploads-page">
+                Find me a school
+                </button>
+
+            </div>
+
+      </div>
+      <!-- ===== Admission Process Area (End) ===== -->
+
+  <!-- ===== Popular Products Area (Start) ===== -->
+  <div class="popular-products sidebar-item">
+
+    <!-- Sidebar Heading: Popular Products -->
+    <div class="sidebar-heading">
+      <h2>Ongoing Admissions</h2>
+    </div>
+
+    <!-- Popular Products -->
+    <div class="box-container">
+
+      <!-- Popular Product 1 -->
+      <div class="post-item">
+        <img src="{% static 'website/images/Study Abroad/Product-1.jpg' %}" alt="Admission Flier"> <!-- Product Image -->
+        <div class="content">
+          <a href="#main-title">Study in Ireland</a> <!-- Product Title -->
+          <div class="price">
+           <!-- <p>$40.00 <span>$50.00</span></p>  Product Price -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Product 2 -->
+      <div class="post-item">
+        <img src="{% static 'website/images/Study Abroad/Product-5.jpg' %}" alt="Admission Flier"> <!-- Product Image -->
+        <div class="content">
+          <a href="#main-title">Study in France</a> <!-- Product Title -->
+          <div class="price">
+            <!--<p>$40.00 <span>$50.00</span></p>  Product Price -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Popular Product 3 -->
+      <div class="post-item">
+        <img src="{% static 'website/images/Study Abroad/Product-3.jpg' %}" alt="Admission Flier"> <!-- Product Image -->
+        <div class="content">
+          <a href="#main-title">Study in Finland</a> <!-- Product Title -->
+          <div class="price">
+          <!--   <p>$40.00 <span>$50.00</span></p> Product Price -->
+          </div>
+        </div>
+      </div>
+      <!-- Popular Product 4 -->
+      <div class="post-item">
+        <img src="{% static 'website/images/Study Abroad/Product-4.jpg' %}" alt="Admission Flier"> <!-- Product Image -->
+        <div class="content">
+          <a href="#main-title">Study in UK</a> <!-- Product Title -->
+          <div class="price">
+          <!--   <p>$40.00 <span>$50.00</span></p> Product Price -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- ===== Popular Products Area (End) ===== -->
+
+
+    </div>
+    <!-- ========== Blog Sidebar Area (End) ========== -->
+
+    <!-- ========== Blog Container (Start) ========== -->
+
+    <div class="blog-container list">
+
+      <!-- ===== Category Area (Start) ===== -->
+      <div class="category sidebar-item">
+
+        <!-- ==================== student placement Area (Start) ==================== -->
+
+        <section class="overseas-page" id="overseas-page-1">
+          <!-- Section Heading -->
+          <div class="heading">
+            <h2>Overseas Admission</h2>
+          </div>
+
+
+          <div>
+
+            <div class="main-image-container">
+
+          <div class="overseas-heading">
+            <h2 id="main-title">Study in Canada</h2>
+          </div>
+
+              <!-- <h2>Title</h2> -->
+              <img id="main-image" src="{% static 'website/images/Study Abroad/Product-2.jpg' %}" alt="Admission Flier"> <!-- Product Image -->
+              <div class="button-container">
+                <button class="uploads-btn show-uploads-page" page="flier">
+                  Get more details
+                </button>
+              </div>
+            </div>
+
+
+        </section>
+
+        <section class="overseas-page" id="overseas-page-3" style="display: none;">
+          <!-- Section Heading -->
+          <div class="heading">
+            <!-- <h2>Upload Documents</h2> -->
+          </div>
+
+
+          <!-- Section Heading -->
+          <div class="heading">
+            <!-- <h2>Upload Documents</h2> -->
+          </div>
+          <div class="overseas-form">
+            <div class="overseas-heading">
+                <h3 style="display: inline;">Upload Documents</h3><span class="spand" style="margin-left: 5px;"><a href="{% url 'study_abroad_workflow_page' %}">view process workflow</a></span>
+            </div>
+
+            <!-- ================ Applicants details (start)================ -->
+
+            <div class="input-box">
+
+              <!-- Name Input Field -->
+
+
+              <div class="input-box">
+                <div class="input-field">
+                  <label for="name" class="fas fa-user"></label>
+                  <input type="text" name="name" class="box" id="placement-name" placeholder="Your Name"
+                    required="">
+                </div>
+              </div>
+              <!-- Email Input Field -->
+              <div class="input-box">
+                <div class="input-field">
+                  <label for="email" class="fa-solid fa-envelope"></label>
+                        <input type="email" name="email" class="box" id="placement-email" placeholder="Your Email" required="">
+                      </div>
+                    </div>
+
+
+                    <!-- Phone Number Input Field -->
+                    <div class="input-box">
+                      <div class="input-field">
+                        <label for="number" class="fas fa-phone"></label>
+                        <input type="text" name="number" class="box" id="placement-number" placeholder="Your Phone Number" required="">
+                      </div>
+                    </div>
+            </div>
+            <div class="input-box">
+                     <!-- Budget Input Field -->
+                      <div class="input-box">
+                        <div class="input-field">
+                          <label for="number" class="fas fa-piggy-bank"></label>
+                          <input type="text" name="budget" class="box" id="placement-budget" placeholder="Your budget (in USD)" required="">
+                        </div>
+                      </div>
+
+                      <!-- Phone Number Input Field -->
+                      <div class="input-box">
+                        <div class="input-field">
+                          <label for="number" class="fas fa-globe"></label>
+                          <input type="text" name="country" class="box" id="placement-country" placeholder="country of Choice">
+                        </div>
+                      </div>
+
+
+                      <!-- Phone Number Input Field -->
+                      <div class="input-box">
+                        <div class="input-field">
+                          <label for="number" class="fas fa-graduation-cap"></label>
+                          <input type="text" name="text" class="box" id="placement-course" placeholder="proposed course" required="">
+                        </div>
+                      </div>
+
+            </div>
+
+
+          <!-- <div class="overseas-form"> -->
+            <div class="overseas-heading">
+              <!-- <h3>Attach files</h3> -->
+            </div>
+            <!-- ================ uploads 1 (start)================ -->
+
+            <div class="wrap-reviewer-page">
+
+              <div class="reviewer-page">
+
+                <p class=""  style="color: var(--main-color); padding-left: 5px;">Datapage : &nbsp;</p>
+
+                <div class="attachment-content">
+
+                  <input type="file" id="placement-attachment-1"  id-modifier="1" class="placement-attachment">
+                </div>
+              </div>
+              <p class="delete-placement-attachment" id="delete-placement-attachment-1" style="display: none;" id-modifier="1">Remove</p>
+
+            </div>
+            <!-- ================ uploads 1 (End)================ -->
+
+            <!-- ================ uploads 2 (start)================ -->
+            <div class="wrap-reviewer-page">
+
+              <div class="reviewer-page">
+
+                <p class=""  style="color: var(--main-color); padding-left: 5px;">Last Page : &nbsp;</p>
+
+                <div class="attachment-content">
+
+                  <input type="file" id="placement-attachment-2"  id-modifier="2" class="placement-attachment">
+                </div>
+              </div>
+              <p class="delete-placement-attachment" id="delete-placement-attachment-2" style="display: none;" id-modifier="2">Remove</p>
+
+            </div>
+            <!-- ================ uploads 2 (End)================ -->
+            <!-- ================ uploads 3 (start)================ -->
+            <div class="wrap-reviewer-page">
+
+              <div class="reviewer-page">
+
+                <p class=""  style="color: var(--main-color); padding-left: 5px;">Certificate : &nbsp;</p>
+
+                <div class="attachment-content">
+
+                  <input type="file" id="placement-attachment-3"  id-modifier="3" class="placement-attachment">
+                </div>
+              </div>
+              <p class="delete-placement-attachment" id="delete-placement-attachment-3" style="display: none;" id-modifier="3">Remove</p>
+
+            </div>
+            <!-- ================ uploads 3 (End)================ -->
+            <!-- ================ uploads 4 (start)================ -->
+            <div class="wrap-reviewer-page">
+
+              <div class="reviewer-page">
+
+                <p class=""  style="color: var(--main-color); padding-left: 5px;">Resume : &nbsp;</p>
+
+                <div class="attachment-content">
+
+                  <input type="file" id="placement-attachment-4"  id-modifier="4" class="placement-attachment">
+                </div>
+              </div>
+              <p class="delete-placement-attachment" id="delete-placement-attachment-4" style="display: none;" id-modifier="4">Remove</p>
+
+            </div>
+            <!-- ================ uploads 4 (End)================ -->
+            </div>
+
+
+                        <!-- Button to show the upload field  -->
+                        <div class="uploads-navigation" >
+                          <button class="uploads-next uploads-btn" id-modifier="">Cancel Uploads</button>
+                          <button id="load-uploads" class="uploads-btn">Upload Document</button>
+
+                        </div>
+
+        </section>
+
+
+
+      </div>
+    </div>
+    <!-- ===== Category Area (End) ===== -->
+
+  </section>
+  <!-- ==================== Blog List (End) ==================== -->
+{% endblock %}
+
+{% block 'script' %}
+<script src="{% static 'website/js/uploads.js' %}"></script> <!-- filters for the name search directory. -->
+<script src="{% static 'website/js/attachments.js' %}"></script> <!-- filters for the school directory. -->
+<script src="{% static 'website/js/placement-fliers.js' %}"></script> <!-- filters for the school directory. -->
+{% endblock %}
