@@ -619,6 +619,16 @@ $(document).on("click", "#submitdetail", function () {
             data: { updated_data: jsonString },
             success: function(data) {
                 alert(data.message);
+//                selectedSections.forEach(function (section) {
+//                    $("input[type='checkbox'][value='" + section + "']").prop("checked", false); // Uncheck checkboxes
+//                });
+//
+//                selectedSearchValues.forEach(function (value) {
+//                    $("input[type='checkbox'][value='" + value + "']").prop("checked", false);
+//                });
+//
+//
+
             },
             error: function(xhr, status, error) {
                 alert();
