@@ -25,7 +25,56 @@
     <!-- Custom Stylesheets -->
     <link href="{% static 'website/css/main.css' %}" rel="stylesheet">
     <link href="{% static 'website/css/responsive.css' %}" rel="stylesheet">
+    <style>
+        /* Default background for big screens */
+@media (min-width: 769px) {
+    .page-title{
+        background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("{% static 'website/images/PageTitle/pageTitle.jpg' %}");
+        background:         linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("{% static 'website/images/PageTitle/pageTitle.jpg' %}");
+        background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0rem 5%;
+    padding-top: 8rem;
+    min-height: 40rem;
+    }
+}
 
+/* Background for mobile screens */
+@media (max-width: 768px) {
+    .page-title{
+        background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("{% static 'website/images/PageTitle/pageTitleM.jpg' %}");
+        background:         linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("{% static 'website/images/PageTitle/pageTitleM.jpg' %}");
+        background-repeat: no-repeat;
+     background-size: 100% 100%; /* Stretches to cover the full container */
+        background-position: center center; /* Centers the image */
+        background-repeat: no-repeat; /* Ensures no repetition */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0rem 5%;
+    padding-top: 8rem;
+    min-height: 40rem;
+    }
+}
+    </style>
 </head>
 <body>
 
@@ -45,13 +94,13 @@
         <!-- == Contacts == -->
         <ul class="header-contacts">
 <!--            <li><i class="fa-solid fa-location-dot"></i><span>Braintree Educational Resources</span></li>-->
-            <li><i class="fa-solid fa-phone"></i><span>+234-812-1002-555</span></li>
-            <li><i class="fa-solid fa-envelope"></i><span class="gmail">contact@braintree.com</span></li>
+            <li><span>+234-812-1002-555</span></li>
         </ul>
 
         <!-- == Social == -->
         <ul class="social-contacts" >
-            <li><a class="fab fa-facebook-f" href="#"></a></li>
+            <li><a class="fa-solid fa-phone" href="tel:+234-812-1002-555"></a></li>
+            <li><a class="fa-solid fa-envelope" href="mailto:contact@braintree.com.ng"></a></li>
         </ul>
 
     </div>

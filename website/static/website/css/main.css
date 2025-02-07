@@ -299,11 +299,25 @@ img{
     width: auto;
 }
 
+/* Default background for big screens */
+@media (min-width: 769px) {
+    .page-title{
+        background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/PageTitle/pageTitle.jpg");
+        background:         linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/PageTitle/pageTitle.jpg");
+    }
+}
+
+/* Background for mobile screens */
+@media (max-width: 768px) {
+    .page-title{
+        background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/PageTitle/pageTitleM.jpg");
+        background:         linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/PageTitle/pageTitleM.jpg");
+    }
+}
+
 /*----- 4- Page Title CSS -----*/
 .page-title{
-    background: -webkit-linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/PageTitle/pageTitle.jpg");
-    background:         linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../images/PageTitle/pageTitle.jpg");
-    background-repeat: no-repeat;  
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     display: -webkit-box;
