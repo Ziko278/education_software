@@ -1,7 +1,53 @@
 {% extends 'website/layout.html' %}
 {% load static %}
 {% block 'main' %}
+<style>
+  /* Base styles for the checkbox page container */
+.checkbox-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Space between items */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
 
+/* Style for each checkbox container */
+.checkbox-container {
+    flex-basis: 30%; /* Default to 3 items per row */
+    text-align: center;
+}
+
+/* Media query for mobile screens (adjust to 2 columns) */
+@media (max-width: 767px) {
+    .checkbox-container {
+        flex-basis: 45%; /* 2 items per row on mobile */
+    }
+}
+
+/* Additional styles for the buttons */
+.uploads-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.uploads-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.uploads-btn:hover {
+    background-color: #0056b3;
+}
+
+</style>
 
 <!-- ==================== Page-Title (Start) ==================== -->
 <div class="page-title">
@@ -184,91 +230,67 @@
 
 
                             <div class="information information-3">
-                                <fieldset class="wrap-reviewer-page" name=""
-                                          style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-                                    <legend>Available</legend>
+                          <fieldset name="" class="wrap-checkbox-page">
+                              <legend>Available</legend>
 
-                                    <!-- Container for checkboxes arranged in rows of three -->
-                                    <div class="reviewer-page"
-                                         style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; max-width: 600px;">
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox1"><p>Library</p></label>
-                                            <input class="search-selector" id="checkbox1" name="search[]"
-                                                   type="checkbox" value="library">
-                                        </div>
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox2"><p>Science Laboratory</p></label>
-                                            <input class="search-selector" id="checkbox2" name="search[]"
-                                                   type="checkbox" value="science_laboratory">
-                                        </div>
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox3"><p>ICT Studio</p></label>
-                                            <input class="search-selector" id="checkbox3" name="search[]"
-                                                   type="checkbox" value="ict_studio">
-                                        </div>
+                              <!-- Container for checkboxes arranged in rows of three (for big screens) or two (for mobile) -->
+                              <div class="checkbox-page">
+                                  <div class="checkbox-container">
+                                      <label for="checkbox1"><p>Library</p></label>
+                                      <input type="checkbox" class="search-selector" value="library" name="search[]" id="checkbox1">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox2"><p>Science Laboratory</p></label>
+                                      <input type="checkbox" class="search-selector" value="science_laboratory" name="search[]" id="checkbox2">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox3"><p>ICT Studio</p></label>
+                                      <input type="checkbox" class="search-selector" value="ict_studio" name="search[]" id="checkbox3">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox4"><p>Airconditioning</p></label>
+                                      <input type="checkbox" class="search-selector" value="airconditioning" name="search[]" id="checkbox4">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox5"><p>Tuck Shop</p></label>
+                                      <input type="checkbox" class="search-selector" value="tuck_shop" name="search[]" id="checkbox5">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox6"><p>Primary 6</p></label>
+                                      <input type="checkbox" class="search-selector" value="primary_6" name="search[]" id="checkbox6">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox7"><p>Sports Arena</p></label>
+                                      <input type="checkbox" class="search-selector" value="sports_arena" name="search[]" id="checkbox7">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox8"><p>CBT Centre</p></label>
+                                      <input type="checkbox" class="search-selector" value="CBT" name="search[]" id="checkbox8">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox9"><p>Sick Bay</p></label>
+                                      <input type="checkbox" class="search-selector" value="sickbay" name="search[]" id="checkbox9">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox10"><p>Special Education</p></label>
+                                      <input type="checkbox" class="search-selector" value="special_education" name="search[]" id="checkbox10">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox11"><p>CCTV</p></label>
+                                      <input type="checkbox" class="search-selector" value="CCTV" name="search[]" id="checkbox11">
+                                  </div>
+                                  <div class="checkbox-container">
+                                      <label for="checkbox12"><p>Entrepreneural Class</p></label>
+                                      <input type="checkbox" class="search-selector" value="entrepreneural_class" name="search[]" id="checkbox12">
+                                  </div>
+                              </div>
 
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox4"><p>Airconditioning</p></label>
-                                            <input class="search-selector" id="checkbox4" name="search[]"
-                                                   type="checkbox" value="airconditioning">
-                                        </div>
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox5"><p>Tuck Shop</p></label>
-                                            <input class="search-selector" id="checkbox5" name="search[]"
-                                                   type="checkbox" value="tuck_shop">
-                                        </div>
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox6"><p>Primary 6</p></label>
-                                            <input class="search-selector" id="checkbox6" name="search[]"
-                                                   type="checkbox" value="primary_6">
-                                        </div>
-
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox7"><p>Sports Arena</p></label>
-                                            <input class="search-selector" id="checkbox7" name="search[]"
-                                                   type="checkbox" value="sports_arena">
-                                        </div>
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox8"><p>CBT Centre</p></label>
-                                            <input class="search-selector" id="checkbox8" name="search[]" type="checkbox"
-                                                   value="CBT">
-                                        </div>
-                                        <div style="flex-basis: 30%; text-align: center;">
-                                            <label for="checkbox9"><p>Sick Bay</p></label>
-                                            <input class="search-selector" id="checkbox9" name="search[]"
-                                                   type="checkbox" value="sickbay">
-                                        </div>
-
-                                        <div style="flex-basis: 30%; text-align: center;">
-                              <label for="checkbox10"><p>Special Education</p></label>
-                              <input type="checkbox" class="search-selector" value="special_education" name="search[]" id="checkbox10" >
-                            </div>
-                            <div style="flex-basis: 30%; text-align: center;">
-                              <label for="checkbox11"><p>CCTV</p></label>
-                              <input type="checkbox" class="search-selector" value="CCTV" name="search[]" id="checkbox11" >
-                            </div>
-                            <div style="flex-basis: 30%; text-align: center;">
-                              <label for="checkbox12"><p>Entrepreneural Class</p></label>
-                              <input type="checkbox" class="search-selector" value="entrepreneural_class" name="search[]" id="checkbox12" >
-                  </div>
-                                    </div>
-
-
-                                </fieldset>
-                                <!-- <fieldset name="" class="wrap-reviewer-page" style="width: 100%;">
-                                  <legend>School description </legend>
-                                  <textarea name="school-descriptor" id="" placeholder="brief descrition of your school"></textarea>
-
-                                </fieldset> -->
-                                <div class="uploads-navigation">
-                                    <button class="update-back uploads-btn" link="information-2">back</button>
-                                    <button class="new-search uploads-btn transfer-info" id="submitdetail" link="information-0">next
-                                    </button>
-                                </div>
-
-
-                            </div>
-
+                              <div class="uploads-navigation">
+                                  <button class="update-back uploads-btn" link="information-2">back</button>
+                                  <button class="new-search uploads-btn transfer-info" link="information-0">next</button>
+                              </div>
+                          </fieldset>
+                      </div>
 
                         </div>
 
