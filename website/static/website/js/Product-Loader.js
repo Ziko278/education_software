@@ -3,6 +3,19 @@ $(document).ready(function() {
     productLoad = [
 
         {
+            "product number": "52020112",
+            "Product-group": "Uniform",
+            "Product-Title": "School Uniforms",
+            "new-price": "5500",
+            "old-price": "6500",
+            "details": "Kids will be kids, and playtime is always part of the fun! But with all that running around, uniforms get dirty fast. Say goodbye to fading and endless washes—our uniforms are built to stand the test of time! Durable, long-lasting, and ready for every adventure!",
+            "description": "Our school essentials are designed with care, using carefully selected fabrics that prioritize comfort, durability, and breathability. From soft, cozy cardigans and pullovers to breathable sportswear, we choose materials that keep kids comfortable all day long. Stylish shorts, pinafores, blazers, and polished ties are made from fabrics that combine both functionality and a smart appearance. Our durable, soft socks in various lengths complete the uniform, ensuring every piece is made with the utmost attention to quality.",
+            "max": "500",
+            "Material": "not available",
+            "Size": "not available",
+            "Weight": "not available"
+        },
+        {
             "product number": "52020103",
             "Product-group": "Portal",
             "Product-Title": "School Management Portal",
@@ -11,6 +24,19 @@ $(document).ready(function() {
             "details": "Reduce costs by cutting paper usage and streamlining administrative tasks. A school management portal boosts efficiency through automation, real-time data access, and seamless communication, which enhances productivity and resource management overall.",
             "description": "Key features include a centralized dashboard, student information management, attendance tracking, grading and assessment tools, fee management, and event scheduling. It also offers secure messaging, automated report generation, and mobile compatibility. The portal enhances efficiency, transparency, and accessibility, enabling easy access to academic performance, school updates, and parent-teacher communication, while ensuring data security and role-based access.",
             "max": "4",
+            "Material": "not available",
+            "Size": "not available",
+            "Weight": "not available"
+        },
+        {
+            "product number": "52020117",
+            "Product-group": "Books",
+            "Product-Title": "Children's Books",
+            "new-price": "1300",
+            "old-price": "3000",
+            "details": "Unlock a world of adventure with great children’s books. From magical journeys to thrilling quests, each story sparks imagination and creativity. Let your child’s imagination find flight as they dive into exciting worlds, meeting unforgettable characters and learning valuable lessons.",
+            "description": "Whether you're building a school library, outfitting a home collection, or purchasing books for children, our selection features a variety of captivating reading materials. Popular titles include the *Diary of a Wimpy Kid* series, classic works by Dr. Seuss, Enid Blyton’s timeless stories, and many other engaging books that spark imagination and foster a lifelong love of reading.",
+            "max": "445",
             "Material": "not available",
             "Size": "not available",
             "Weight": "not available"
@@ -128,8 +154,9 @@ $(document).ready(function() {
     $("#catalogue").html(buildCatalogue);
 
     let popularList = "";
+    let listSize = productLoad.length;
 
-    for (i=2; i<5; i++){
+    for (i=3; i< listSize; i++){
         popularList += `    <div class="post-item">
           <img src="/static/website/images/Shop/Products/${productLoad[i]["Product-group"]}/Product-3.jpg" alt="${productLoad[i]["Product-Title"]}"> <!-- Product Image -->
           <div class="content">

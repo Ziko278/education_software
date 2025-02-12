@@ -58,6 +58,7 @@ $(document).ready(function() {
     $(document).on("click", ".quote-button", function(){
 
         $(".resources-sections").hide();
+        $(".product-single").hide();
         $(".quotation").show();
     
     });
@@ -67,9 +68,9 @@ $(document).ready(function() {
 
         $(".resources-sections").show();
         $(".quotation").hide();
-    
-    });
+        $(".product-single").hide();
 
     
+    });
 
 });
