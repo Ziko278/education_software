@@ -293,7 +293,7 @@ def send_update_mail(request):
                 message = ""
                 for key, value in data.items():
                     if key == 'school_name':
-                        school_name = key.upper()
+                        school_name = value.upper()
                     message += f"{key}: {value}\n"  # Format the message
 
                 # Prepare the email details
