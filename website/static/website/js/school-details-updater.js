@@ -77,7 +77,7 @@ $(document).ready(function () {
                             <div class="attachment-links">
                               <div class="attachment-link update-edit" id="update-edit${i}" prev="" style="display: none;" next="save-edit${i}" id-modifier="detail-${i}">Edit</div>
                               <div class="attachment-link save-edit" id="save-edit${i}" prev="update-edit${i}" style="display: none;" next="undo-edit${i}" id-modifier="${i}">Done</div>
-                              <div class="attachment-link undo-edit" id="undo-edit${i}" prev="" style="display: none;" next="update-edit${i}" id-modifier="${i}">Undo Edit</div>
+                              <div class="attachment-link undo-edit" id="undo-edit${i}" prev="" style="display: none;" next="update-edit${i}" id-modifier="${i}">Undo</div>
                             </div>
                           </div>
 
