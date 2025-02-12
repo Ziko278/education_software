@@ -609,6 +609,18 @@ $("#selected-values").empty();
 $("#sent-search").empty();
 }
 
+// Event listener for handling the clearing of radio buttons (Clear option)
+$(document).on("click", ".radio-link", function () {
+    const target_name = $(this).attr("name-linker");
+
+    $("#new-" + target_name).text("");
+    $("#sent-" + target_name).text("");
+
+    // Clear the checked state of the corresponding radio buttons
+    $("input[name=" + target_name + "]").prop("checked", false);
+
+});
+
 $(document).on("click", "#submitdetail", function () {
    // Convert object to JSON string
         var jsonString = JSON.stringify(updated_data);
