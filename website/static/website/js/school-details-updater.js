@@ -20,7 +20,8 @@ placeholders = [
 
 
 ]
-
+updated_data = {}
+updated_data['transaction'] = 'update'
 // ------------------------------- function to populate input fields-------------------------------
 
 $(document).ready(function () {
@@ -226,7 +227,7 @@ $(".search-selector").click(function() {
 // kkkkkkkkkkkkkkkkkkkkkkkkkkkkk
 
 $(document).ready(function () {
-  updated_data = {}
+
   let button_blocker = 0;  // Initialize button_blocker as an integer
 
   // When the button with class '.loader' is clicked
