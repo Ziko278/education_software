@@ -289,12 +289,15 @@ def send_update_mail(request):
                 data = json.loads(updated_data)
 
                 # Construct the email body in 'key: Value' format
+                school_name = ''
                 message = ""
                 for key, value in data.items():
+                    if key == 'school_namecd':
+                        school_name = key.upper()
                     message += f"{key}: {value}\n"  # Format the message
 
                 # Prepare the email details
-                subject = 'UPDATED SCHOOL DATA'
+                subject = f'UPDATED SCHOOL DATA FOR {school_name}'
                 from_email = 'odekeziko@gmail.com'
                 recipient_list = ['contact@braintree.com.ng', 'braintreeresources@gmail.com']  # List of email addresses
 
