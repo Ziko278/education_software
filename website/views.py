@@ -292,12 +292,12 @@ def send_update_mail(request):
                 school_name = ''
                 message = ""
                 for key, value in data.items():
-                    if key == 'school_namecd':
+                    if key == 'school_name':
                         school_name = key.upper()
                     message += f"{key}: {value}\n"  # Format the message
 
                 # Prepare the email details
-                subject = f'UPDATED SCHOOL DATA FOR {school_name}'
+                subject = f'UPDATED: {school_name}'
                 from_email = 'odekeziko@gmail.com'
                 recipient_list = ['contact@braintree.com.ng', 'braintreeresources@gmail.com']  # List of email addresses
 

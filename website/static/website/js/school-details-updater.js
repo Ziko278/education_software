@@ -50,13 +50,12 @@ $(document).ready(function () {
                 <input type="radio" class="search-selector" name="${details[i].group}" value="${details[i].btn3}" id="${details[i].btn3}" id-linker="${details[i].btn3}-filter">
               </div>
             </div>
-            <p class="attachment-link" style="margin-bottom: 1rem;" id="reset-${i}" name-linker="${details[i].group}" content="${details[i].group}">Clear</p>
+            <p class="radio-link" style="margin-bottom: 1rem;" id="reset-${i}" name-linker="${details[i].group}" content="${details[i].group}">Clear</p>
 
             <!-- Reset button aligned to the right -->
             <div style="flex-shrink: 0; text-align: right;">
-              <p >Clear</p>
 
-              </div>
+            </div>
 
           </fieldset>
       `;
@@ -68,21 +67,21 @@ $(document).ready(function () {
   const all_fields = placeholders.length;
 
   for (let i = 0; i < all_fields; i++) {
-      edit_items += `
-                          <div class="attachment-content input-container">
-                            <div class="input-wrapper">
-                              <input type="text" id="detail-${i}" class="information-input" placeholder="" original-value="">
-                              <label for="detail-${i}" class="information-input-label">${placeholders[i].placeholder}</label>
-                            </div>
-                            <div class="attachment-links">
-                              <div class="attachment-link update-edit" id="update-edit${i}" prev="" style="display: none;" next="save-edit${i}" id-modifier="detail-${i}">Edit</div>
-                              <div class="attachment-link save-edit" id="save-edit${i}" prev="update-edit${i}" style="display: none;" next="undo-edit${i}" id-modifier="${i}">Done</div>
-                              <div class="attachment-link undo-edit" id="undo-edit${i}" prev="" style="display: none;" next="update-edit${i}" id-modifier="${i}">Undo</div>
-                            </div>
-                          </div>
+      edit_items += `<div class="attachment-content input-container">
+                        <div class="input-wrapper">
+                          <input type="text" id="detail-${i}" class="information-input" placeholder="" original-value="">
+                          <label for="detail-${i}" class="information-input-label">${placeholders[i].placeholder}</label>
+                        </div>
+                        <div class="attachment-links">
+                          <div class="attachment-link update-edit" id="update-edit${i}" prev="" style="display: none;" next="save-edit${i}" id-modifier="detail-${i}">Edit</div>
+                          <div class="attachment-link save-edit" id="save-edit${i}" prev="update-edit${i}" style="display: none;" next="undo-edit${i}" id-modifier="${i}">Done</div>
+                          <div class="attachment-link undo-edit" id="undo-edit${i}" prev="" style="display: none;" next="update-edit${i}" id-modifier="${i}">Undo</div>
+                        </div>
+                      </div>
 
 
       `;
+
   }
   $("#address-information").html(edit_items);
   $("#address-information").show();
