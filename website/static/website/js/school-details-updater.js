@@ -163,6 +163,7 @@ $("#detail-9").val(website)
 
 
   $("#correct-details").click(function(){
+    updated_data['transaction'] = 'update'
     $(".attachment-link").hide();
     $(".update-edit").show();
     $(".introduction").hide();
@@ -177,6 +178,7 @@ $("#detail-9").val(website)
   });
 
   $(".update-school").click(function(){
+    updated_data['transaction'] = 'new'
     $(".introduction").hide();
     $(".information").hide();
     $(".information-0").show();
