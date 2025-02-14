@@ -624,6 +624,7 @@ $(document).on("click", ".radio-link", function () {
 $(document).on("click", "#submitdetail", function () {
    // Convert object to JSON string
         var jsonString = JSON.stringify(updated_data);
+        console.error(jsonString);
 
         $.ajax({
             url: '/send-update-mail',
@@ -632,19 +633,9 @@ $(document).on("click", "#submitdetail", function () {
             success: function(data) {
                 alert(data.message);
                 clearAll()
-//                selectedSections.forEach(function (section) {
-//                    $("input[type='checkbox'][value='" + section + "']").prop("checked", false); // Uncheck checkboxes
-//                });
-//
-//                selectedSearchValues.forEach(function (value) {
-//                    $("input[type='checkbox'][value='" + value + "']").prop("checked", false);
-//                });
-//
-//
-
             },
             error: function(xhr, status, error) {
-                alert();
+                alert('Error sending data, Try Later');
                 console.error('Error sending data:', error);
             }
         });
