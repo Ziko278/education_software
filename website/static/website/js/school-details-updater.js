@@ -1,8 +1,9 @@
 details = [
-    {"fieldset_legend": "Faith Based", "group": "faith",  "btn1": "Christian", "btn2": "Islamic", "btn3": "Mixed"},
-    {"fieldset_legend": "Bus Service",  "group": "transport", "btn1": "School Owned", "btn2": "3rd Party", "btn3": "Mixed"},
-    {"fieldset_legend": "Hostel Accommodation",  "group": "hostel", "btn1": "Boarding Only", "btn2": "Day Only", "btn3": "Mixed"},
-    {"fieldset_legend": "Gender", "group": "gender",  "btn1": "Boys Only", "btn2": "Girls Only", "btn3": "Mixed"}
+  {"fieldset_legend": "Ownership", "group": "ownership",  "btn1": "Private", "btn2": "Mission", "btn3": "Government"},
+  {"fieldset_legend": "Faith Based", "group": "faith",  "btn1": "Christian", "btn2": "Islamic", "btn3": "Mixed"},
+  {"fieldset_legend": "Bus Service",  "group": "transport", "btn1": "School Owned", "btn2": "3rd Party", "btn3": "Mixed"},
+  {"fieldset_legend": "Hostel Accommodation",  "group": "hostel", "btn1": "Boarding Only", "btn2": "Day Only", "btn3": "Mixed"},
+  {"fieldset_legend": "Gender", "group": "gender",  "btn1": "Boys Only", "btn2": "Girls Only", "btn3": "Mixed"}
 
 ]
 
