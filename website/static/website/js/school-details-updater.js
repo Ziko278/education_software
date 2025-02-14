@@ -19,10 +19,10 @@ placeholders = [
     {"entry": "phone", "placeholder": "School Telephone number"},
     {"entry": "website", "placeholder": "School Website"}
 
-
 ]
 updated_data = {}
 updated_data['transaction'] = 'update'
+
 // ------------------------------- function to populate input fields-------------------------------
 
 $(document).ready(function () {
