@@ -486,6 +486,15 @@ $(document).on("click", "input[name='gender']", function () {
 });
 // ======== Gender Selection (end) ========
 
+
+// ======== Ownership Selection (start) ========
+$(document).on("click", "input[name='ownership']", function () {
+    const ownership = $("input[name='ownership']:checked").val();
+    $("#sent-ownership").text(ownership);
+    updated_data['ownership'] = ownership
+});
+// ======== Ownership Selection(end)========
+
 // ======== Faith Selection (start) ========
 $(document).on("click", "input[name='faith']", function () {
   const faith = $("input[name='faith']:checked").val();
