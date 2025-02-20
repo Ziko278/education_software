@@ -24,6 +24,8 @@ $(document).ready(function() {
         $("#Product-Material").text(material);
         $("#Product-Size").text(size);
         $("#Product-Weight").text(weight);
+    //to add the attribute image-link to the quote button to make it accessible when quoting
+        $("#quote-button").attr("Image-link", productTitle);
     // }
 
     // Dynamically generate the product images
@@ -50,16 +52,20 @@ $(document).ready(function() {
     
     $(".resources-sections").hide();
     $("#quoted-item").text(productTitle);
+    $("#quoted-item-head").val(productTitle);
     $(".product-single").show();
     
+    
+    
+});
+$(document).on("click", ".quote-button", function(){
+    productTitle = $(this).attr("Image-link")
+    $(".resources-sections").hide();
+    $(".product-single").hide();
+    $(".quotation").show();
+    $("#quoted-item").text(productTitle);
+    $("#quoted-item-head").val(productTitle);
 
-
-    });
-    $(document).on("click", ".quote-button", function(){
-
-        $(".resources-sections").hide();
-        $(".product-single").hide();
-        $(".quotation").show();
     
     });
 
@@ -72,5 +78,7 @@ $(document).ready(function() {
 
     
     });
+
+    
 
 });

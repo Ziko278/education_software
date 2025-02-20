@@ -34,7 +34,7 @@ $(document).ready(function() {
             "Product-Title": "Children's Books",
             "new-price": "1300",
             "old-price": "3000",
-            "details": "Unlock a world of adventure with great children’s books. From magical journeys to thrilling quests, each story sparks imagination and creativity. Let your child’s imagination find flight as they dive into exciting worlds, meeting unforgettable characters and learning valuable lessons.",
+            "details": "Unlock a world of adventure with great children's books. From magical journeys to thrilling quests, each story sparks imagination and creativity. Let your child’s imagination find flight as they dive into exciting worlds, meeting unforgettable characters and learning valuable lessons.",
             "description": "Whether you're building a school library, outfitting a home collection, or purchasing books for children, our selection features a variety of captivating reading materials. Popular titles include the *Diary of a Wimpy Kid* series, classic works by Dr. Seuss, Enid Blyton’s timeless stories, and many other engaging books that spark imagination and foster a lifelong love of reading.",
             "max": "445",
             "Material": "not available",
@@ -111,7 +111,7 @@ $(document).ready(function() {
                     <img src="/static/website/images/Shop/Products/${productLoad[i]["Product-group"]}/Product-1.jpg" alt="${productLoad[i]["Product-Title"]}"> <!-- Product Image -->
                     <div class="options">
                         <!-- <a href="Wishlist.html" class="icon"><i class="fas fa-paper-plane"></i></a>Add to Wishlist Button -->
-                        <a class="icon"><i class="fas fa-file-invoice  quote-button"></i></a><!-- Quotation Button -->
+                        <a class="icon"><i class="fas fa-file-invoice  quote-button" Image-link="${productLoad[i]["Product-Title"]}"></i></a><!-- Quotation Button -->
                         <a class="icon"><i Image-link="${productLoad[i]["Product-group"]}"
                               new-price ="${productLoad[i]["new-price"]}"
                               old-price ="${productLoad[i]["old-price"]}"
